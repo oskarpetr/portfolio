@@ -4,19 +4,19 @@
 
 @font-face {
   font-family: "Nohemi";
-  src: url("../public/font/Nohemi-ExtraLight.ttf") format("truetype");
+  src: url("../public/font/Nohemi-Thin.ttf") format("truetype");
   font-weight: 100;
 }
 
 @font-face {
   font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Light.ttf") format("truetype");
+  src: url("../public/font/Nohemi-ExtraLight.ttf") format("truetype");
   font-weight: 200;
 }
 
 @font-face {
   font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Thin.ttf") format("truetype");
+  src: url("../public/font/Nohemi-Light.ttf") format("truetype");
   font-weight: 300;
 }
 
@@ -58,7 +58,7 @@
 
 
 body {
-   background-color: #222222;
+   background-color: #111111;
 }
 
 * {
