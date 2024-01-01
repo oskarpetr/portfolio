@@ -56,6 +56,18 @@
   font-weight: 900;
 }
 
+/* @font-face {
+  font-family: "Lucette";
+  src: url("../public/font/Lucette-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lucette";
+  src: url("../public/font/Lucette-Regularitalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+} */
 
 body {
    background-color: #121212;

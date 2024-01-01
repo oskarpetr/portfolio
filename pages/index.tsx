@@ -1,5 +1,9 @@
+"use client";
+
+import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const menu = ["Development", "Writing", "Projects"];
@@ -14,8 +18,8 @@ export default function Home() {
 
   return (
     <div>
-      <div className="text-white h-screen px-32 py-16 flex flex-col gap-32 transition-all duration-500 bg-left bg-[url('/images/Background.png')]">
-        <Link href="/">
+      <div className="text-white h-screen px-32 py-16 transition-all duration-500 bg-left bg-[url('/images/Background.png')]">
+        <Link href="/" className="bg-[#121212]">
           <motion.h1
             className="text-xl uppercase tracking-wide"
             initial={{ opacity: 0, y: -20 }}
@@ -26,7 +30,7 @@ export default function Home() {
           </motion.h1>
         </Link>
 
-        <div className="flex flex-col items-start gap-12 text-white text-3xl">
+        <div className="flex flex-col items-start gap-12 mt-32">
           {menu.map((item, index) => {
             return (
               <motion.button
@@ -34,7 +38,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1 + index * 0.25 }}
-                className="tracking-wide group cursor-pointer"
+                className="tracking-wide group cursor-pointer text-3xl text-white"
                 onClick={() => scrolltoHash(item.toLocaleLowerCase())}
               >
                 <p className="transition-all duration-500">{item}</p>
@@ -48,15 +52,36 @@ export default function Home() {
       </div>
 
       <div id="development" className="h-screen px-32 py-16">
-        <p className="text-white text-3xl">Development</p>
+        <motion.h2
+          className="text-white text-3xl"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Development
+        </motion.h2>
       </div>
 
       <div id="writing" className="h-screen px-32 py-16">
-        <p className="text-white text-3xl">Writing</p>
+        <motion.h2
+          className="text-white text-3xl"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Writing
+        </motion.h2>
       </div>
 
       <div id="projects" className="h-screen px-32 py-16">
-        <p className="text-white text-3xl">Projects</p>
+        <motion.h2
+          className="text-white text-3xl"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Projects
+        </motion.h2>
       </div>
     </div>
   );
