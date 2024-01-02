@@ -32,21 +32,24 @@ export default function Home() {
         </p>
       </div>
 
-      <div id="development" className="h-screen p-32">
+      <div
+        id="development"
+        className="h-screen p-32 border-b border-neutral-800"
+      >
         <Headline title="Development" />
       </div>
 
-      <div id="writing" className="h-screen p-32">
+      <div id="writing" className="h-screen p-32 border-b border-neutral-800">
         <Headline title="Writing" />
       </div>
 
-      <div id="projects" className="h-screen p-32">
+      <div id="projects" className="p-32 border-b border-neutral-800">
         <Headline title="Projects" />
 
         <Projects />
       </div>
 
-      <div id="contact" className="h-screen p-32">
+      <div id="contact" className="h-screen p-32 border-b border-neutral-800">
         <Headline title="Contact" />
       </div>
     </div>
