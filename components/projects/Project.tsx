@@ -1,0 +1,90 @@
+import { ArrowSquareOut } from "@phosphor-icons/react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Project({
+  title,
+  description,
+  image,
+  technologies,
+  link,
+  repositary,
+  last,
+}: {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  link: string;
+  repositary: string;
+  last: boolean;
+}) {
+  return (
+    <motion.div
+      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: -20 }}
+      transition={{ duration: 0.5, delay: 0.25 }}
+    >
+      <div className="flex flex-col items-center xl:flex-row xl:items-center gap-8 xl:gap-16 text-white">
+        <img
+          src={`/sites/${image}.png`}
+          alt={image}
+          className="border w-[25rem] border-white border-opacity-10 rounded-xl"
+        />
+
+        <div className="flex flex-col gap-4 justify-center items-center xl:items-start">
+          <div className="flex items-center gap-8 justify-center xl:justify-start">
+            <Link href={link} target="_blank">
+              <div className="flex gap-3 items-center group">
+                <div>
+                  <h3 className="font-semibold text-2xl tracking-wide flex gap-2">
+                    {title}
+                  </h3>
+
+                  <div className="h-[2px] bg-neutral-300 rounded-full w-0 group-hover:w-full transition-all duration-500"></div>
+                </div>
+
+                <ArrowSquareOut
+                  className="mb-2 text-xl opacity-80"
+                  weight="bold"
+                />
+              </div>
+            </Link>
+          </div>
+
+          <p className="opacity-50 tracking-wide text-center xl:text-left w-3/4 xl:w-full">
+            {description}
+          </p>
+
+          <div className="flex items-center gap-4 mt-4">
+            {technologies.map((tech) => {
+              return (
+                <img
+                  key={tech}
+                  src={`/logos/monochrome-icons/${tech}.svg`}
+                  alt={tech}
+                  className="hover:opacity-80 h-8 w-8 transition-all text-white"
+                />
+              );
+            })}
+
+            <p className="mx-4 opacity-50">•</p>
+
+            <Link href={repositary} target="_blank">
+              <Image
+                src="/logos/monochrome-icons/GitHub.svg"
+                alt="Github"
+                width={30}
+                height={30}
+                className="hover:opacity-80 transition-all"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {!last && <div className="border-b border-neutral-800 mt-16"></div>}
+    </motion.div>
+  );
+}

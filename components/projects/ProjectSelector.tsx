@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 
 export default function ProjectsSelector({
   projectItems,
-  indexSelected,
-  setIndexSelected,
+  itemSelected,
+  setItemSelected,
 }: {
   projectItems: string[];
-  indexSelected: number;
-  setIndexSelected: Dispatch<SetStateAction<number>>;
+  itemSelected: string;
+  setItemSelected: Dispatch<SetStateAction<string>>;
 }) {
   return (
     <motion.div
@@ -17,15 +17,16 @@ export default function ProjectsSelector({
       whileInView={{ opacity: 1, x: 0 }}
       initial={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.5, delay: 0.25 }}
+      viewport={{ once: true }}
     >
       {projectItems.map((item, index) => {
         return (
           <button
             key={item}
-            onClick={() => setIndexSelected(index)}
+            onClick={() => setItemSelected(item)}
             className={cn(
               "px-6 py-2 rounded-2xl transition-all tracking-wide flex items-center gap-3",
-              indexSelected === index
+              itemSelected === item
                 ? "bg-white bg-opacity-10 border border-white border-opacity-50"
                 : "bg-white bg-opacity-5 border border-white border-opacity-20 text-neutral-400"
             )}
