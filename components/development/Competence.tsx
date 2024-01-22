@@ -3,10 +3,28 @@ import { motion } from "framer-motion";
 
 export default function Competence() {
   const competence = [
-    ["React", "Next.js", "Node.js"],
-    ["Typescript", "Javascript"],
-    ["Tailwind", "CSS", "SASS"],
-    ["MySQL", "PostgreSQL", "Prisma", "MongoDB", "Firebase"],
+    {
+      section: "Frameworks",
+      items: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "React Native (Expo)",
+        "Express.js",
+      ],
+    },
+    {
+      section: "Languages",
+      items: ["TypeScript", "JavaScript", "C#"],
+    },
+    {
+      section: "Styling",
+      items: ["Tailwind", "CSS", "SASS"],
+    },
+    {
+      section: "Databases",
+      items: ["MySQL", "PostgreSQL", "Prisma", "MongoDB", "Firebase"],
+    },
   ];
 
   return (
@@ -20,17 +38,20 @@ export default function Competence() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.25 + index * 0.25 }}
           >
-            {section.map((item) => {
+            <p className="opacity-40 tracking-wide">{section.section}</p>
+            {section.items.map((item) => {
               return (
                 <div key={item} className="flex items-center gap-3">
                   <Image
-                    src={`/logos/monochrome-icons/${item}.svg`}
+                    src={`/logos/monochrome-icons/${
+                      item === "C#" ? "Csharp" : item
+                    }.svg`}
                     alt={"tech"}
                     width={22}
                     height={22}
-                    className="transition-all opacity-80"
+                    className="transition-all opacity-50"
                   />
-                  <p className="text-lg tracking-wide">{item}</p>
+                  <p className="text-lg tracking-wide font-medium">{item}</p>
                 </div>
               );
             })}

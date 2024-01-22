@@ -9,8 +9,8 @@ export default function Home() {
 
       <Sections />
 
-      <p className="absolute bottom-16 right-16 font-semibold text-neutral-600">
-        Portfolio © 2024 by Oskar Petr
+      <p className="absolute bottom-16 right-16 font-medium tracking-wide text-neutral-600">
+        Portfolio © 2024 by Oskar Petr.
       </p>
     </Layout>
 

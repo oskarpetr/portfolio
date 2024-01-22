@@ -5,26 +5,37 @@ export default function Section({
   section,
   index,
 }: {
-  section: string;
+  section: {
+    title: string;
+    subTitle?: string;
+  };
   index: number;
 }) {
   return (
-    <Link href={section.toLocaleLowerCase()}>
-      <motion.button
+    <Link href={section.title.toLocaleLowerCase()}>
+      <motion.div
+        className="flex flex-col gap-3 group cursor-pointer"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 + index * 0.25 }}
-        className="tracking-wide group cursor-pointer flex gap-4 items-center"
       >
-        <div>
-          <p className="text-xl md:text-3xl text-white">{section}</p>
-          <div className="h-[2px] bg-neutral-300 rounded-full w-0 group-hover:w-full transition-all duration-500"></div>
+        <div className="flex gap-4 items-center">
+          <div>
+            <p className="text-2xl md:text-[28px] text-white">
+              {section.title}
+            </p>
+            <div className="h-[2px] bg-neutral-300 rounded-full w-0 group-hover:w-full transition-all duration-500"></div>
+          </div>
+
+          <p className="group-hover:opacity-50 text-2xl opacity-0 group-hover:translate-x-2 -translate-x-8 transition-all duration-500">
+            ➼
+          </p>
         </div>
 
-        <p className="group-hover:opacity-50 text-2xl md:text-3xl opacity-0 group-hover:translate-x-2 -translate-x-8 transition-all duration-500">
-          ➼
+        <p className="opacity-40 tracking-wide w-[20rem] md:w-[25rem]">
+          {section.subTitle}
         </p>
-      </motion.button>
+      </motion.div>
     </Link>
   );
 }
