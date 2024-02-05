@@ -32,13 +32,15 @@ export default function Competence() {
       {competence.map((section, index) => {
         return (
           <motion.div
-            key={Math.random()}
+            key={section.section}
             className="flex flex-col gap-4 tracking-wide"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.25 + index * 0.25 }}
           >
-            <p className="opacity-40 tracking-wide">{section.section}</p>
+            <p className="opacity-80 tracking-wide font-medium">
+              {section.section}
+            </p>
             {section.items.map((item) => {
               return (
                 <div key={item} className="flex items-center gap-3">
@@ -51,7 +53,7 @@ export default function Competence() {
                     height={22}
                     className="transition-all opacity-50"
                   />
-                  <p className="text-lg tracking-wide font-medium">{item}</p>
+                  <p className="tracking-wide opacity-50">{item}</p>
                 </div>
               );
             })}

@@ -1,24 +1,31 @@
 export const menuItems = [
   {
-    title: "Contact",
-    subTitle:
-      "Meet a web enthusiast — a front-end developer, writer and designer. Based in the Czech Republic.",
-  },
-  {
     title: "Development",
     subTitle:
       "Learn more about the technologies that I have used in my software development journey.",
+    // subTitle: "Learn more about my projects.",
   },
   {
     title: "Writing",
     subTitle:
       "Learn more about the articles that I have written for web-developing companies.",
+    // subTitle: "Learn more about my articles.",
   },
+  // {
+  // title: "Design",
+  // subTitle:
+  //   "Learn more about the wireframes and the websites that I have designed.",
+  // subTitle: "Learn more about my designs.",
+  // },
   {
-    title: "Design",
+    title: "Contact",
     subTitle:
-      "Learn more about the wireframes and the websites that I have designed.",
+      "Reach out to me for your next idea, so we can get started on it transforming into a reality.",
   },
 ];
 
-export const menuItemsTitles = ["Development", "Writing", "Design", "Contact"];
+export const menuItemsTitles = [
+  "Development",
+  "Writing",
+  /*"Design",*/ "Contact",
+];

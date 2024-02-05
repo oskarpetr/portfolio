@@ -12,7 +12,7 @@ export default function Section({
   index: number;
 }) {
   return (
-    <Link href={section.title.toLocaleLowerCase()}>
+    <Link href={section.title.toLocaleLowerCase()} prefetch>
       <motion.div
         className="flex flex-col gap-3 group cursor-pointer"
         initial={{ opacity: 0, y: -20 }}
@@ -32,7 +32,7 @@ export default function Section({
           </p>
         </div>
 
-        <p className="opacity-40 tracking-wide w-[20rem] md:w-[25rem]">
+        <p className="opacity-50 tracking-wide w-[20rem] md:w-[25rem]">
           {section.subTitle}
         </p>
       </motion.div>

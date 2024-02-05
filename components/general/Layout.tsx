@@ -11,19 +11,19 @@ export default function Layout({
   homeLayout?: boolean;
   title?: string;
 }) {
+  const customTitle = `Oskar Petr${title !== undefined ? ` | ${title}` : ""}`;
+
   return (
     <div
       className={cn(
         "text-white min-h-screen px-16 sm:px-32 py-16 transition-all duration-500",
-        homeLayout ? "bg-left bg-[url('/images/Background2.png')]" : ""
+        homeLayout
+          ? "bg-left bg-[url('/images/Background2.png')] bg-opacity-20"
+          : ""
       )}
     >
       <Head>
-        {title ? (
-          <title>Oskar Petr | {title !== undefined ? title : ""}</title>
-        ) : (
-          <title>Oskar Petr</title>
-        )}
+        <title>{customTitle}</title>
       </Head>
 
       {children}
