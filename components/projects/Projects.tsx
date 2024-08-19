@@ -11,12 +11,12 @@ export default function Projects({
 }) {
   return (
     <motion.div
-      className="mt-8 flex flex-col gap-32"
+      className="mt-12 flex flex-col gap-32"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay }}
     >
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-12">
         {projects.map((project, index) => {
           return (
             <Project

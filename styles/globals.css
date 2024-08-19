@@ -70,9 +70,12 @@
 } */
 
 body {
-   background-color: #121212;
+   @apply bg-black-primary;
+   cursor: url("../public/images/Circle.png"), auto;
 }
 
 * {
   font-family: "Nohemi";
+  letter-spacing: 0.03rem;
+  @apply text-white-primary;
 }
