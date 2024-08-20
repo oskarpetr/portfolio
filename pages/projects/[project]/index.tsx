@@ -1,13 +1,13 @@
 import Layout from "@/components/general/Layout";
 import Menu from "@/components/general/Menu";
-import SubHeadline from "@/components/general/SubHeadline";
+import Subheading from "@/components/general/Subheading";
 import projects from "@/data/projects";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn } from "@/utils/cn";
 import { Spinner } from "@phosphor-icons/react";
 import Image from "next/image";
+import FadeIn from "@/components/general/FadeIn";
 
 export default function Project() {
   const { project } = useRouter().query;
@@ -30,29 +30,24 @@ export default function Project() {
       <Layout title="Development">
         <Menu />
 
-        <motion.div
-          initial={{ opacity: 0, left: -20 }}
-          animate={{ opacity: 0.5, left: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-        >
-          <Image
-            src={`/projects/${projectObj.image}.png`}
-            alt={projectObj.image}
-            width={9999}
-            height={9999}
-            className="opacity-50 absolute z-0 top-0 left-0 border w-full h-96 object-cover object-center blur-2xl"
-          />
-        </motion.div>
+        <Image
+          src={`/projects/${projectObj.image}.png`}
+          alt={projectObj.image}
+          width={9999}
+          height={9999}
+          className="opacity-50 absolute z-0 top-0 left-0 border w-full h-96 object-cover object-center blur-2xl"
+        />
 
-        <SubHeadline title={projectObj?.title!} delay={0.25} />
-        <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 0.5, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className=" text-white opacity-50 xl:w-[50rem] mt-6 leading-7"
-        >
-          {projectObj?.description}
-        </motion.p>
+        <div className="flex flex-col gap-6">
+          <Subheading title={projectObj?.title!} />
+          <FadeIn
+            delay={0.5}
+            className="text-white-primary opacity-50 xl:w-[50rem] leading-7"
+          >
+            <p>{projectObj?.description}</p>
+          </FadeIn>
+        </div>
+
         <div className="mt-32">
           {/* <div className="flex flex-col gap-4">
           <p className="text-2xl">Gallery</p>
@@ -96,12 +91,7 @@ export default function Project() {
         </div> */}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.75 }}
-          className="flex flex-col gap-4"
-        >
+        <FadeIn delay={1} className="flex flex-col gap-4">
           <p className="font-medium text-xl">View design</p>
           <div
             className={cn(
@@ -124,7 +114,7 @@ export default function Project() {
               )}
             ></iframe>
           )}
-        </motion.div>
+        </FadeIn>
       </Layout>
     )
   );

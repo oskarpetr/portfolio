@@ -13,7 +13,7 @@ export default function Introduction() {
 
         <FadeIn
           delay={1}
-          className="*:text-neutral-200 text-3xl md:text-4xl xl:text-7xl flex flex-col gap-2 font-semibold"
+          className="*:text-neutral-200 text-3xl md:text-4xl xl:text-6xl flex flex-col gap-2 font-semibold"
         >
           <span>
             <span className="text-[#a28052]">Front–end</span> developer,
@@ -39,6 +39,15 @@ export default function Introduction() {
               alt="LinkedIn"
               className="h-6 w-fit opacity-50 hover:scale-105 hover:opacity-80 transition-all duration-500"
             />
+          </Link>{" "}
+          <Link href={"https://github.com/oskarpetr"}>
+            <Image
+              src={"/logos/monochrome-icons/GitHub.svg"}
+              width={0}
+              height={0}
+              alt="GitHub"
+              className="h-6 w-fit opacity-50 hover:scale-105 hover:opacity-80 transition-all duration-500"
+            />
           </Link>
         </FadeIn>
       </div>
@@ -52,14 +61,14 @@ export default function Introduction() {
           alt="Circle"
           width={100}
           height={100}
-          className="w-[70px] h-[70px] md:w-[100px] md:h-[100px] animate-spin-slow relative left-[20px] top-[20px] sm:-left-[35px] sm:-top-[35px] md:-left-[50px] md:-top-[50px] pointer-events-none select-none"
+          className="transition-all duration-500 w-[70px] h-[70px] md:w-[100px] md:h-[100px] animate-spin-slow relative left-[20px] top-[20px] sm:-left-[35px] sm:-top-[35px] md:-left-[50px] md:-top-[50px] pointer-events-none select-none"
         />
         <Image
           src={"/images/Me.jpeg"}
           width={1000}
           height={1000}
           alt="LinkedIn"
-          className="w-full sm:w-52 md:w-64 xl:w-80 -mt-[70px] md:-mt-[100px] object-cover rounded-xl pointer-events-none select-none"
+          className="transition-all duration-500 w-full sm:w-52 md:w-64 xl:w-80 -mt-[70px] md:-mt-[100px] object-cover rounded-xl pointer-events-none select-none"
         />
       </FadeIn>
 

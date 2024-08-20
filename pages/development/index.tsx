@@ -1,7 +1,7 @@
 import Competence from "@/components/development/Competence";
 import Layout from "@/components/general/Layout";
 import Menu from "@/components/general/Menu";
-import SubHeadline from "@/components/general/SubHeadline";
+import Subheading from "@/components/general/Subheading";
 import Projects from "@/components/projects/Projects";
 import projects from "@/data/projects";
 
@@ -10,11 +10,11 @@ export default function Development() {
     <Layout title="Development">
       <Menu />
 
-      <SubHeadline title="What do I use?" delay={0.25} />
+      <Subheading title="What do I use?" />
       <Competence />
 
-      {/* <SubHeadline title="Projects" delay={0.5} /> */}
-      <Projects projects={projects.development} delay={0.5} />
+      {/* <Subheading title="Projects" delay={0.5} /> */}
+      <Projects projects={projects.development} delay={1.5} />
     </Layout>
   );
 }

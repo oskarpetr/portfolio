@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import FadeIn from "../general/FadeIn";
 
 export default function Project({
   project,
@@ -16,11 +17,7 @@ export default function Project({
   const [hoverTechnology, setHoverTechnology] = useState<string | null>(null);
 
   return (
-    <motion.div
-      whileInView={{ opacity: 1, x: 0 }}
-      initial={{ opacity: 0, x: -20 }}
-      transition={{ duration: 0.5, delay: 0.25 }}
-    >
+    <FadeIn delay={0.25} whileInView>
       <Link href={"/projects" + project.slug!} className="group cursor-pointer">
         <div className="flex flex-col xl:flex-row items-start xl:items-center gap-8 xl:gap-12 text-white">
           <img
@@ -108,6 +105,6 @@ export default function Project({
       </Link>
 
       {!last && <div className="border-b border-neutral-800 mt-16"></div>}
-    </motion.div>
+    </FadeIn>
   );
 }
