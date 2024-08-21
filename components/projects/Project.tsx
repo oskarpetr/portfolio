@@ -54,7 +54,7 @@ export default function Project({
 
             {project.type === "development" && (
               <FadeIn
-                delay={0.75}
+                delay={0.25}
                 whileInView
                 className="flex items-center gap-5 mt-2"
               >
@@ -104,7 +104,7 @@ export default function Project({
 
             {project.type === "writing" && (
               <FadeIn
-                delay={0.75}
+                delay={0.25}
                 whileInView
                 className="flex items-center gap-5 mt-2"
               >
