@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import FadeIn from "../general/FadeIn";
+import TextStagger from "../general/TextStagger";
 
 export default function Project({
   project,
@@ -25,7 +26,7 @@ export default function Project({
           <img
             src={`/projects/${project.image}.png`}
             alt={project.image}
-            className="group-hover:scale-95 transition-all duration-500 border w-full sm:w-auto md:h-[13rem] border-white border-opacity-10 rounded-xl"
+            className="group-hover:scale-95 transition-all duration-500 border w-full sm:w-auto md:h-[12rem] border-white border-opacity-10 rounded-xl"
           />
 
           {/* <div className="min-w-[16rem] h-[9rem] md:min-w-[24rem] md:h-[13.5rem] bg-white bg-opacity-5 border border-white border-opacity-10 rounded-xl flex justify-center items-center">
@@ -34,21 +35,29 @@ export default function Project({
 
           <div className="flex flex-col gap-4 justify-center items-start xl:items-start">
             <div className="flex flex-col justify-center xl:justify-start">
-              <h3 className="text-2xl text-left tracking-wide md:max-w-[35rem] xl:max-w-[40rem] leading-9">
-                {project.title}
-              </h3>
+              <TextStagger whileInView>
+                <h3 className="text-2xl text-left tracking-wide md:max-w-[35rem] xl:max-w-[40rem] leading-9">
+                  {project.title}
+                </h3>
+              </TextStagger>
 
               <div className="mt-[-3px] h-[2px] bg-neutral-300 rounded-full w-0 group-hover:w-full transition-all duration-500"></div>
             </div>
 
-            <p className="opacity-50 tracking-wide text-left md:w-[40rem] leading-7">
-              {project.description.length > 150
-                ? project.description.substring(0, 151) + "..."
-                : project.description}
-            </p>
+            <TextStagger whileInView>
+              <p className="opacity-50 tracking-wide text-left md:w-[40rem] leading-7">
+                {project.description.length > 150
+                  ? project.description.substring(0, 151) + "..."
+                  : project.description}
+              </p>
+            </TextStagger>
 
             {project.type === "development" && (
-              <div className="flex items-center gap-5 mt-2">
+              <FadeIn
+                delay={0.75}
+                whileInView
+                className="flex items-center gap-5 mt-2"
+              >
                 {project.technologies.map((tech, index) => {
                   return (
                     <div className="flex items-center" key={tech}>
@@ -90,17 +99,21 @@ export default function Project({
                 ) : (
                   <p className="opacity-50">Private repository</p>
                 )} */}
-              </div>
+              </FadeIn>
             )}
 
             {project.type === "writing" && (
-              <div className="flex items-center gap-5 mt-2">
+              <FadeIn
+                delay={0.75}
+                whileInView
+                className="flex items-center gap-5 mt-2"
+              >
                 <div className="px-4 py-1 rounded-full border border-neutral-500 flex justify-center items-center">
                   <p className="text-sm opacity-50 mt-0.5 tracking-wide">
                     {project.tag}
                   </p>
                 </div>
-              </div>
+              </FadeIn>
             )}
           </div>
         </div>

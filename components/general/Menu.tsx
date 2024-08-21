@@ -33,9 +33,13 @@ export default function Menu() {
 
   useEffect(() => {
     if (displayMenu) {
-      menuControls.start({ y: "0" });
+      menuControls.start({
+        y: "0",
+      });
     } else {
-      menuControls.start({ y: "100vh" });
+      menuControls.start({
+        y: "100vh",
+      });
     }
   }, [displayMenu]);
 
@@ -54,7 +58,7 @@ export default function Menu() {
           <div className="items-center gap-10">
             <button
               onClick={() => setDisplayMenu(!displayMenu)}
-              className="uppercase z-40"
+              className="z-40"
             >
               Menu
             </button>
@@ -109,10 +113,10 @@ export default function Menu() {
           ease: [0.4, 0, 0.2, 1],
         }}
         initial={{ y: "100vh" }}
-        className="fixed inset-0 bg-black-primary bg-opacity-80 backdrop-blur-2xl w-screen h-screen z-40 px-10 py-10 md:px-16 md:py-10 lg:px-32 lg:py-16"
+        className="fixed transition-[scale] duration-1000 inset-0 bg-black-primary bg-opacity-80 backdrop-blur-2xl w-screen h-screen z-40 px-10 py-10 md:px-16 md:py-10 lg:px-32 lg:py-16"
       >
         <FadeIn whileInView className="flex justify-between items-center">
-          <div></div>
+          <div />
           <X
             className="text-2xl transition-all duration-500 text-black-primary cursor-pointer"
             onClick={() => setDisplayMenu(!displayMenu)}

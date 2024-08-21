@@ -5,9 +5,15 @@ interface Props {
   children: ReactNode;
   delay?: number;
   className?: React.ComponentProps<"div">["className"];
+  whileInView?: boolean;
 }
 
-export default function TextStagger({ children, delay = 0, className }: Props) {
+export default function TextStagger({
+  children,
+  delay = 0,
+  className,
+  whileInView,
+}: Props) {
   const elementRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<null | number>();
 
@@ -24,8 +30,9 @@ export default function TextStagger({ children, delay = 0, className }: Props) {
       </div>
       {height && (
         <motion.div
+          whileInView={whileInView ? { opacity: 1, y: 0 } : {}}
           initial={{ opacity: 0, y: height }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={whileInView ? {} : { opacity: 1, y: 0 }}
           transition={{
             duration: 1,
             delay,

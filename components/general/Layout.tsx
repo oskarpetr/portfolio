@@ -65,7 +65,7 @@ export default function Layout({
     },
     exit: {
       // y: -100,
-      // scale: 1,
+      // scale: 0.95,
       // opacity: 0.5,
       transition: {
         duration: 1,
