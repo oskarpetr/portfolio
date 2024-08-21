@@ -5,8 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+import FadeIn from "./FadeIn";
+import TextStagger from "./TextStagger";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 
-export default function Menu({ showMenu = true }: { showMenu?: boolean }) {
+export default function Menu() {
   // router
   const router = useRouter();
 
@@ -25,31 +28,45 @@ export default function Menu({ showMenu = true }: { showMenu?: boolean }) {
     }
   }, [mobileMenu]);
 
-  return (
-    <Fragment>
-      <div className="mb-24 md:mb-32 flex items-center justify-between gap-16">
-        <Link href="/" className="select-none rounded-sm z-50">
-          <h1
-            className={cn(
-              "text-xl uppercase font-semibold transition-all duration-500 hover:scale-95",
-              mobileMenu ? "text-black-primary" : "text-neutral-300"
-            )}
-          >
-            Oskar Petr
-          </h1>
-        </Link>
+  const [displayMenu, setDisplayMenu] = useState(false);
+  const menuControls = useAnimationControls();
 
-        {showMenu && (
-          <div className="z-50">
-            <div className="items-center gap-10 hidden lg:flex">
-              {menuItemsTitles.map((item) => {
+  useEffect(() => {
+    if (displayMenu) {
+      menuControls.start({ y: "0" });
+    } else {
+      menuControls.start({ y: "100vh" });
+    }
+  }, [displayMenu]);
+
+  return (
+    <div>
+      <div className="mb-24 md:mb-32 flex items-center justify-between gap-16">
+        <TextStagger className="z-50">
+          <Link href="/" className="select-none rounded-sm z-50">
+            <h1 className="text-xl uppercase font-semibold transition-all duration-500 hover:scale-95 z-50">
+              Oskar Petr
+            </h1>
+          </Link>
+        </TextStagger>
+
+        <TextStagger className="z-40">
+          <div className="items-center gap-10">
+            <button
+              onClick={() => setDisplayMenu(!displayMenu)}
+              className="uppercase"
+            >
+              Menu
+            </button>
+
+            {/* {menuItemsTitles.map((item) => {
                 return (
                   <Link
                     key={item}
                     href={"/" + item.toLowerCase()}
                     className="group"
                   >
-                    <p>{item}</p>
+                    <div>{item}</div>
                     <div
                       className={cn(
                         "h-[2px] bg-neutral-500 rounded-full w-0 group-hover:w-full transition-all duration-500",
@@ -60,10 +77,10 @@ export default function Menu({ showMenu = true }: { showMenu?: boolean }) {
                     ></div>
                   </Link>
                 );
-              })}
-            </div>
+              })} */}
+          </div>
 
-            <div className="block lg:hidden cursor-pointer">
+          {/* <div className="block lg:hidden cursor-pointer">
               {!mobileMenu ? (
                 <List
                   className={cn(
@@ -81,12 +98,71 @@ export default function Menu({ showMenu = true }: { showMenu?: boolean }) {
                   onClick={() => setMobileMenu(!mobileMenu)}
                 />
               )}
-            </div>
-          </div>
-        )}
+            </div> */}
+        </TextStagger>
       </div>
 
       <motion.div
+        animate={menuControls}
+        transition={{
+          duration: 1,
+          ease: [0.4, 0, 0.2, 1],
+        }}
+        initial={{ y: "100vh" }}
+        className="fixed inset-0 bg-black-primary bg-opacity-80 backdrop-blur-2xl w-screen h-screen z-40 px-10 py-10 md:px-16 md:py-10 lg:px-32 lg:py-16"
+      >
+        <FadeIn whileInView className="flex justify-between items-center">
+          <div></div>
+          <X
+            className="text-2xl transition-all duration-500 text-black-primary cursor-pointer"
+            onClick={() => setDisplayMenu(!displayMenu)}
+          />
+        </FadeIn>
+
+        <div className="flex flex-col gap-16 mt-32">
+          {menuItemsTitles.map((item, index) => {
+            return (
+              <FadeIn
+                key={item}
+                delay={0.25 * index}
+                whileInView
+                className="border-b border-neutral-700 pb-6"
+              >
+                <Link
+                  href={"/" + item.toLowerCase()}
+                  onClick={() => setDisplayMenu(!displayMenu)}
+                  className="group flex items-center gap-4"
+                >
+                  <div
+                    className={cn(
+                      "text-4xl font-medium",
+                      currentRoute === item.toLocaleLowerCase()
+                        ? "text-brown-primary"
+                        : "text-white-primary"
+                    )}
+                  >
+                    {item}
+                    {/* <div
+                    className={cn(
+                      "h-[2px] bg-neutral-500 rounded-full w-0 group-hover:w-full transition-all duration-500",
+                      currentRoute === item.toLocaleLowerCase()
+                        ? "w-full"
+                        : "group-hover:w-full"
+                    )}
+                  ></div> */}
+                  </div>
+
+                  <p className="group-hover:opacity-50 text-4xl opacity-0 group-hover:translate-x-2 -translate-x-8 transition-all duration-500">
+                    ➼
+                  </p>
+                </Link>
+              </FadeIn>
+            );
+          })}
+        </div>
+      </motion.div>
+
+      {/* <motion.div
         animate={mobileMenuControls}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         initial={{ y: "-100%" }}
@@ -116,7 +192,7 @@ export default function Menu({ showMenu = true }: { showMenu?: boolean }) {
             );
           })}
         </div>
-      </motion.div>
-    </Fragment>
+      </motion.div> */}
+    </div>
   );
 }

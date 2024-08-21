@@ -9,8 +9,8 @@ export default function Writing() {
     <Layout title="Design">
       <Menu />
 
-      <Subheading title="Design" delay={0.25} />
-      <Projects projects={projects.design} delay={0.25} />
+      <Subheading title="Design" delay={0.5} />
+      <Projects projects={projects.design} delay={0.75} />
     </Layout>
   );
 }

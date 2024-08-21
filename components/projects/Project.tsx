@@ -10,20 +10,22 @@ import FadeIn from "../general/FadeIn";
 export default function Project({
   project,
   last,
+  index,
 }: {
   project: ProjectType;
   last: boolean;
+  index: number;
 }) {
   const [hoverTechnology, setHoverTechnology] = useState<string | null>(null);
 
   return (
-    <FadeIn delay={0.25} whileInView>
+    <FadeIn whileInView>
       <Link href={"/projects" + project.slug!} className="group cursor-pointer">
         <div className="flex flex-col xl:flex-row items-start xl:items-center gap-8 xl:gap-12 text-white">
           <img
             src={`/projects/${project.image}.png`}
             alt={project.image}
-            className="group-hover:scale-95 transition-all duration-500 border w-full sm:w-auto md:h-[13.5rem] border-white border-opacity-10 rounded-xl"
+            className="group-hover:scale-95 transition-all duration-500 border w-full sm:w-auto md:h-[13rem] border-white border-opacity-10 rounded-xl"
           />
 
           {/* <div className="min-w-[16rem] h-[9rem] md:min-w-[24rem] md:h-[13.5rem] bg-white bg-opacity-5 border border-white border-opacity-10 rounded-xl flex justify-center items-center">
@@ -73,7 +75,7 @@ export default function Project({
                       </div>
 
                       {index !== project.technologies.length - 1 && (
-                        <div className="ml-5 opacity-20 bg-white w-[1px] h-4"></div>
+                        <div className="ml-5 opacity-20 bg-white-primary w-1 h-1 rounded-full"></div>
                       )}
                     </div>
                   );
@@ -104,7 +106,7 @@ export default function Project({
         </div>
       </Link>
 
-      {!last && <div className="border-b border-neutral-800 mt-16"></div>}
+      {!last && <div className="border-b border-neutral-800 my-12"></div>}
     </FadeIn>
   );
 }

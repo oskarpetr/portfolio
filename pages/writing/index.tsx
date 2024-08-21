@@ -11,9 +11,9 @@ export default function Writing() {
     <Layout title="Writing">
       <Menu />
 
-      <Subheading title="Who am I writing for?" />
+      {/* <Subheading title="Who am I writing for?" delay={0.5} /> */}
 
-      <FadeIn delay={0.5} className="mt-12 mb-32 flex items-center gap-10">
+      {/* <FadeIn delay={0.75} className="mt-12 mb-32 flex items-center gap-10">
         <Image
           className="h-[30px] opacity-50"
           src={"/logos/monochrome-icons/Medium.svg"}
@@ -37,10 +37,10 @@ export default function Writing() {
           height={100}
           width={25}
         />
-      </FadeIn>
+      </FadeIn> */}
 
       {/* <Subheading title="Featured articles" delay={0.5} /> */}
-      <Projects projects={projects.writing} delay={1} />
+      <Projects projects={projects.writing} delay={0.5} />
     </Layout>
   );
 }

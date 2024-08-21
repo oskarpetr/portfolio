@@ -24,9 +24,4 @@ export const menuItems = [
   // },
 ];
 
-export const menuItemsTitles = [
-  "Development",
-  "Writing",
-  "Design",
-  // "Contact"
-];
+export const menuItemsTitles = ["Development", "Writing", "Design", "Contact"];

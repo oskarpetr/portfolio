@@ -56,22 +56,20 @@
   font-weight: 900;
 }
 
-/* @font-face {
-  font-family: "Lucette";
-  src: url("../public/font/Lucette-Regular.ttf") format("truetype");
+@font-face {
+  font-family: "NeutralFace";
+  src: url("../public/font/NeutralFace.otf") format("opentype");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Lucette";
-  src: url("../public/font/Lucette-Regularitalic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-} */
+  font-family: "NeutralFace";
+  src: url("../public/font/NeutralFace-Bold.otf") format("opentype");
+  font-weight: 700;
+}
 
 body {
    @apply bg-black-primary;
-   cursor: url("../public/images/Circle.png"), auto;
 }
 
 * {

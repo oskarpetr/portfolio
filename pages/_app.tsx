@@ -3,10 +3,10 @@ import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
-    <AnimatePresence>
-      <Component {...pageProps} />
+    <AnimatePresence mode="wait">
+      <Component key={router.route} {...pageProps} />
       <Analytics />
     </AnimatePresence>
   );

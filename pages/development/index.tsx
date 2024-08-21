@@ -10,11 +10,12 @@ export default function Development() {
     <Layout title="Development">
       <Menu />
 
-      <Subheading title="What do I use?" />
-      <Competence />
+      {/* <Subheading title="What do I use?" /> */}
+      {/* <Competence /> */}
 
       {/* <Subheading title="Projects" delay={0.5} /> */}
-      <Projects projects={projects.development} delay={1.5} />
+      <Projects projects={projects.development} delay={0.5} />
+      {/* 2 */}
     </Layout>
   );
 }

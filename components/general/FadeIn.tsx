@@ -16,10 +16,14 @@ export default function FadeIn({
 }: Props) {
   return (
     <motion.div
-      whileInView={whileInView ? { opacity: 1, y: 20 } : {}}
+      whileInView={whileInView ? { opacity: 1, y: 0 } : {}}
       initial={{ opacity: 0, y: 20 }}
       animate={whileInView ? {} : { opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay, ease: [0.4, 0, 0.2, 1] }}
+      transition={{
+        duration: 1,
+        delay,
+        ease: [0.4, 0, 0.2, 1],
+      }}
     >
       <div className={className}>{children}</div>
     </motion.div>

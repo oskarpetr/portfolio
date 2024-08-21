@@ -14,7 +14,8 @@ module.exports = {
       },
       colors: {
         "white-primary": "rgb(245 245 245)",
-        "black-primary": "rgb(18, 18, 18)"
+        "black-primary": "rgb(18, 18, 18)",
+        "brown-primary": "rgb(162,128,82)"
       },
       animation: {
         'spin-slow': 'spin 15s linear infinite',

@@ -8,6 +8,7 @@ import { cn } from "@/utils/cn";
 import { Spinner } from "@phosphor-icons/react";
 import Image from "next/image";
 import FadeIn from "@/components/general/FadeIn";
+import { motion } from "framer-motion";
 
 export default function Project() {
   const { project } = useRouter().query;
@@ -27,16 +28,25 @@ export default function Project() {
 
   return (
     projectObj && (
-      <Layout title="Development">
+      <Layout title="Project">
         <Menu />
 
-        <Image
-          src={`/projects/${projectObj.image}.png`}
-          alt={projectObj.image}
-          width={9999}
-          height={9999}
-          className="opacity-50 absolute z-0 top-0 left-0 border w-full h-96 object-cover object-center blur-2xl"
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 1,
+            ease: [0.4, 0, 0.2, 1],
+          }}
+        >
+          <Image
+            src={`/projects/${projectObj.image}.png`}
+            alt={projectObj.image}
+            width={9999}
+            height={9999}
+            className="opacity-50 absolute z-0 top-0 left-0 border w-full h-96 object-cover object-center blur-2xl"
+          />
+        </motion.div>
 
         <div className="flex flex-col gap-6">
           <Subheading title={projectObj?.title!} />

@@ -7,7 +7,7 @@ export default function Contact() {
     <Layout title="Contact">
       <Menu />
 
-      <Subheading title="Contact" />
+      <Subheading title="Contact" delay={0.5} />
     </Layout>
   );
 }

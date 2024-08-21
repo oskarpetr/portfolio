@@ -163,6 +163,16 @@ const projects: Projects = {
       //   "Login",
       // ],
     },
+    {
+      type: "design",
+      title: "Lango icons",
+      slug: "/lango-icons",
+      description:
+        "Lango icons is an icon family pack created for designers and developers. It aims to enhance visual storytelling and user interfaces of digital projects across diverse platforms.",
+      design:
+        "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FEY3wtBCY80baUDjycCKrNK%2FIcons%3Fnode-id%3D1-9322%26t%3DsjgNbzqpvhaJj17E-1",
+      image: "Lango icons",
+    },
   ],
 };
 

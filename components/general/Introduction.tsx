@@ -1,27 +1,28 @@
 import Image from "next/image";
 import FadeIn from "./FadeIn";
 import Link from "next/link";
+import TextStagger from "./TextStagger";
 
 export default function Introduction() {
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center w-full gap-20">
       <div className="flex flex-col gap-8">
-        <FadeIn className="text-neutral-300 font-semibold text-xl md:text-2xl xl:text-3xl *:text-opacity-50">
-          <span>Meet a web</span>{" "}
-          <span className="text-[#a28052]">enthusiast.</span>
-        </FadeIn>
-
-        <FadeIn
-          delay={1}
-          className="*:text-neutral-200 text-3xl md:text-4xl xl:text-6xl flex flex-col gap-2 font-semibold"
+        <TextStagger
+          delay={0.5}
+          className="text-neutral-300 font-semibold text-xl md:text-2xl xl:text-3xl *:text-opacity-50"
         >
-          <span>
-            <span className="text-[#a28052]">Front–end</span> developer,
-          </span>{" "}
-          <span> writer and designer.</span>
-        </FadeIn>
+          <span>Meet a web</span>{" "}
+          <span className="text-brown-primary">enthusiast.</span>
+        </TextStagger>
 
-        <FadeIn delay={1.5} className="flex gap-6 items-center">
+        <div className="*:text-neutral-300 text-3xl md:text-4xl xl:text-6xl flex flex-col gap-2 xl:gap-4 font-semibold uppercase">
+          <TextStagger delay={0.75}>
+            <span className="text-brown-primary">Front–end</span> developer,
+          </TextStagger>{" "}
+          <TextStagger delay={0.9}> writer and designer.</TextStagger>
+        </div>
+
+        <FadeIn delay={1} className="flex gap-6 items-center">
           <Link href={"https://medium.com/@oskarpetr"}>
             <Image
               src={"/logos/monochrome-icons/Medium Short.svg"}
@@ -49,11 +50,14 @@ export default function Introduction() {
               className="h-6 w-fit opacity-50 hover:scale-105 hover:opacity-80 transition-all duration-500"
             />
           </Link>
+          {/* <div className="text-neutral-400">MEDIUM</div>
+          <div className="text-neutral-400">LINKED IN</div>
+          <div className="text-neutral-400">GITHUB</div> */}
         </FadeIn>
       </div>
 
       <FadeIn
-        delay={2}
+        delay={1.25}
         className="hover:scale-95 transition-transform duration-500"
       >
         <Image
@@ -68,7 +72,7 @@ export default function Introduction() {
           width={1000}
           height={1000}
           alt="LinkedIn"
-          className="transition-all duration-500 w-full sm:w-52 md:w-64 xl:w-80 -mt-[70px] md:-mt-[100px] object-cover rounded-xl pointer-events-none select-none"
+          className="transition-all duration-500 w-full sm:w-52 md:w-64 xl:w-80 -mt-[70px] md:-mt-[100px] object-cover rounded-md pointer-events-none select-none"
         />
       </FadeIn>
 
