@@ -44,7 +44,7 @@ export default function Project() {
             alt={projectObj.image}
             width={9999}
             height={9999}
-            className="opacity-50 absolute z-0 top-0 left-0 border w-full h-96 object-cover object-center blur-2xl"
+            className="opacity-50 absolute -z-40 top-0 left-0 border w-full h-96 object-cover object-center blur-2xl"
           />
         </motion.div>
 

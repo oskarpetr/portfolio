@@ -22,9 +22,9 @@ export default function Menu() {
 
   useEffect(() => {
     if (mobileMenu) {
-      mobileMenuControls.start({ opacity: 1, y: 0 });
+      mobileMenuControls.start({ opacity: 1, y: 0, scale: 1 });
     } else {
-      mobileMenuControls.start({ opacity: 1, y: "-100%" });
+      mobileMenuControls.start({ opacity: 1, y: "-100%", scale: 1 });
     }
   }, [mobileMenu]);
 
@@ -42,19 +42,19 @@ export default function Menu() {
   return (
     <div>
       <div className="mb-24 md:mb-32 flex items-center justify-between gap-16">
-        <TextStagger className="z-50">
-          <Link href="/" className="select-none rounded-sm z-50">
+        <TextStagger>
+          <Link href="/" className="select-none rounded-sm">
             <h1 className="text-xl uppercase font-semibold transition-all duration-500 hover:scale-95 z-50">
               Oskar Petr
             </h1>
           </Link>
         </TextStagger>
 
-        <TextStagger className="z-40">
+        <TextStagger>
           <div className="items-center gap-10">
             <button
               onClick={() => setDisplayMenu(!displayMenu)}
-              className="uppercase"
+              className="uppercase z-40"
             >
               Menu
             </button>

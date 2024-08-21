@@ -54,19 +54,19 @@ export default function Layout({
 
   const perspective = {
     initial: {
-      y: 0,
-      scale: 1,
-      opacity: 1,
+      // y: 0,
+      // scale: 1,
+      // opacity: 1,
     },
     enter: {
-      y: 0,
-      scale: 1,
-      opacity: 1,
+      // y: 0,
+      // scale: 1,
+      // opacity: 1,
     },
     exit: {
-      y: -100,
-      scale: 0.95,
-      opacity: 0.5,
+      // y: -100,
+      // scale: 1,
+      // opacity: 0.5,
       transition: {
         duration: 1,
         ease: [0.4, 0, 0.2, 1],

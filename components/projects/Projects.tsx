@@ -13,7 +13,6 @@ export default function Projects({
   return (
     <FadeIn delay={delay} className="mt-12">
       {projects.map((project, index) => {
-        console.log(index);
         return (
           <Project
             key={project.title}
