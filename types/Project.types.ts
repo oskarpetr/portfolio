@@ -1,31 +1,30 @@
-export type ProjectType =
-  | {
-      type: "development";
-      title: string;
-      slug: string;
-      description: string;
-      image: string;
-      technologies: string[];
-      link: string;
-      repositary?: string;
-      images?: string[];
-      design?: string;
-    }
-  | {
-      type: "writing";
-      title: string;
-      slug?: string;
-      description: string;
-      image: string;
-      link: string;
-      tag?: string;
-    }
-  | {
-      type: "design";
-      title: string;
-      slug: string;
-      description: string;
-      image: string;
-      images?: string[];
-      design: string;
-    };
+export interface IProject {
+  title: string;
+  category: "Development" | "Writing" | "Design" | "Developement, Design";
+  type: "Client" | "Personal project" | "Academic project";
+  client?: string;
+  about: string;
+  slug: string;
+  link?: string;
+  secondaryLink?: {
+    text: string;
+    link: string;
+  };
+  mainImage: string;
+  showcases: IShowcase[];
+  detailText: string[];
+  services: string[];
+  publishedAt: string;
+}
+
+export interface IShowcase {
+  src: string;
+  alt: string;
+}
+
+export interface IArticle {
+  title: string;
+  client: string;
+  link: string;
+  publishedAt: string;
+}

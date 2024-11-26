@@ -13,9 +13,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        "white-primary": "rgb(245 245 245)",
-        "black-primary": "rgb(18, 18, 18)",
-        "brown-primary": "rgb(162,128,82)"
+        "white-primary": "#FFF5E7",
+        "black-primary": "#0D0D0D",
+        "brown-primary": "#6B3200",
       },
       animation: {
         'spin-slow': 'spin 15s linear infinite',

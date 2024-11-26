@@ -1,79 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Thin.ttf") format("truetype");
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-ExtraLight.ttf") format("truetype");
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Light.ttf") format("truetype");
+/* @font-face {
+  font-family: "NeueRegrade";
+  src: url("../public/font/NeueRegrade-Light.otf") format("opentype");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Regular.ttf") format("truetype");
+  font-family: "NeueRegrade";
+  src: url("../public/font/NeueRegrade-Regular.otf") format("opentype");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Medium.ttf") format("truetype");
+  font-family: "NeueRegrade";
+  src: url("../public/font/NeueRegrade-Medium.otf") format("opentype");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-SemiBold.ttf") format("truetype");
+  font-family: "NeueRegrade";
+  src: url("../public/font/NeueRegrade-Semibold.otf") format("opentype");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Bold.ttf") format("truetype");
+  font-family: "NeueRegrade";
+  src: url("../public/font/NeueRegrade-Bold.otf") format("opentype");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-ExtraBold.ttf") format("truetype");
+  font-family: "NeueRegrade";
+  src: url("../public/font/NeueRegrade-Extrabold.otf") format("opentype");
   font-weight: 800;
-}
-
-@font-face {
-  font-family: "Nohemi";
-  src: url("../public/font/Nohemi-Black.ttf") format("truetype");
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: "NeutralFace";
-  src: url("../public/font/NeutralFace.otf") format("opentype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "NeutralFace";
-  src: url("../public/font/NeutralFace-Bold.otf") format("opentype");
-  font-weight: 700;
-}
+  line-height: 150%;
+} */
 
 body {
-   @apply bg-black-primary;
+   @apply bg-white-primary;
 }
 
 * {
-  font-family: "Nohemi";
-  letter-spacing: 0.03rem;
-  @apply text-white-primary;
+  font-family: "Unbounded";
+  font-weight: 500;
+  letter-spacing: -0.03rem !important;
+  line-height: 150% !important;
+}
+
+.body-text {
+  font-family: "Manrope";
+  letter-spacing: -0.03rem !important;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {border: 1px solid #ccc;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  border: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.star {
+  width: 170px;
+  aspect-ratio: 1;
+  clip-path: polygon(100% 50%, 78.53% 59.27%, 90.45% 79.39%, 67.63% 74.27%, 65.45% 97.55%, 50% 80%, 34.55% 97.55%, 32.37% 74.27%, 9.55% 79.39%, 21.47% 59.27%, 0% 50%, 21.47% 40.73%, 9.55% 20.61%, 32.37% 25.73%, 34.55% 2.45%, 50% 20%, 65.45% 2.45%, 67.63% 25.73%, 90.45% 20.61%, 78.53% 40.73%);
 }
