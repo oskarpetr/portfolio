@@ -129,9 +129,10 @@ const Form = () => {
         >
           <SectionBubble
             title="Send inquiry"
-            button={{
-              icon: "ArrowRight",
-            }}
+
+            // button={{
+            //   icon: "ArrowRight",
+            // }}
           />
         </Link>
       </div>
@@ -204,7 +205,7 @@ const Radio = ({
           <button key={option} onClick={() => setRadio(option)}>
             <SectionBubble
               title={option}
-              button={{}}
+              // button={{}}
               //   buttonActive={radio === option}
               disablePadding
             />

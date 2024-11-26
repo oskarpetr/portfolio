@@ -4,7 +4,11 @@ const nextConfig = {
   images: {
     domains: ["res.cloudinary.com", "cdn.sanity.io"],
   },
+  swcMinify: false,
+  webpack: (config) => {
+    config.optimization.minimize = false;
+    return config;
+  },
 }
 
-module.exports = nextConfig
-;
+module.exports = nextConfig;
