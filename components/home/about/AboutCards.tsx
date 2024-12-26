@@ -5,18 +5,21 @@ export default function AboutCards() {
   const cards = [
     {
       title: "Development",
-      text: "I'm a full stack developer with a focus on React and Next.js. I have experience with TypeScript, GraphQL, and Node.js. I'm passionate about creating fast, accessible, and responsive web applications.",
+      text: "I'm a Full Stack Web Developer who loves creating things for the web. Whether it's building with Next.js, React.js, or Node.js, or working with databases like PostgreSQL and MongoDB, I enjoy turning ideas into functional, scalable applications that solve real problems.",
       linkText: "GitHub",
+      link: "https://github.com/oskarpetr",
     },
     {
       title: "Design",
-      text: "I'm a UI/UX designer with a focus on creating clean and modern designs. I have experience with Figma, Adobe XD, and Sketch. I'm passionate about creating user-friendly and visually appealing interfaces.",
-      linkText: "Dribble",
+      text: "When it comes to Web Design, I'm all about crafting experiences that feel great to use. From designing in Figma to styling with Tailwind CSS, I love bringing designs to life and making sure they're interactive, and just plain fun.",
+      linkText: "Dribbble",
+      link: "https://dribbble.com/oskarpetr",
     },
     {
       title: "Writing",
-      text: "I'm a technical writer with a focus on creating clear and concise documentation. I have experience with Markdown, Docusaurus, and Jekyll. I'm passionate about creating helpful and informative content.",
+      text: "I also have a passion for Technical Writing. Explaining complex concepts in a way that's easy to understand is something I really enjoy—whether it's through documentation, tutorials, or just sharing what I've learned.",
       linkText: "Medium",
+      link: "https://medium.com/@oskarpetr",
     },
   ];
 
@@ -34,6 +37,7 @@ export default function AboutCards() {
                 active={active}
                 setActive={setActive}
                 linkText={card.linkText}
+                link={card.link}
                 index={index}
               />
             ))}

@@ -71,12 +71,12 @@ export default function Introduction({ nextRef }: Props) {
                 <div className="w-full flex items-center gap-2">
                   <TextSlideIn
                     className="text-[4.5vw] font-semibold !tracking-tight"
-                    text="Meet a front"
+                    text="Meet a full"
                   />
                   <div className="relative">
                     <motion.div
                       initial={{ width: 0 }}
-                      animate={{ width: 200 }}
+                      animate={{ width: 150 }}
                       transition={{
                         ease: BEZIER_EASING,
                         duration: 1.5,
@@ -107,7 +107,7 @@ export default function Introduction({ nextRef }: Props) {
                   </div>
                   <TextSlideIn
                     className="text-[4.5vw] font-semibold !tracking-tight"
-                    text="end"
+                    text="stack"
                   />
                 </div>
 
@@ -135,7 +135,7 @@ export default function Introduction({ nextRef }: Props) {
           <div className="block sm:hidden">
             <TextSlideIn
               className="text-4xl font-semibold !tracking-tight"
-              text="Meet a front—end / developer, designer, and writer"
+              text="Meet a full—stack / developer, designer, and writer"
             />
           </div>
 

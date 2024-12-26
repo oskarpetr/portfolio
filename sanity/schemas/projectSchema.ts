@@ -101,20 +101,21 @@ export const projectSchema: SchemaTypeDefinition = {
           ],
         },
       ],
+      initialValue: [],
     },
     {
       name: "detailText",
       title: "Detail Text",
       type: "array",
       of: [{ type: "text" }],
-      validation: (Rule) => Rule.required(),
+      initialValue: [],
     },
     {
       name: "services",
       title: "Services",
       type: "array",
       of: [{ type: "string" }],
-      validation: (Rule) => Rule.required(),
+      initialValue: [],
     },
     {
       name: "publishedAt",

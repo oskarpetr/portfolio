@@ -6,6 +6,7 @@ import ImageSlideIn from "../../animation/ImageSlideIn";
 import SectionTitle from "../../general/SectionTitle";
 import AboutParagraph from "./AboutParagraph";
 import AboutCards from "./AboutCards";
+import SectionBubble from "@/components/general/SectionBubble";
 
 export default function About() {
   // about me
@@ -21,7 +22,7 @@ export default function About() {
       <div className="mt-48 w-full sm:w-4/5 flex flex-col gap-32">
         <div>
           {/* <SectionTitle title="About" color="white" delay={0.5} /> */}
-          <SectionTitle title="About" color="white" />
+          <SectionBubble title="About" type="white" />
           <TextSlideIn
             text={aboutMe}
             className="text-3xl sm:text-[3vw] text-white-primary"

@@ -20,19 +20,17 @@ export default function Project() {
   });
 
   // projects
-  const fetchProjects = useCMS<IProject>({ query: projectsQuery() });
+  const fetchProjects = useCMS<IProject>({ query: projectsQuery() }) || [];
   const [projects, setProjects] = useState<IProject[]>([]);
 
   useEffect(() => {
-    if (!fetchProjects.loading) {
-      const sortedProjects = fetchProjects.data.sort(
-        (a, b) =>
-          new Date(b.publishedAt).getUTCDate() -
-          new Date(a.publishedAt).getUTCDate()
-      );
-      setProjects(sortedProjects);
-    }
-  }, [fetchProjects.loading]);
+    const sortedProjects = fetchProjects.data.sort(
+      (a, b) =>
+        new Date(b.publishedAt).getUTCDate() -
+        new Date(a.publishedAt).getUTCDate()
+    );
+    setProjects(sortedProjects);
+  }, [fetchProjects.data]);
 
   // project is not found
   if (!fetchProject.loading && fetchProject.data === undefined) {
@@ -46,8 +44,8 @@ export default function Project() {
     project && (
       <Layout title={project.title}>
         <AboutProject project={project} />
-        <Showcases showcases={project.showcases} />
-        <ProjectDetail project={project} />
+        {project.showcases && <Showcases showcases={project.showcases} />}
+        {project.detailText && <ProjectDetail project={project} />}
         <RelatedProjects projects={projects} project={project} />
         <Footer />
       </Layout>

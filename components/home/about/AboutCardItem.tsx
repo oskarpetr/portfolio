@@ -7,12 +7,14 @@ import CircleLink from "../../general/CircleLink";
 import { handleMouseMove } from "@/utils/mouseMove";
 import Icon from "@/components/general/Icon";
 import FadeIn from "@/components/animation/FadeIn";
+import Link from "next/link";
 
 interface Props {
   card: { title: string; text: string };
   active: string;
   setActive: Dispatch<SetStateAction<string>>;
   linkText: string;
+  link: string;
   index: number;
 }
 
@@ -21,6 +23,7 @@ export default function AboutCardItem({
   active,
   setActive,
   linkText,
+  link,
   index,
 }: Props) {
   // mouse position
@@ -85,7 +88,11 @@ export default function AboutCardItem({
         </AnimatePresence>
 
         {active === card.title && (
-          <div className="flex justify-between px-24 py-16">
+          <Link
+            href={link}
+            target="_blank"
+            className="flex justify-between px-24 py-16"
+          >
             <div className="w-3/5 flex flex-col gap-4">
               <TextSlideIn
                 text={card.title}
@@ -95,7 +102,7 @@ export default function AboutCardItem({
               <TextSlideIn
                 text={card.text}
                 stagger={0.01}
-                className="text-white-primary body-text text-xl font-medium opacity-80"
+                className="text-white-primary body-text text-xl font-medium opacity-80 !leading-relaxed"
               />
             </div>
 
@@ -104,7 +111,7 @@ export default function AboutCardItem({
               stagger={0.01}
               className="text-white-primary text-body font-normal"
             />
-          </div>
+          </Link>
         )}
       </div>
     </div>

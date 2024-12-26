@@ -72,11 +72,11 @@ export default function ProjectItem({ project, color }: Props) {
               /> */}
               <TextSlideIn
                 text={project.title}
-                className="text-white-primary body-text uppercase text-2xl font-semibold"
+                className="text-white-primary text-2xl font-medium"
               />
               <TextSlideIn
                 text={project.category}
-                className="text-white-primary body-text uppercase opacity-50"
+                className="text-white-primary body-text opacity-50"
               />
               {/* <SectionTitle title={project.category} color="white" /> */}
             </div>

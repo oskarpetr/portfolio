@@ -52,13 +52,13 @@ export default function Preloader({ setIsPreloaded }: Props) {
       >
         <div className="relative w-full h-full flex gap-3 justify-center items-center">
           <TextSlideIn
-            text="Oskar Petr"
+            text="Oskar Petr ©"
             className="text-white-primary text-4xl font-medium"
           />
-          <TextSlideIn
+          {/* <TextSlideIn
             text="©"
             className="text-white-primary text-4xl body-text font-normal uppercase"
-          />
+          /> */}
 
           {/* <TextSlideIn
             text={percentage + "%"}

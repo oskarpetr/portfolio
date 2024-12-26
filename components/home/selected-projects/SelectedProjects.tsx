@@ -16,7 +16,7 @@ export default function SelectedProjects({ projects }: Props) {
 
   // subtitle
   const projectsSubtitle =
-    "I am a cybernetics student who loves to pursue web development, design, and writing. I turn your ideas into reality with aesthetics. Also writing for publications about my. Design, and writing. I turn your ideas into reality with.";
+    "Dive into a collection of projects I've worked on, ranging from client collaborations to academic explorations.";
 
   // projects scroll
   const { scrollYProgress } = useScroll({ target: projectsRef });

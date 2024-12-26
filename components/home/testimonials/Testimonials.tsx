@@ -7,9 +7,7 @@ import Image from "next/image";
 import Icon from "../../general/Icon";
 import { AnimatePresence } from "framer-motion";
 import ImageSlideIn from "../../animation/ImageSlideIn";
-import SectionBubble from "../../general/SectionBubble";
 import TestimonialItem from "./TestimonialItem";
-import SectionTitle from "@/components/general/SectionTitle";
 
 export default function Testimonials() {
   // testimonials state
