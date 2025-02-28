@@ -1,4 +1,3 @@
-import ComingSoon from "@/components/layout/ComingSoon";
 import Layout from "@/components/layout/Layout";
 import projects from "@/components/mock-data/projects";
 import Projects from "@/components/projects/Projects";
@@ -12,8 +11,6 @@ export default async function HomePage() {
       placeholder: await getPlaceholder(project.imageUrl),
     })),
   );
-
-  return <ComingSoon />;
 
   return (
     <Layout>
