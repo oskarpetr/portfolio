@@ -1,5 +1,4 @@
-// @ts-expect-error: Lenis does not have TS definitions
-import Lenis from "lenis/react";
+import { Lenis } from "lenis/react";
 import { ReactNode } from "react";
 
 interface Props {
