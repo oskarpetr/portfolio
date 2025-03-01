@@ -15,7 +15,7 @@ export default function ProjectItem({ project, index }: Props) {
   return (
     <div className="relative">
       <Link
-        href={`/projects/${project.id}`}
+        href={`/projects/${project.slug}`}
         className="relative z-0 block items-center justify-center overflow-hidden"
       >
         <motion.div
@@ -45,7 +45,7 @@ export default function ProjectItem({ project, index }: Props) {
           className="flex w-full justify-between px-8 py-4"
         >
           <div>
-            <div>{project.name}</div>
+            <div>{project.title}</div>
             <div className="text-sm opacity-50">{project.category}</div>
           </div>
 

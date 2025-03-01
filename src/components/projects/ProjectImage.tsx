@@ -10,8 +10,8 @@ export default function ProjectImage({ project }: Props) {
   return (
     <Fragment>
       <Image
-        src={project.imageUrl}
-        alt={project.name}
+        src={project.mainImage}
+        alt={project.title}
         fill
         priority
         placeholder="blur"

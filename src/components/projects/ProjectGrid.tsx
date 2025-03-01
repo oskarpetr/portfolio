@@ -26,7 +26,7 @@ export default function ProjectGrid({ projects, cols }: Props) {
         );
       }
 
-      // Else gap
+      // Else create gap
       else {
         return <div key={`project-gap-${index}`} className="col-span-1" />;
       }

@@ -3,23 +3,8 @@
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { BEZIER_EASING } from "@/utils/animation";
-import { useEffect } from "react";
 
-interface Props {
-  setIsPreloaded: (isPreloaded: boolean) => void;
-}
-
-export default function Preloader({ setIsPreloaded }: Props) {
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsPreloaded(true);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
-
+export default function Preloader() {
   return (
     <motion.div
       initial={{ opacity: 0, y: "100vh" }}

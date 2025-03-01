@@ -9,7 +9,8 @@ interface Props {
 export default function Providers({ children }: Props) {
   return (
     <Lenis root>
-      {children} <SpeedInsights />
+      {children}
+      <SpeedInsights />
     </Lenis>
   );
 }
