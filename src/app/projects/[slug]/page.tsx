@@ -2,11 +2,11 @@ import { getProject } from "@/utils/cms";
 import Image from "next/image";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function ProjectPage({ params }: Props) {
-  const project = await getProject(params.slug);
+  const project = await getProject((await params).slug);
 
   return (
     <div className="flex h-[calc(100vh-85px-80px)] flex-col justify-between gap-8">
