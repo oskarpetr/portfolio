@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import App from "@/components/layout/App";
+import ComingSoon from "@/components/layout/ComingSoon";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,15 +13,17 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Oskar Petr.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(
+  {
+    // children,
+  }: Readonly<{
+    children: React.ReactNode;
+  }>,
+) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
-        <App>{children}</App>
+        <ComingSoon />
       </body>
     </html>
   );
