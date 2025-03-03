@@ -21,20 +21,40 @@ export const projectType = defineType({
     defineField({
       name: "category",
       type: "string",
+      options: {
+        list: [
+          {
+            title: "Web development",
+            value: "webDevelopment",
+          },
+          {
+            title: "Web design",
+            value: "webDesign",
+          },
+          {
+            title: "Graphic design",
+            value: "graphicDesign",
+          },
+          {
+            title: "Writing",
+            value: "writing",
+          },
+        ],
+      },
+    }),
+    defineField({
+      name: "personal",
+      type: "boolean",
+    }),
+    defineField({
+      name: "client",
+      type: "string",
+      hidden: ({ parent }) => parent?.personal === true,
     }),
     defineField({
       name: "mainImage",
       type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: "alt",
-          type: "string",
-          title: "Alternative text",
-        }),
-      ],
+      fields: [{ name: "alt", type: "string" }],
     }),
     defineField({
       name: "images",
@@ -52,7 +72,93 @@ export const projectType = defineType({
     }),
     defineField({
       name: "description",
-      type: "text",
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          type: "text",
+        },
+        {
+          name: "cs",
+          type: "text",
+        },
+      ],
+    }),
+    defineField({
+      name: "development",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+      options: {
+        list: [
+          {
+            title: "Next.js",
+            value: "nextJs",
+          },
+          {
+            title: "WordPress development",
+            value: "wordpressDevelopment",
+          },
+          {
+            title: "E-commerce management",
+            value: "ecommerceManagement",
+          },
+          {
+            title: "Elementor",
+            value: "elementor",
+          },
+          {
+            title: "SEO optimization",
+            value: "seoOptimization",
+          },
+          {
+            title: "Multi-language support",
+            value: "multiLanguageSupport",
+          },
+          {
+            title: "Newsletter integration",
+            value: "newsletterIntegration",
+          },
+        ],
+        layout: "grid",
+      },
+    }),
+    defineField({
+      name: "design",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+      options: {
+        list: [
+          {
+            title: "UI/UX design",
+            value: "uiUxDesign",
+          },
+          {
+            title: "Web redesign",
+            value: "webRedesign",
+          },
+          {
+            title: "Graphic design",
+            value: "graphicDesign",
+          },
+          {
+            title: "Identity design",
+            value: "identityDesign",
+          },
+          {
+            title: "Animation",
+            value: "animation",
+          },
+        ],
+        layout: "grid",
+      },
     }),
     defineField({
       name: "startedAt",

@@ -7,28 +7,22 @@ import { ReactNode } from "react";
 interface Props {
   children: ReactNode;
   delay?: number;
-  className?: React.ComponentProps<"div">["className"];
   once?: boolean;
 }
 
-export default function FadeIn({
-  children,
-  delay = 0,
-  className,
-  once = true,
-}: Props) {
+export default function FadeIn({ children, delay = 0, once = true }: Props) {
   return (
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 10 }}
       viewport={{ once, amount: 0.5 }}
       transition={{
-        duration: 1,
         delay,
+        duration: 1,
         ease: BEZIER_EASING,
       }}
     >
-      <div className={className}>{children}</div>
+      {children}
     </motion.div>
   );
 }

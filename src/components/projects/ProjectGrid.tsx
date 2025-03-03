@@ -1,8 +1,8 @@
-import { IProject } from "@/types/Project.types";
+import { Project } from "@/types/Project.types";
 import ProjectItem from "./ProjectItem";
 
 interface Props {
-  projects: IProject[];
+  projects: Project[];
   cols: 4 | 2 | 1;
 }
 

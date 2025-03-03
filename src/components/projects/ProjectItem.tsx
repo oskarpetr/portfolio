@@ -1,58 +1,45 @@
 "use client";
 
-import { IProject } from "@/types/Project.types";
+import { Project } from "@/types/Project.types";
 import ProjectImage from "./ProjectImage";
-import { motion } from "framer-motion";
-import { BEZIER_EASING } from "@/utils/animation";
 import Link from "next/link";
+import { useTranslationStore } from "@/stores/useTranslationStore";
+import Reveal from "../animation/Reveal";
+import HoverElement from "../animation/HoverElement";
 
 interface Props {
-  project: IProject;
+  project: Project;
   index: number;
 }
 
 export default function ProjectItem({ project, index }: Props) {
+  const { translation } = useTranslationStore();
+
   return (
     <div className="relative">
-      <Link
-        href={`/projects/${project.slug}`}
-        className="relative z-0 block items-center justify-center overflow-hidden"
-      >
-        <motion.div
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          transition={{
-            delay: 0.2 * index,
-            ease: BEZIER_EASING,
-            duration: 1,
-          }}
-          style={{ paddingTop: "75%", position: "relative" }}
-          className="group"
-        >
-          <ProjectImage project={project} />
-        </motion.div>
+      <Link href={`/projects/${project.slug}`}>
+        <HoverElement hoverText="Visit">
+          <Reveal direction="up" delay={0.1 * index}>
+            <ProjectImage project={project} />
+          </Reveal>
+        </HoverElement>
       </Link>
 
       <div className="static block w-full overflow-hidden sm:absolute">
-        <motion.div
-          initial={{ y: "-100%" }}
-          animate={{ y: 0 }}
-          transition={{
-            delay: 0.2 * index,
-            ease: BEZIER_EASING,
-            duration: 1,
-          }}
-          className="flex w-full justify-between px-8 py-4"
-        >
-          <div>
-            <div>{project.title}</div>
-            <div className="text-sm opacity-50">{project.category}</div>
-          </div>
+        <Reveal direction="down" delay={0.1 * index}>
+          <div className="flex w-full justify-between py-4 sm:px-8">
+            <div>
+              <div>{project.title}</div>
+              <div className="text-sm opacity-50">
+                {translation.categories[project.category]}
+              </div>
+            </div>
 
-          <div className="text-sm opacity-50">
-            [ {String(index).padStart(2, "0")} ]
+            <div className="text-sm opacity-50">
+              [ {String(index).padStart(2, "0")} ]
+            </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </div>
   );

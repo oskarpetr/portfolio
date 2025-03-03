@@ -1,17 +1,20 @@
 export const projectsQuery = `*[_type == "project"] {
     _id,
     title,
-    slug,
+    "slug": slug.current,
     category,
+    personal,
+    client,
     mainImage {
-      asset -> {
-        url
-      }
+      "url": asset->url,
+      alt
     },
     images[] {
       "url": image.asset->url,
       alt
     },
+    development,
+    design,
     description,
     startedAt
   }`;
@@ -19,19 +22,22 @@ export const projectsQuery = `*[_type == "project"] {
 export const projectQuery = (
   slug: string,
 ) => `*[_type == "project" && slug.current == "${slug}"] {
-    _id,
+     _id,
     title,
-    slug,
+    "slug": slug.current,
     category,
+    personal,
+    client,
     mainImage {
-      asset -> {
-        url
-      }
+      "url": asset->url,
+      alt
     },
     images[] {
       "url": image.asset->url,
       alt
     },
+    development,
+    design,
     description,
     startedAt
   }[0]`;

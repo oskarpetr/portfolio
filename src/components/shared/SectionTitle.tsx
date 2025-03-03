@@ -1,4 +1,4 @@
-import FadeIn from "./FadeIn";
+import FadeIn from "../animation/FadeIn";
 
 interface Props {
   title: string;

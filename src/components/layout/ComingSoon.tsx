@@ -4,7 +4,7 @@ export default function ComingSoon() {
       <div className="mx-16 flex flex-col gap-4">
         <div className="text-xl font-semibold">Coming soon</div>
 
-        <p className="max-w-xl text-left leading-tight font-medium opacity-50">
+        <p className="max-w-xl text-left leading-snug font-medium opacity-50">
           I am a cybernetics student who loves to pursue web development,
           design, and writing. I help individuals and businesses make a
           memorable online presence.

@@ -1,20 +1,20 @@
 "use client";
 
-import { useLanguageStore } from "@/stores/useLanguageStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import SectionTitle from "../shared/SectionTitle";
 import ProjectGrid from "./ProjectGrid";
-import { IProject } from "@/types/Project.types";
+import { Project } from "@/types/Project.types";
 
 interface Props {
-  projects: IProject[];
+  projects: Project[];
 }
 
 export default function Projects({ projects }: Props) {
-  const { language } = useLanguageStore();
+  const { translation } = useTranslationStore();
 
   return (
     <div className="my-20 flex flex-col gap-16">
-      <SectionTitle title={language === "EN" ? "Projects" : "Projekty"} />
+      <SectionTitle title={translation.sectionTitles.projects} />
 
       <div id="projects">
         <div className="hidden grid-cols-4 lg:grid">
