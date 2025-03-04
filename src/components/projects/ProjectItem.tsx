@@ -19,14 +19,14 @@ export default function ProjectItem({ project, index }: Props) {
     <div className="relative">
       <Link href={`/projects/${project.slug}`}>
         <HoverElement hoverText="Visit">
-          <Reveal direction="up" delay={0.1 * index}>
+          <Reveal direction="up" delay={0.2 * index}>
             <ProjectImage project={project} />
           </Reveal>
         </HoverElement>
       </Link>
 
       <div className="static block w-full overflow-hidden sm:absolute">
-        <Reveal direction="down" delay={0.1 * index}>
+        <Reveal direction="down" delay={0.2 * index}>
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>

@@ -1,30 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
 import { BEZIER_EASING } from "@/utils/animation";
+import Image from "next/image";
+import logo from "../../../public/images/logo.svg";
+import FadeIn from "../animation/FadeIn";
+import Reveal from "../animation/Reveal";
 
 export default function Preloader() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: "100vh" }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 1, y: "-100vh" }}
+      initial={{ y: 0 }}
+      animate={{ y: "-100vh" }}
       transition={{
-        duration: 1,
+        delay: 1,
+        duration: 1.5,
         ease: BEZIER_EASING,
       }}
-      className="relative z-20"
+      className="fixed top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-4 bg-green-300"
     >
-      <div
-        className={cn(
-          "absolute top-0 left-0 flex h-screen w-screen flex-col items-center justify-center gap-4 bg-black",
-        )}
-      >
-        <div className="relative flex h-full w-full items-center justify-center gap-3">
-          <div className="text-xl text-white">Oskar Petr</div>
-        </div>
-      </div>
+      <Reveal direction="up" delay={0.1}>
+        <Image src={logo} alt="Logo" width={60} height={60} />
+      </Reveal>
+      <FadeIn delay={0.2}>
+        <div className="text-2xl">Oskar Petr</div>
+      </FadeIn>
     </motion.div>
   );
 }

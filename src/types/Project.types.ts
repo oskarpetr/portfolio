@@ -15,7 +15,7 @@ export interface Project {
   startedAt: string;
 }
 
-interface ProjectImage {
+export interface ProjectImage {
   url: string;
   alt: string;
   placeholder: string;
