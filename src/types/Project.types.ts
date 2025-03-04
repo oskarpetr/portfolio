@@ -48,10 +48,6 @@ export type ProjectDesign =
   | "identityDesign"
   | "animation";
 
-export interface ProjectSlug {
-  slug: string;
-}
-
 export interface ProjectSanity {
   _id: string;
   title: string;
@@ -65,4 +61,9 @@ export interface ProjectSanity {
   design: ProjectDesign[] | null;
   description: ProjectDescription;
   startedAt: string;
+}
+
+export interface ProjectSitemapSanity {
+  slug: string;
+  images: string[];
 }

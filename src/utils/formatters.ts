@@ -1,4 +1,8 @@
-import { Project, ProjectSanity, ProjectSlug } from "@/types/Project.types";
+import {
+  Project,
+  ProjectSanity,
+  ProjectSitemapSanity,
+} from "@/types/Project.types";
 import getPlaceholder from "./placeholder";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -60,7 +64,15 @@ function formatImage(url: string, width: number) {
   return urlFor(url).width(width).url();
 }
 
-export async function formatProjectSlugs(slugsCms: ProjectSlug[]) {
-  const slugs = slugsCms.map((slug) => slug.slug);
-  return slugs;
+export async function formatProjectsSitemap(
+  projectsSitemapCms: ProjectSitemapSanity[],
+) {
+  const projectsSitemap = projectsSitemapCms.map((projectSitemap) => ({
+    slug: projectSitemap.slug,
+    images: (projectSitemap.images ?? []).map((image) =>
+      formatImage(image, 1000),
+    ),
+  }));
+
+  return projectsSitemap;
 }

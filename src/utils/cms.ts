@@ -4,9 +4,9 @@ import { sanityClient } from "@/sanity/lib/client";
 import {
   formatProject,
   formatProjects,
-  formatProjectSlugs,
+  formatProjectsSitemap,
 } from "./formatters";
-import { projectQuery, projectSlugsQuery, projectsQuery } from "./queries";
+import { projectQuery, projectsSitemapQuery, projectsQuery } from "./queries";
 
 export async function getProjects() {
   const projectsCms = await sanityClient.fetch(projectsQuery);
@@ -22,9 +22,10 @@ export async function getProject(slug: string) {
   return project;
 }
 
-export async function getProjectSlugs() {
-  const slugsCms = await sanityClient.fetch(projectSlugsQuery);
-  const slugs = formatProjectSlugs(slugsCms);
+export async function getProjectsSitemap() {
+  const projectsSitemapCms = await sanityClient.fetch(projectsSitemapQuery);
+  console.log(projectsSitemapCms);
+  const projectsSitemap = formatProjectsSitemap(projectsSitemapCms);
 
-  return slugs;
+  return projectsSitemap;
 }

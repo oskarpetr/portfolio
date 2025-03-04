@@ -42,6 +42,7 @@ export const projectQuery = (
     startedAt
   }[0]`;
 
-export const projectSlugsQuery = `*[_type == "project"] {
+export const projectsSitemapQuery = `*[_type == "project"] {
     "slug": slug.current,
+    "images": images[].image.asset->url
   }`;
