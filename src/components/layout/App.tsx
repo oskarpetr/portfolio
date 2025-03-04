@@ -1,11 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import Providers from "./Providers";
 import Layout from "./Layout";
-import Preloader from "./Preloader";
-import { AnimatePresence } from "framer-motion";
 
 interface Props {
   children: ReactNode;
