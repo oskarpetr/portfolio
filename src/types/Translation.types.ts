@@ -17,6 +17,13 @@ export interface Translation {
   design: {
     [key in ProjectDesign]: string;
   };
+  projectDetail: {
+    development: string;
+    design: string;
+    client: string;
+    projectType: string;
+    personal: string;
+  };
 }
 
 export type Translations = {

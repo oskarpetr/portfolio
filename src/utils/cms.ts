@@ -24,7 +24,6 @@ export async function getProject(slug: string) {
 
 export async function getProjectsSitemap() {
   const projectsSitemapCms = await sanityClient.fetch(projectsSitemapQuery);
-  console.log(projectsSitemapCms);
   const projectsSitemap = formatProjectsSitemap(projectsSitemapCms);
 
   return projectsSitemap;

@@ -26,6 +26,13 @@ const translationEn: Translation = {
     identityDesign: "Identity design",
     animation: "Animation",
   },
+  projectDetail: {
+    development: "Development",
+    design: "Design",
+    client: "Client",
+    projectType: "Project type",
+    personal: "Personal",
+  },
 };
 
 const translationCs: Translation = {
@@ -53,6 +60,13 @@ const translationCs: Translation = {
     graphicDesign: "Grafický design",
     identityDesign: "Design vizuální identity",
     animation: "Animace",
+  },
+  projectDetail: {
+    development: "Vývoj",
+    design: "Design",
+    client: "Klient",
+    projectType: "Typ projektu",
+    personal: "Osobní",
   },
 };
 

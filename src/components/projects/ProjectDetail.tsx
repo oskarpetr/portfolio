@@ -68,52 +68,50 @@ export default function ProjectDetail({ project }: Props) {
             <div className="flex flex-col gap-4 xl:flex-row xl:gap-32">
               <FadeIn delay={0.3}>
                 <div className="w-32 text-base whitespace-nowrap">
-                  Development
+                  {translation.projectDetail.development}
                 </div>
               </FadeIn>
 
-              <FadeIn delay={0.3}>
-                <div className="w-80 text-base leading-snug font-normal">
-                  <ParagraphSplit
-                    text={development}
-                    delay={0.3}
-                    indent={false}
-                  />
-                </div>
-              </FadeIn>
+              <div className="w-80 text-base leading-snug font-normal">
+                <ParagraphSplit text={development} delay={0.3} indent={false} />
+              </div>
             </div>
           )}
 
           {design.length > 0 && (
             <div className="flex flex-col gap-4 xl:flex-row xl:gap-32">
               <FadeIn delay={0.4}>
-                <div className="w-32 text-base whitespace-nowrap">Design</div>
-              </FadeIn>
-
-              <FadeIn delay={0.4}>
-                <div className="w-80 text-base leading-snug font-normal">
-                  <ParagraphSplit text={design} delay={0.4} indent={false} />
+                <div className="w-32 text-base whitespace-nowrap">
+                  {translation.projectDetail.design}
                 </div>
               </FadeIn>
+
+              <div className="w-80 text-base leading-snug font-normal">
+                <ParagraphSplit text={design} delay={0.4} indent={false} />
+              </div>
             </div>
           )}
 
           <div className="flex flex-col gap-4 xl:flex-row xl:gap-32">
             <FadeIn delay={0.5}>
               <div className="w-32 text-base">
-                {project.personal ? "Project type" : "Client"}
+                {project.personal
+                  ? translation.projectDetail.projectType
+                  : translation.projectDetail.client}
               </div>
             </FadeIn>
 
-            <FadeIn delay={0.5}>
-              <div className="text-base font-normal">
-                <ParagraphSplit
-                  text={project.personal ? "Personal" : (project.client ?? "")}
-                  delay={0.5}
-                  indent={false}
-                />
-              </div>
-            </FadeIn>
+            <div className="text-base font-normal">
+              <ParagraphSplit
+                text={
+                  project.personal
+                    ? translation.projectDetail.personal
+                    : (project.client ?? "")
+                }
+                delay={0.5}
+                indent={false}
+              />
+            </div>
           </div>
         </div>
       </div>
