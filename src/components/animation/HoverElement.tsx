@@ -46,7 +46,7 @@ export default function HoverElement({ children, hoverText }: Props) {
           top: mouseY,
         }}
       >
-        <HoverContent text={hoverText} />
+        <HoverText text={hoverText} />
       </motion.div>
     </div>
   );
@@ -56,7 +56,7 @@ interface HoverProps {
   text: string;
 }
 
-function HoverContent({ text }: HoverProps) {
+function HoverText({ text }: HoverProps) {
   return (
     <div className="border bg-white px-4 py-2 text-sm uppercase">
       [ {text} ]

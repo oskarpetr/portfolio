@@ -1,4 +1,4 @@
-import { Project, ProjectSanity } from "@/types/Project.types";
+import { Project, ProjectSanity, ProjectSlug } from "@/types/Project.types";
 import getPlaceholder from "./placeholder";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -58,4 +58,9 @@ export async function formatProject(
 
 function formatImage(url: string, width: number) {
   return urlFor(url).width(width).url();
+}
+
+export async function formatProjectSlugs(slugsCms: ProjectSlug[]) {
+  const slugs = slugsCms.map((slug) => slug.slug);
+  return slugs;
 }

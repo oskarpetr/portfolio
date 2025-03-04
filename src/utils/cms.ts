@@ -1,8 +1,12 @@
 "use server";
 
 import { sanityClient } from "@/sanity/lib/client";
-import { formatProject, formatProjects } from "./formatters";
-import { projectQuery, projectsQuery } from "./queries";
+import {
+  formatProject,
+  formatProjects,
+  formatProjectSlugs,
+} from "./formatters";
+import { projectQuery, projectSlugsQuery, projectsQuery } from "./queries";
 
 export async function getProjects() {
   const projectsCms = await sanityClient.fetch(projectsQuery);
@@ -16,4 +20,11 @@ export async function getProject(slug: string) {
   const project = formatProject(projectCms);
 
   return project;
+}
+
+export async function getProjectSlugs() {
+  const slugsCms = await sanityClient.fetch(projectSlugsQuery);
+  const slugs = formatProjectSlugs(slugsCms);
+
+  return slugs;
 }

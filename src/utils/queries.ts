@@ -41,3 +41,7 @@ export const projectQuery = (
     description,
     startedAt
   }[0]`;
+
+export const projectSlugsQuery = `*[_type == "project"] {
+    "slug": slug.current,
+  }`;
