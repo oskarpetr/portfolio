@@ -36,6 +36,9 @@ export async function formatProject(
     mainImage: {
       url: formatImage(projectCms.mainImage.url, imageWidth),
       alt: projectCms.mainImage.alt,
+      placeholder: await getPlaceholder(
+        formatImage(projectCms.mainImage.url, imageWidth),
+      ),
     },
     images: images
       ? await Promise.all(
@@ -52,9 +55,6 @@ export async function formatProject(
     design: projectCms.design ?? [],
     description: projectCms.description,
     startedAt: projectCms.startedAt,
-    placeholder: await getPlaceholder(
-      formatImage(projectCms.mainImage.url, imageWidth),
-    ),
   };
 
   return project;

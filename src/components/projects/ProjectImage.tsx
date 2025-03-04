@@ -14,7 +14,7 @@ export default function ProjectImage({ project }: Props) {
         fill
         priority
         placeholder="blur"
-        blurDataURL={project.placeholder}
+        blurDataURL={project.mainImage.placeholder}
         className="object-cover grayscale transition-all duration-500 hover:scale-105"
       />
     </div>

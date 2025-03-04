@@ -26,7 +26,7 @@ export default function ProjectDetail({ project }: Props) {
   return (
     <div className="flex h-full flex-col-reverse gap-24 lg:flex-row">
       <div className="flex flex-col gap-4 lg:w-2/5">
-        {project.images.map((image, index) => (
+        {[project.mainImage, ...project.images].map((image, index) => (
           <HoverElement hoverText={image.alt} key={image.alt}>
             <Reveal direction="up" delay={0.1 * index}>
               <div className="pt-[75%]">

@@ -13,13 +13,12 @@ export interface Project {
   design: ProjectDesign[];
   description: ProjectDescription;
   startedAt: string;
-  placeholder: string;
 }
 
 interface ProjectImage {
   url: string;
   alt: string;
-  placeholder?: string;
+  placeholder: string;
 }
 
 type ProjectDescription = {
