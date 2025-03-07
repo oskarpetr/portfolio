@@ -2,11 +2,19 @@
 
 import { sanityClient } from "@/sanity/lib/client";
 import {
+  formatArticles,
+  formatGraphicDesigns,
   formatProject,
   formatProjects,
   formatProjectsSitemap,
-} from "./formatters";
-import { projectQuery, projectsSitemapQuery, projectsQuery } from "./queries";
+} from "./cmsFormatters";
+import {
+  projectQuery,
+  projectsSitemapQuery,
+  projectsQuery,
+  articlesQuery,
+  graphicDesignsQuery,
+} from "./queries";
 
 export async function getProjects() {
   const projectsCms = await sanityClient.fetch(projectsQuery);
@@ -27,4 +35,18 @@ export async function getProjectsSitemap() {
   const projectsSitemap = formatProjectsSitemap(projectsSitemapCms);
 
   return projectsSitemap;
+}
+
+export async function getArticles() {
+  const articlesCms = await sanityClient.fetch(articlesQuery);
+  const articles = formatArticles(articlesCms);
+
+  return articles;
+}
+
+export async function getGraphicDesigns() {
+  const graphicDesignsCms = await sanityClient.fetch(graphicDesignsQuery);
+  const graphicDesigns = formatGraphicDesigns(graphicDesignsCms);
+
+  return graphicDesigns;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { BEZIER_EASING } from "@/utils/animation";
 
@@ -8,7 +8,7 @@ interface Props {
   children: ReactNode;
 }
 
-export default function TextStagger({ children }: Props) {
+function TextStagger({ children }: Props) {
   return (
     <motion.div
       initial="initial"
@@ -37,3 +37,5 @@ export default function TextStagger({ children }: Props) {
     </motion.div>
   );
 }
+
+export default memo(TextStagger);

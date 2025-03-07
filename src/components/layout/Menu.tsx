@@ -1,73 +1,18 @@
-import Link from "next/link";
 import TextStagger from "../animation/TextStagger";
-import { useTranslationStore } from "../../stores/useTranslationStore";
+import { useTranslationStore } from "../../translation/useTranslationStore";
 import FadeIn from "../animation/FadeIn";
-import Image from "next/image";
-import logo from "../../../public/images/logo.svg";
+import Logo from "./Logo";
+import { menuItems } from "@/data/menu";
+import Link from "next/link";
 
 export default function Menu() {
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const { language, toggleLanguage } = useTranslationStore();
-
   return (
     <div className="sticky top-0 z-10 flex h-[85px] items-center justify-between bg-[#ffffffd4] px-10 py-6 backdrop-blur-3xl">
-      <TextStagger>
-        <Link href="/" className="flex items-center gap-1">
-          <Image src={logo} alt="Logo" width={20} height={20} />
-          <div>Oskar Petr</div>
-        </Link>
-      </TextStagger>
+      <Logo />
 
-      <div className="hidden gap-16 md:flex">
-        <div className="flex gap-4">
-          <FadeIn delay={0.1}>
-            <button
-              onClick={() => scrollTo("projects")}
-              className="flex cursor-pointer"
-            >
-              <TextStagger>Projects,</TextStagger>
-            </button>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <button
-              onClick={() => scrollTo("about")}
-              className="flex cursor-pointer"
-            >
-              <TextStagger>About,</TextStagger>
-            </button>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <button
-              onClick={() => scrollTo("articles")}
-              className="cursor-pointer"
-            >
-              <TextStagger>Articles,</TextStagger>
-            </button>
-          </FadeIn>
-
-          <FadeIn delay={0.4}>
-            <button
-              onClick={() => scrollTo("contact")}
-              className="cursor-pointer"
-            >
-              <TextStagger>Contact</TextStagger>
-            </button>
-          </FadeIn>
-        </div>
-
-        <FadeIn delay={0.5}>
-          <button onClick={toggleLanguage} className="w-8 cursor-pointer">
-            <TextStagger>{language.toUpperCase()}</TextStagger>
-          </button>
-        </FadeIn>
+      <div className="hidden w-1/2 justify-between gap-16 md:flex">
+        <MenuItems />
+        <SwitchLanguage />
       </div>
 
       <div className="block md:hidden">
@@ -79,5 +24,46 @@ export default function Menu() {
         </FadeIn>
       </div>
     </div>
+  );
+}
+
+function MenuItems() {
+  const { translation } = useTranslationStore();
+
+  return (
+    <div className="flex items-center gap-4">
+      {menuItems.map((item, index) => (
+        <FadeIn delay={0.1 * index} key={`menu-item-${item.title}`}>
+          <Link href={`/#${item.name}`} className="flex cursor-pointer">
+            <TextStagger>
+              {translation.menu[item.name as keyof typeof translation.menu]}
+              {index !== menuItems.length - 1 ? "," : ""}
+            </TextStagger>
+          </Link>
+        </FadeIn>
+      ))}
+    </div>
+  );
+}
+
+export const scrollTo = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+function SwitchLanguage() {
+  const { language, toggleLanguage } = useTranslationStore();
+
+  return (
+    <FadeIn delay={0.5}>
+      <button
+        onClick={toggleLanguage}
+        className="flex w-8 cursor-pointer items-center justify-center"
+      >
+        <TextStagger>{language.toUpperCase()}</TextStagger>
+      </button>
+    </FadeIn>
   );
 }

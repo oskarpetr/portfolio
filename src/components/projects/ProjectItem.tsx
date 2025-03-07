@@ -3,9 +3,10 @@
 import { Project } from "@/types/Project.types";
 import ProjectImage from "./ProjectImage";
 import Link from "next/link";
-import { useTranslationStore } from "@/stores/useTranslationStore";
+import { useTranslationStore } from "@/translation/useTranslationStore";
 import Reveal from "../animation/Reveal";
 import HoverElement from "../animation/HoverElement";
+import Index from "../shared/Index";
 
 interface Props {
   project: Project;
@@ -18,7 +19,11 @@ export default function ProjectItem({ project, index }: Props) {
   return (
     <div className="relative">
       <Link href={`/projects/${project.slug}`}>
-        <HoverElement hoverText="Visit">
+        <HoverElement
+          hoverText={{
+            title: "Visit",
+          }}
+        >
           <Reveal direction="up" delay={0.2 * index}>
             <ProjectImage project={project} />
           </Reveal>
@@ -35,9 +40,7 @@ export default function ProjectItem({ project, index }: Props) {
               </div>
             </div>
 
-            <div className="text-sm opacity-50">
-              [ {String(index).padStart(2, "0")} ]
-            </div>
+            <Index index={index} />
           </div>
         </Reveal>
       </div>

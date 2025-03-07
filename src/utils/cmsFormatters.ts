@@ -3,14 +3,19 @@ import {
   ProjectSanity,
   ProjectSitemapSanity,
 } from "@/types/Project.types";
-import getPlaceholder from "./placeholder";
 import { urlFor } from "@/sanity/lib/image";
+import { Article, ArticleSanity } from "@/types/Article.types";
+import {
+  GraphicDesign,
+  GraphicDesignSanity,
+} from "@/types/GraphicDesign.types";
+import { getPlaceholder } from "./placeholder";
 
 export async function formatProjects(projectsCms: ProjectSanity[]) {
   const projects: Project[] = await Promise.all(
     projectsCms.map(
       async (project: ProjectSanity) =>
-        await formatProject(project, 1000, false),
+        await formatProject(project, 800, false),
     ),
   );
 
@@ -23,16 +28,12 @@ export async function formatProjects(projectsCms: ProjectSanity[]) {
 
 export async function formatProject(
   projectCms: ProjectSanity,
-  imageWidth: number = 1200,
+  imageWidth: number = 1000,
   images: boolean = true,
 ) {
   const project: Project = {
+    ...projectCms,
     id: projectCms._id,
-    title: projectCms.title,
-    slug: projectCms.slug,
-    category: projectCms.category,
-    personal: projectCms.personal,
-    client: projectCms.client,
     mainImage: {
       url: formatImage(projectCms.mainImage.url, imageWidth),
       alt: projectCms.mainImage.alt,
@@ -53,26 +54,57 @@ export async function formatProject(
       : [],
     development: projectCms.development ?? [],
     design: projectCms.design ?? [],
-    description: projectCms.description,
-    startedAt: projectCms.startedAt,
   };
 
   return project;
-}
-
-function formatImage(url: string, width: number) {
-  return urlFor(url).width(width).url();
 }
 
 export async function formatProjectsSitemap(
   projectsSitemapCms: ProjectSitemapSanity[],
 ) {
   const projectsSitemap = projectsSitemapCms.map((projectSitemap) => ({
-    slug: projectSitemap.slug,
+    ...projectSitemap,
     images: (projectSitemap.images ?? []).map((image) =>
       formatImage(image, 1000),
     ),
   }));
 
   return projectsSitemap;
+}
+
+export async function formatArticles(articlesCms: ArticleSanity[]) {
+  const articles: Article[] = articlesCms.map((article: ArticleSanity) => ({
+    ...article,
+    id: article._id,
+  }));
+
+  const articlesSorted = articles.sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
+
+  return articlesSorted;
+}
+
+export async function formatGraphicDesigns(
+  graphicDesignsCms: GraphicDesignSanity[],
+) {
+  const graphicDesigns: GraphicDesign[] = await Promise.all(
+    graphicDesignsCms.map(async (graphicDesign) => ({
+      id: graphicDesign._id,
+      image: {
+        url: formatImage(graphicDesign.image.url, 800),
+        alt: graphicDesign.image.alt,
+        placeholder: await getPlaceholder(
+          formatImage(graphicDesign.image.url, 800),
+        ),
+      },
+    })),
+  );
+
+  return graphicDesigns;
+}
+
+function formatImage(url: string, width: number) {
+  return urlFor(url).width(width).url();
 }

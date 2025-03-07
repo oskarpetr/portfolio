@@ -1,14 +1,15 @@
 "use client";
 
 import { motion, useMotionValue } from "framer-motion";
-import { ReactNode, useEffect, useState } from "react";
+import { memo, ReactNode, useEffect, useState } from "react";
+import HoverText, { HoverTextType } from "./HoverText";
 
 interface Props {
   children: ReactNode;
-  hoverText: string;
+  hoverText: HoverTextType;
 }
 
-export default function HoverElement({ children, hoverText }: Props) {
+function HoverElement({ children, hoverText }: Props) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -46,20 +47,10 @@ export default function HoverElement({ children, hoverText }: Props) {
           top: mouseY,
         }}
       >
-        <HoverText text={hoverText} />
+        <HoverText hoverText={hoverText} />
       </motion.div>
     </div>
   );
 }
 
-interface HoverProps {
-  text: string;
-}
-
-function HoverText({ text }: HoverProps) {
-  return (
-    <div className="border bg-white px-4 py-2 text-sm uppercase">
-      [ {text} ]
-    </div>
-  );
-}
+export default memo(HoverElement);

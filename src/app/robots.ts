@@ -1,3 +1,4 @@
+import { baseUrl } from "@/utils/seo";
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -5,8 +6,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/private/",
+      disallow: "/admin/",
     },
-    sitemap: "https://oskarpetr.com/sitemap.xml",
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

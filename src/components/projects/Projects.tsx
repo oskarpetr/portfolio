@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslationStore } from "@/stores/useTranslationStore";
+import { useTranslationStore } from "@/translation/useTranslationStore";
 import SectionTitle from "../shared/SectionTitle";
 import ProjectGrid from "./ProjectGrid";
 import { Project } from "@/types/Project.types";
@@ -13,7 +13,7 @@ export default function Projects({ projects }: Props) {
   const { translation } = useTranslationStore();
 
   return (
-    <div className="my-20 flex flex-col gap-16">
+    <div className="mt-20">
       <SectionTitle title={translation.sectionTitles.projects} />
 
       <div id="projects">

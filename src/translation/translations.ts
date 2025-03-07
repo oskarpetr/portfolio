@@ -3,6 +3,10 @@ import { Translation, Translations } from "@/types/Translation.types";
 const translationEn: Translation = {
   sectionTitles: {
     projects: "Projects",
+    services: "Services",
+    graphicDesigns: "Graphic designs",
+    articles: "Articles",
+    footer: "Footer",
   },
   categories: {
     webDevelopment: "Web development",
@@ -12,9 +16,12 @@ const translationEn: Translation = {
   },
   development: {
     nextJs: "Next.js",
+    cms: "CMS",
     wordpressDevelopment: "WordPress development",
     ecommerceManagement: "E-commerce management",
     elementor: "Elementor",
+    tailwindCss: "Tailwind CSS",
+    framerMotion: "Framer Motion",
     seoOptimization: "SEO optimization",
     multiLanguageSupport: "Multi-language support",
     newsletterIntegration: "Newsletter integration",
@@ -27,17 +34,35 @@ const translationEn: Translation = {
     animation: "Animation",
   },
   projectDetail: {
-    development: "Development",
-    design: "Design",
     client: "Client",
     projectType: "Project type",
     personal: "Personal",
+  },
+  services: {
+    development: "Development",
+    design: "Design",
+    writing: "Writing",
+  },
+  menu: {
+    projects: "Projects",
+    about: "About",
+    services: "Services",
+    contact: "Contact",
+  },
+  footer: {
+    startProject: "Start a project?",
+    location: "Location",
+    country: "Czech Republic",
   },
 };
 
 const translationCs: Translation = {
   sectionTitles: {
     projects: "Projekty",
+    services: "Služby",
+    graphicDesigns: "Grafické designy",
+    articles: "Články",
+    footer: "Zápatí",
   },
   categories: {
     webDevelopment: "Vývoj webu",
@@ -47,9 +72,12 @@ const translationCs: Translation = {
   },
   development: {
     nextJs: "Next.js",
+    cms: "CMS",
     wordpressDevelopment: "Vývoj WordPressu",
     ecommerceManagement: "Správa e-shopu",
     elementor: "Elementor",
+    tailwindCss: "Tailwind CSS",
+    framerMotion: "Framer Motion",
     seoOptimization: "SEO optimalizace",
     multiLanguageSupport: "Podpora více jazyků",
     newsletterIntegration: "Integrace newsletteru",
@@ -62,11 +90,25 @@ const translationCs: Translation = {
     animation: "Animace",
   },
   projectDetail: {
-    development: "Vývoj",
-    design: "Design",
     client: "Klient",
     projectType: "Typ projektu",
     personal: "Osobní",
+  },
+  services: {
+    development: "Vývoj",
+    design: "Design",
+    writing: "Tvorba článků",
+  },
+  menu: {
+    projects: "Projekty",
+    about: "O mně",
+    services: "Služby",
+    contact: "Kontakt",
+  },
+  footer: {
+    startProject: "Začneme projekt?",
+    location: "Lokace",
+    country: "Česká republika",
   },
 };
 

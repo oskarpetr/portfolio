@@ -33,9 +33,12 @@ export type ProjectCategory =
 
 export type ProjectDevelopment =
   | "nextJs"
+  | "cms"
   | "wordpressDevelopment"
   | "ecommerceManagement"
   | "elementor"
+  | "tailwindCss"
+  | "framerMotion"
   | "seoOptimization"
   | "multiLanguageSupport"
   | "newsletterIntegration";

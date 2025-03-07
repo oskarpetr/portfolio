@@ -1,3 +1,4 @@
+import { rootMetadata } from "@/utils/seo";
 import "./globals.css";
 import App from "@/components/layout/App";
 
@@ -16,4 +17,8 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+export async function generateMetadata() {
+  return rootMetadata();
 }

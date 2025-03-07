@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
+    "@plaiceholder/next": "^3.0.0",
     "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
@@ -18,9 +20,11 @@
     "lenis": "^1.1.21",
     "next": "15.2.0",
     "next-sanity": "9",
+    "plaiceholder": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "3",
+    "sharp": "0.32.6",
     "styled-components": "6",
     "tailwind-merge": "^3.0.2",
     "zustand": "^5.0.3"

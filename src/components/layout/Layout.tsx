@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 import Menu from "./Menu";
-import { useTranslationStore } from "@/stores/useTranslationStore";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { Geist } from "next/font/google";
+import Footer from "./Footer";
+import SchemaMarkup from "../seo/SchemaMarkup";
 
 interface Props {
   children: ReactNode;
@@ -17,17 +18,19 @@ const geistSans = Geist({
 export default function Layout({ children }: Props) {
   const pathname = usePathname();
 
-  const { language } = useTranslationStore();
-
   return (
     <div className={`${geistSans.variable} antialiased`}>
+      <SchemaMarkup />
+
       <Menu />
 
       <AnimatePresence mode="sync">
-        <div key={`${pathname}-${language}`} className="p-10">
+        <div key={`${pathname}`} className="p-10">
           {children}
         </div>
       </AnimatePresence>
+
+      <Footer />
     </div>
   );
 }

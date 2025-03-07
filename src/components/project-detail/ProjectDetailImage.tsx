@@ -3,14 +3,14 @@ import HoverElement from "../animation/HoverElement";
 import Reveal from "../animation/Reveal";
 import { ProjectImage } from "@/types/Project.types";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, memo, useEffect, useRef } from "react";
 
 interface Props {
   image: ProjectImage;
   index: number;
 }
 
-export default function ProjectDetailImage({ image, index }: Props) {
+function ProjectDetailImage({ image, index }: Props) {
   const imageRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -19,12 +19,12 @@ export default function ProjectDetailImage({ image, index }: Props) {
   });
   const widthTransform = useTransform(
     scrollYProgress,
-    [0, 0.4],
+    [0, 0.3],
     ["80%", "100%"],
   );
   const width = useSpring(widthTransform, { stiffness: 100, damping: 20 });
 
-  useEffect(() => {
+  const setImageWidth = (index: number) => {
     if (index === 0) {
       width.set("100%");
     } else if (index === 1) {
@@ -32,12 +32,20 @@ export default function ProjectDetailImage({ image, index }: Props) {
     } else {
       width.set("80%");
     }
-  }, [index]);
+  };
+
+  useEffect(() => {
+    setImageWidth(index);
+  }, []);
 
   const imageComponent = (
-    <HoverElement hoverText={image.alt}>
+    <HoverElement
+      hoverText={{
+        title: image.alt,
+      }}
+    >
       <Reveal direction="up" delay={0.1 * index}>
-        <div className="relative pt-[75%]">
+        <div className="relative pt-[80%]">
           <Image
             src={image.url}
             alt={image.alt}
@@ -57,9 +65,9 @@ export default function ProjectDetailImage({ image, index }: Props) {
     <Fragment>
       <motion.div
         key={image.alt}
-        style={{ width }}
         ref={imageRef}
-        className="hidden lg:block lg:h-[32vw] xl:h-[28vw]"
+        style={{ width }}
+        className="hidden lg:block lg:h-[28vw] xl:h-[28vw]"
       >
         {imageComponent}
       </motion.div>
@@ -68,3 +76,5 @@ export default function ProjectDetailImage({ image, index }: Props) {
     </Fragment>
   );
 }
+
+export default memo(ProjectDetailImage);

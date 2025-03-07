@@ -46,3 +46,18 @@ export const projectsSitemapQuery = `*[_type == "project"] {
     "slug": slug.current,
     "images": images[].image.asset->url
   }`;
+
+export const articlesQuery = `*[_type == "article"] {
+    _id,
+    title,
+    url,
+    publishedAt,
+  }`;
+
+export const graphicDesignsQuery = `*[_type == "graphicDesign"] {
+  _id,
+	image {
+		"url": asset->url,
+    alt
+  },
+}`;

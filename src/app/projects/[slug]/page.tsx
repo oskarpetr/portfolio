@@ -1,6 +1,6 @@
-import ProjectDetail from "@/components/projects/ProjectDetail";
+import ProjectDetail from "@/components/project-detail/ProjectDetail";
 import { getProject } from "@/utils/cms";
-import { projectMetadata } from "@/utils/metadata";
+import { projectMetadata } from "@/utils/seo";
 import { cache } from "react";
 
 interface Props {

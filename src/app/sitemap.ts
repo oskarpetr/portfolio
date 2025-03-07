@@ -1,4 +1,5 @@
 import { getProjectsSitemap } from "@/utils/cms";
+import { baseUrl } from "@/utils/seo";
 import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -6,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const projects: MetadataRoute.Sitemap = projectsSitemap.map(
     (projectSitemap) => ({
-      url: `https://oskarpetr.com/projects/${projectSitemap.slug}`,
+      url: `${baseUrl}/projects/${projectSitemap.slug}`,
       changeFrequency: "monthly",
       priority: 0.8,
       images: projectSitemap.images,
@@ -15,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://oskarpetr.com",
+      url: baseUrl,
       changeFrequency: "weekly",
       priority: 1,
     },

@@ -1,11 +1,9 @@
-import { DocumentTextIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const projectType = defineType({
   name: "project",
   title: "Project",
   type: "document",
-  icon: DocumentTextIcon,
   fields: [
     defineField({
       name: "title",
@@ -99,6 +97,10 @@ export const projectType = defineType({
             value: "nextJs",
           },
           {
+            title: "CMS",
+            value: "cms",
+          },
+          {
             title: "WordPress development",
             value: "wordpressDevelopment",
           },
@@ -109,6 +111,14 @@ export const projectType = defineType({
           {
             title: "Elementor",
             value: "elementor",
+          },
+          {
+            title: "Tailwind CSS",
+            value: "tailwindCss",
+          },
+          {
+            title: "Framer Motion",
+            value: "framerMotion",
           },
           {
             title: "SEO optimization",

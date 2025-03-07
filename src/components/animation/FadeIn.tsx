@@ -2,20 +2,19 @@
 
 import { BEZIER_EASING } from "@/utils/animation";
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
   delay?: number;
-  once?: boolean;
 }
 
-export default function FadeIn({ children, delay = 0, once = true }: Props) {
+function FadeIn({ children, delay = 0 }: Props) {
   return (
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 10 }}
-      viewport={{ once, amount: 0.5 }}
+      viewport={{ once: true }}
       transition={{
         delay,
         duration: 1,
@@ -26,3 +25,5 @@ export default function FadeIn({ children, delay = 0, once = true }: Props) {
     </motion.div>
   );
 }
+
+export default memo(FadeIn);

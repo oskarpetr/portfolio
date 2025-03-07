@@ -1,19 +1,17 @@
+"use client";
+
 import { BEZIER_EASING } from "@/utils/animation";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
+import { memo } from "react";
 
 interface Props {
   text: string;
   indent?: boolean;
-
   delay?: number;
 }
 
-export default function ParagraphSplit({
-  text,
-  indent = true,
-  delay = 0,
-}: Props) {
+function ParagraphSplit({ text, indent = true, delay = 0 }: Props) {
   const words = text.split(" ");
   const stagger = 0.01;
 
@@ -24,6 +22,7 @@ export default function ParagraphSplit({
           key={index}
           initial={{ y: "200%", clipPath: "inset(100% 0 100% 0)" }}
           animate={{ y: 0, clipPath: "inset(0 0 0 0)" }}
+          // viewport={{ once: true }}
           transition={{
             delay: delay + index * stagger,
             duration: 1,
@@ -40,3 +39,5 @@ export default function ParagraphSplit({
     </div>
   );
 }
+
+export default memo(ParagraphSplit);

@@ -13,6 +13,7 @@ export default function ProjectImage({ project }: Props) {
         alt={project.mainImage.alt}
         fill
         priority
+        loading="eager"
         placeholder="blur"
         blurDataURL={project.mainImage.placeholder}
         className="object-cover grayscale transition-all duration-500 hover:scale-105"

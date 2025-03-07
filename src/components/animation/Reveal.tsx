@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { BEZIER_EASING } from "@/utils/animation";
 
@@ -8,7 +8,7 @@ interface Props {
   delay?: number;
 }
 
-export default function Reveal({ children, direction, delay = 0 }: Props) {
+function Reveal({ children, direction, delay = 0 }: Props) {
   return (
     <div className="relative block overflow-hidden">
       <motion.div
@@ -25,3 +25,5 @@ export default function Reveal({ children, direction, delay = 0 }: Props) {
     </div>
   );
 }
+
+export default memo(Reveal);

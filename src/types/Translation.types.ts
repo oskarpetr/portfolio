@@ -7,6 +7,10 @@ import {
 export interface Translation {
   sectionTitles: {
     projects: string;
+    services: string;
+    graphicDesigns: string;
+    articles: string;
+    footer: string;
   };
   categories: {
     [key in ProjectCategory]: string;
@@ -18,11 +22,25 @@ export interface Translation {
     [key in ProjectDesign]: string;
   };
   projectDetail: {
-    development: string;
-    design: string;
     client: string;
     projectType: string;
     personal: string;
+  };
+  services: {
+    development: string;
+    design: string;
+    writing: string;
+  };
+  menu: {
+    projects: string;
+    about: string;
+    services: string;
+    contact: string;
+  };
+  footer: {
+    startProject: string;
+    location: string;
+    country: string;
   };
 }
 
