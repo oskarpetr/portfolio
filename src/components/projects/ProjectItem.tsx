@@ -35,7 +35,7 @@ export default function ProjectItem({ project, index }: Props) {
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>
-              <div className="text-sm opacity-50">
+              <div className="text-sm opacity-70">
                 {translation.categories[project.category]}
               </div>
             </div>

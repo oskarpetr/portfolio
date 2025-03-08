@@ -10,7 +10,7 @@ export default function Menu() {
     <div className="sticky top-0 z-10 flex h-[85px] items-center justify-between bg-[#ffffffd4] px-10 py-6 backdrop-blur-3xl">
       <Logo />
 
-      <div className="hidden w-1/2 justify-between gap-16 md:flex">
+      <div className="hidden w-1/2 justify-between md:flex">
         <MenuItems />
         <SwitchLanguage />
       </div>

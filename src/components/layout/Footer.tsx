@@ -12,14 +12,16 @@ export default function Footer() {
 
   return (
     <div
-      className="relative mt-48 h-[500px]"
+      className="relative mt-48 sm:h-[500px]"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed bottom-0 h-[500px] w-full">
-        <div className="flex h-full flex-col justify-between bg-neutral-950 p-10 text-white">
-          <Logo color="white" />
+      <div className="bottom-0 w-full sm:fixed sm:h-[500px]">
+        <div className="flex h-full flex-col-reverse justify-between gap-16 bg-neutral-950 p-10 text-white sm:flex-col sm:gap-0">
+          <div className="hidden sm:block">
+            <Logo color="white" />
+          </div>
 
-          <div className="grid grid-cols-4 font-normal">
+          <div className="grid grid-cols-1 gap-y-12 font-normal sm:grid-cols-2 lg:grid-cols-4">
             <StartProject />
             <Location />
             <SocialSites />
