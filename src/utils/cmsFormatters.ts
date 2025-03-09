@@ -29,10 +29,10 @@ export async function formatProjectsShort(
       id: projectShort._id,
       service: formatServiceShort(projectShort.service),
       mainImage: {
-        url: formatImage(projectShort.mainImage.url, 800),
+        url: formatImage(projectShort.mainImage.url, 700),
         alt: projectShort.mainImage.alt,
         placeholder: await getPlaceholder(
-          formatImage(projectShort.mainImage.url, 800),
+          formatImage(projectShort.mainImage.url, 700),
         ),
       },
     })),
@@ -51,17 +51,17 @@ export async function formatProject(projectCms: ProjectSanity) {
     id: projectCms._id,
     tags: formatTags(projectCms.tags ?? []),
     mainImage: {
-      url: formatImage(projectCms.mainImage.url, 1000),
+      url: formatImage(projectCms.mainImage.url, 800),
       alt: projectCms.mainImage.alt,
       placeholder: await getPlaceholder(
-        formatImage(projectCms.mainImage.url, 1000),
+        formatImage(projectCms.mainImage.url, 800),
       ),
     },
     images: await Promise.all(
       (projectCms.images ?? []).map(async (image) => ({
-        url: formatImage(image.url, 1000),
+        url: formatImage(image.url, 800),
         alt: image.alt,
-        placeholder: await getPlaceholder(formatImage(image.url, 1000)),
+        placeholder: await getPlaceholder(formatImage(image.url, 800)),
       })),
     ),
   };

@@ -18,7 +18,7 @@ export default function AboutText({ about }: Props) {
         <ParagraphOpacity text={about.title[language]} />
       </div>
 
-      <div className="text-base font-normal md:w-1/2">
+      <div className="text-base font-normal lg:w-1/2">
         <ParagraphSplit text={about.subtitle[language]} />
       </div>
     </div>
