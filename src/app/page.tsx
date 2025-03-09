@@ -1,15 +1,8 @@
-// import Articles from "@/components/articles/Articles";
-// import GraphicDesigns from "@/components/graphic-designs/GraphicDesigns";
 import EmptyPage from "@/components/layout/EmptyPage";
 import Projects from "@/components/projects/Projects";
-// import Services from "@/components/services/Services";
-import {
-  // getArticles,
-  // getGraphicDesigns,
-  getProjects,
-} from "@/utils/cms";
+import { getProjectsShort } from "@/utils/cms";
 import { rootMetadata } from "@/utils/seo";
-import { Suspense } from "react";
+import { cache, Suspense } from "react";
 
 export default async function HomePage() {
   return (
@@ -19,16 +12,21 @@ export default async function HomePage() {
   );
 }
 
+const fetchProjectsShort = cache(getProjectsShort);
+// const fetchServices = cache(getServices);
+
 async function HomeContent() {
-  const projects = await getProjects();
+  const projects = await fetchProjectsShort();
+  // const services = await fetchServices();
   // const articles = await getArticles();
   // const graphicDesigns = await getGraphicDesigns();
 
   return (
-    <div className="flex flex-col gap-32">
+    <div className="flex flex-col gap-64">
       <Projects projects={projects} />
-      {/* <Services />
-      <GraphicDesigns graphicDesigns={graphicDesigns} />
+      {/* <About />
+      <Services services={services} /> */}
+      {/* <GraphicDesigns graphicDesigns={graphicDesigns} />
       <Articles articles={articles} /> */}
     </div>
   );

@@ -3,10 +3,10 @@
 import { useTranslationStore } from "@/translation/useTranslationStore";
 import SectionTitle from "../shared/SectionTitle";
 import ProjectGrid from "./ProjectGrid";
-import { Project } from "@/types/Project.types";
+import { ProjectShort } from "@/types/Project.types";
 
 interface Props {
-  projects: Project[];
+  projects: ProjectShort[];
 }
 
 export default function Projects({ projects }: Props) {

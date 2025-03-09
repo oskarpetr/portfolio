@@ -50,6 +50,9 @@ dependencies:
   sanity:
     specifier: '3'
     version: 3.77.2(@types/node@20.17.19)(@types/react@19.0.10)(react-dom@19.0.0)(react@19.0.0)(styled-components@6.1.15)(typescript@5.7.3)
+  sanity-plugin-singleton-tools:
+    specifier: ^1.1.0
+    version: 1.1.0(react-dom@19.0.0)(react@19.0.0)(sanity@3.77.2)
   sharp:
     specifier: 0.32.6
     version: 0.32.6
@@ -3508,6 +3511,15 @@ packages:
     resolution: {integrity: sha512-wtMYcV5GIDIhVyF/jjmdwq1GdlK07dRL40XMns73VbrFI7FteRltxv48bhYVZPcLkRXb0SHjpDS/icj9/yzbVA==}
     dev: false
 
+  /@sanity/icons@2.11.8(react@19.0.0):
+    resolution: {integrity: sha512-C4ViXtk6eyiNTQ5OmxpfmcK6Jw+LLTi9zg9XBUD15DzC4xTHaGW9SVfUa43YtPGs3WC3M0t0K59r0GDjh52HIg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: ^18
+    dependencies:
+      react: 19.0.0
+    dev: false
+
   /@sanity/icons@3.7.0(react@19.0.0):
     resolution: {integrity: sha512-MVh5C55X8Vn2oIsraSPVx4MkHvkqUimkmv7yP++IfJBCLgb38/7G2CM+GB95GTpLPRdF2m3QEwwXcaeljjqKOQ==}
     engines: {node: '>=14.0.0'}
@@ -3551,6 +3563,16 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
+    dev: false
+
+  /@sanity/incompatible-plugin@1.0.5(react-dom@19.0.0)(react@19.0.0):
+    resolution: {integrity: sha512-9JGAacbElUPy9Chghd+sllIiM3jAcraZdD65bWYWUVKkghOsf1L/+jFLz1rcAuvrA9o2s7Y+T75BNcXuLwRcvw==}
+    peerDependencies:
+      react: ^16.9 || ^17 || ^18 || ^19
+      react-dom: ^16.9 || ^17 || ^18 || ^19
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
     dev: false
 
   /@sanity/insert-menu@1.1.3(@sanity/types@3.77.2)(react-dom@19.0.0)(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.15):
@@ -9674,6 +9696,21 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    dev: false
+
+  /sanity-plugin-singleton-tools@1.1.0(react-dom@19.0.0)(react@19.0.0)(sanity@3.77.2):
+    resolution: {integrity: sha512-Z/AXCVBJ/Gc8RgwKX2GzfaKMSWJ7d9ycWfNSFTduhiBMFyJdjwLIK2Zh6eyl3Ctl7y6LiIEwJ/4VD9rx3F2WAw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3
+    dependencies:
+      '@sanity/icons': 2.11.8(react@19.0.0)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@19.0.0)(react@19.0.0)
+      react: 19.0.0
+      sanity: 3.77.2(@types/node@20.17.19)(@types/react@19.0.10)(react-dom@19.0.0)(react@19.0.0)(styled-components@6.1.15)(typescript@5.7.3)
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /sanity@3.77.2(@types/node@20.17.19)(@types/react@19.0.10)(react-dom@19.0.0)(react@19.0.0)(styled-components@6.1.15)(typescript@5.7.3):

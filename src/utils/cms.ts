@@ -5,27 +5,29 @@ import {
   formatArticles,
   formatGraphicDesigns,
   formatProject,
-  formatProjects,
+  formatProjectsShort,
   formatProjectsSitemap,
+  formatServices,
 } from "./cmsFormatters";
 import {
   projectQuery,
   projectsSitemapQuery,
-  projectsQuery,
+  projectsShortQuery,
   articlesQuery,
   graphicDesignsQuery,
+  servicesQuery,
 } from "./queries";
 
-export async function getProjects() {
-  const projectsCms = await sanityClient.fetch(projectsQuery);
-  const projects = formatProjects(projectsCms);
+export async function getProjectsShort() {
+  const projectsSanity = await sanityClient.fetch(projectsShortQuery);
+  const projects = formatProjectsShort(projectsSanity);
 
   return projects;
 }
 
 export async function getProject(slug: string) {
-  const projectCms = await sanityClient.fetch(projectQuery(slug));
-  const project = formatProject(projectCms);
+  const projectSanity = await sanityClient.fetch(projectQuery(slug));
+  const project = formatProject(projectSanity);
 
   return project;
 }
@@ -35,6 +37,13 @@ export async function getProjectsSitemap() {
   const projectsSitemap = formatProjectsSitemap(projectsSitemapCms);
 
   return projectsSitemap;
+}
+
+export async function getServices() {
+  const servicesCms = await sanityClient.fetch(servicesQuery);
+  const services = formatServices(servicesCms);
+
+  return services;
 }
 
 export async function getArticles() {

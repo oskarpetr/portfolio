@@ -6,14 +6,31 @@ interface Props {
   children: ReactNode;
   direction: "up" | "down";
   delay?: number;
+  viewportAmount?: number;
 }
 
-function Reveal({ children, direction, delay = 0 }: Props) {
+function Reveal({ children, direction, delay = 0, viewportAmount }: Props) {
+  const variants = {
+    initial: {
+      y: direction === "up" ? "100%" : "-100%",
+    },
+    animate: {
+      y: 0,
+    },
+  };
+
   return (
-    <div className="relative block overflow-hidden">
+    <motion.div
+      initial="initial"
+      animate={viewportAmount ? undefined : "animate"}
+      whileInView={viewportAmount ? "animate" : undefined}
+      viewport={
+        viewportAmount ? { once: true, amount: viewportAmount } : undefined
+      }
+      className="relative block overflow-hidden"
+    >
       <motion.div
-        initial={{ y: direction === "up" ? "100%" : "-100%" }}
-        animate={{ y: 0 }}
+        variants={variants}
         transition={{
           delay,
           ease: BEZIER_EASING,
@@ -22,7 +39,7 @@ function Reveal({ children, direction, delay = 0 }: Props) {
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -6,6 +6,8 @@ import FadeIn from "../animation/FadeIn";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import ProjectDetailImage from "./ProjectDetailImage";
 import { memo } from "react";
+import Tags from "../tags/Tags";
+import { TagShort } from "@/types/Tag.types";
 
 interface Props {
   project: Project;
@@ -14,13 +16,9 @@ interface Props {
 function ProjectDetail({ project }: Props) {
   const { language, translation } = useTranslationStore();
 
-  const development = project.development
-    .map((service) => translation.development[service])
-    .join(", ");
-
-  const design = project.design
-    .map((service) => translation.design[service])
-    .join(", ");
+  const tags = Object.entries(
+    Object.groupBy(project.tags, (tag) => tag.service.name[language]),
+  );
 
   return (
     <div className="min-h-[70vh]">
@@ -52,36 +50,23 @@ function ProjectDetail({ project }: Props) {
           </div>
 
           <div className="flex flex-col gap-8">
-            {development.length > 0 && (
-              <div className="flex flex-col gap-4 xl:flex-row xl:gap-24">
-                <FadeIn delay={0.3}>
-                  <div className="w-32 text-base whitespace-nowrap">
-                    {translation.services.development}
+            {tags.map(([service, tags], index) =>
+              tags!.length > 0 ? (
+                <div
+                  key={`service-${service}`}
+                  className="flex flex-col gap-4 xl:flex-row xl:gap-24"
+                >
+                  <FadeIn delay={0.3 + 0.1 * index}>
+                    <div className="w-32 text-base whitespace-nowrap">
+                      {service}
+                    </div>
+                  </FadeIn>
+
+                  <div className="w-96">
+                    <Tags tags={tags as TagShort[]} delay={0.3 + 0.1 * index} />
                   </div>
-                </FadeIn>
-
-                <div className="w-80 text-base leading-snug font-normal">
-                  <ParagraphSplit
-                    text={development}
-                    delay={0.3}
-                    indent={false}
-                  />
                 </div>
-              </div>
-            )}
-
-            {design.length > 0 && (
-              <div className="flex flex-col gap-4 xl:flex-row xl:gap-24">
-                <FadeIn delay={0.4}>
-                  <div className="w-32 text-base whitespace-nowrap">
-                    {translation.services.design}
-                  </div>
-                </FadeIn>
-
-                <div className="w-80 text-base leading-snug font-normal">
-                  <ParagraphSplit text={design} delay={0.4} indent={false} />
-                </div>
-              </div>
+              ) : null,
             )}
 
             <div className="flex flex-col gap-4 xl:flex-row xl:gap-24">

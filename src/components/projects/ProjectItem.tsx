@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "@/types/Project.types";
+import { ProjectShort } from "@/types/Project.types";
 import ProjectImage from "./ProjectImage";
 import Link from "next/link";
 import { useTranslationStore } from "@/translation/useTranslationStore";
@@ -9,12 +9,12 @@ import HoverElement from "../animation/HoverElement";
 import Index from "../shared/Index";
 
 interface Props {
-  project: Project;
+  project: ProjectShort;
   index: number;
 }
 
 export default function ProjectItem({ project, index }: Props) {
-  const { translation } = useTranslationStore();
+  const { language } = useTranslationStore();
 
   return (
     <div className="relative">
@@ -25,7 +25,7 @@ export default function ProjectItem({ project, index }: Props) {
           }}
         >
           <Reveal direction="up" delay={0.2 * index}>
-            <ProjectImage project={project} />
+            <ProjectImage image={project.mainImage} />
           </Reveal>
         </HoverElement>
       </Link>
@@ -36,7 +36,7 @@ export default function ProjectItem({ project, index }: Props) {
             <div>
               <div>{project.title}</div>
               <div className="text-sm opacity-70">
-                {translation.categories[project.category]}
+                {project.service.name[language]}
               </div>
             </div>
 

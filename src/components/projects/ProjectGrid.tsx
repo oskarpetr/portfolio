@@ -1,8 +1,8 @@
-import { Project } from "@/types/Project.types";
+import { ProjectShort } from "@/types/Project.types";
 import ProjectItem from "./ProjectItem";
 
 interface Props {
-  projects: Project[];
+  projects: ProjectShort[];
   cols: 4 | 2 | 1;
 }
 

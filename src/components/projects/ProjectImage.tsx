@@ -1,21 +1,21 @@
-import { Project } from "@/types/Project.types";
+import { type ProjectImage } from "@/types/ProjectImage.types";
 import Image from "next/image";
 
 interface Props {
-  project: Project;
+  image: ProjectImage;
 }
 
-export default function ProjectImage({ project }: Props) {
+export default function ProjectImage({ image }: Props) {
   return (
     <div className="pt-[75%]">
       <Image
-        src={project.mainImage.url}
-        alt={project.mainImage.alt}
+        src={image.url}
+        alt={image.alt}
         fill
         priority
         loading="eager"
         placeholder="blur"
-        blurDataURL={project.mainImage.placeholder}
+        blurDataURL={image.placeholder}
         className="object-cover grayscale transition-all duration-500 hover:scale-105"
       />
     </div>

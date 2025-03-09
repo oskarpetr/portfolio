@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import { Geist } from "next/font/google";
 import Footer from "./Footer";
 import SchemaMarkup from "../seo/SchemaMarkup";
+import { useTranslationStore } from "@/translation/useTranslationStore";
 
 interface Props {
   children: ReactNode;
@@ -18,6 +19,8 @@ const geistSans = Geist({
 export default function Layout({ children }: Props) {
   const pathname = usePathname();
 
+  const { language } = useTranslationStore();
+
   return (
     <div className={`${geistSans.variable} antialiased`}>
       <SchemaMarkup />
@@ -25,7 +28,7 @@ export default function Layout({ children }: Props) {
       <Menu />
 
       <AnimatePresence mode="sync">
-        <div key={`${pathname}`} className="p-10">
+        <div key={`${pathname}-${language}`} className="p-10">
           {children}
         </div>
       </AnimatePresence>

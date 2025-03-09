@@ -5,37 +5,26 @@ import SectionTitle from "../shared/SectionTitle";
 import ServiceItem from "./ServiceItem";
 import { useTranslationStore } from "@/translation/useTranslationStore";
 
-export default function Services() {
-  const { translation } = useTranslationStore();
+interface Props {
+  services: Service[];
+}
 
-  const services: Service[] = [
-    {
-      name: "development",
-      description:
-        "In addition, the website also supports Chinese students learning Czech by offering tailored lessons and interactive sessions. These resources focus on improving Czech grammar, vocabulary, and pronunciation, helping learners build fluency and confidence in the language.",
-      technologies: ["nextJs", "cms", "tailwindCss", "framerMotion"],
-    },
-    {
-      name: "design",
-      description:
-        "In addition, the website also supports Chinese students learning Czech by offering tailored lessons and interactive sessions. These resources focus on improving Czech grammar, vocabulary, and pronunciation, helping learners build fluency and confidence in the language.",
-      technologies: ["uiUxDesign", "identityDesign", "animation"],
-    },
-    // {
-    //   name: "writing",
-    //   description:
-    //     "In addition, the website also supports Chinese students learning Czech by offering tailored lessons and interactive sessions. These resources focus on improving Czech grammar, vocabulary, and pronunciation, helping learners build fluency and confidence in the language.",
-    //   technologies: [],
-    // },
-  ];
+export default function Services({ services }: Props) {
+  const { translation } = useTranslationStore();
 
   return (
     <div>
       <SectionTitle title={translation.sectionTitles.services} />
 
-      {services.map((service, index) => (
-        <ServiceItem key={service.name} service={service} index={index} />
-      ))}
+      <div className="flex flex-col gap-8">
+        {services.map((service, index) => (
+          <ServiceItem
+            key={`service-${service.id}`}
+            service={service}
+            index={index}
+          />
+        ))}
+      </div>
     </div>
   );
 }

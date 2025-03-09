@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useMotionValue } from "framer-motion";
+import {
+  motion,
+  SpringOptions,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { memo, ReactNode, useEffect, useState } from "react";
 import HoverText, { HoverTextType } from "./HoverText";
 
@@ -28,6 +33,11 @@ function HoverElement({ children, hoverText }: Props) {
     };
   }, []);
 
+  const animationConfig: SpringOptions = {
+    damping: 30,
+    stiffness: 300,
+  };
+
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
@@ -41,10 +51,10 @@ function HoverElement({ children, hoverText }: Props) {
           opacity: isHovered ? 1 : 0,
           scale: isHovered ? 1 : 0,
         }}
-        className="pointer-events-none fixed z-10"
+        className="pointer-events-none fixed z-10 hidden sm:block"
         style={{
-          left: mouseX,
-          top: mouseY,
+          left: useSpring(mouseX, animationConfig),
+          top: useSpring(mouseY, animationConfig),
         }}
       >
         <HoverText hoverText={hoverText} />

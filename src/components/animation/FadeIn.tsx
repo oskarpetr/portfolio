@@ -14,7 +14,7 @@ function FadeIn({ children, delay = 0 }: Props) {
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 10 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 1 }}
       transition={{
         delay,
         duration: 1,

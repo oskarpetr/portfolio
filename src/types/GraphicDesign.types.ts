@@ -1,4 +1,4 @@
-import { ProjectImage } from "./Project.types";
+import { ProjectImage } from "./ProjectImage.types";
 
 export interface GraphicDesign {
   id: string;

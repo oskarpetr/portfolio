@@ -1,9 +1,9 @@
 import Image from "next/image";
 import HoverElement from "../animation/HoverElement";
 import Reveal from "../animation/Reveal";
-import { ProjectImage } from "@/types/Project.types";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { Fragment, memo, useEffect, useRef } from "react";
+import { ProjectImage } from "@/types/ProjectImage.types";
 
 interface Props {
   image: ProjectImage;

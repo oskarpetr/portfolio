@@ -1,6 +1,8 @@
 import {
   Project,
   ProjectSanity,
+  ProjectShort,
+  ProjectShortSanity,
   ProjectSitemapSanity,
 } from "@/types/Project.types";
 import { urlFor } from "@/sanity/lib/image";
@@ -10,56 +12,64 @@ import {
   GraphicDesignSanity,
 } from "@/types/GraphicDesign.types";
 import { getPlaceholder } from "./placeholder";
+import {
+  Service,
+  ServiceSanity,
+  ServiceShort,
+  ServiceShortSanity,
+} from "@/types/Service.types";
+import { Tag, TagSanity, TagShort, TagShortSanity } from "@/types/Tag.types";
 
-export async function formatProjects(projectsCms: ProjectSanity[]) {
-  const projects: Project[] = await Promise.all(
-    projectsCms.map(
-      async (project: ProjectSanity) =>
-        await formatProject(project, 800, false),
-    ),
+export async function formatProjectsShort(
+  projectsShortCms: ProjectShortSanity[],
+) {
+  const projectsShort: ProjectShort[] = await Promise.all(
+    projectsShortCms.map(async (projectShort) => ({
+      ...projectShort,
+      id: projectShort._id,
+      service: formatServiceShort(projectShort.service),
+      mainImage: {
+        url: formatImage(projectShort.mainImage.url, 800),
+        alt: projectShort.mainImage.alt,
+        placeholder: await getPlaceholder(
+          formatImage(projectShort.mainImage.url, 800),
+        ),
+      },
+    })),
   );
 
-  const projectsSorted = projects.sort(
+  const projectsShortSorted = projectsShort.sort(
     (a, b) => new Date(b.startedAt).getTime() - new Date(a.startedAt).getTime(),
   );
 
-  return projectsSorted;
+  return projectsShortSorted;
 }
 
-export async function formatProject(
-  projectCms: ProjectSanity,
-  imageWidth: number = 1000,
-  images: boolean = true,
-) {
+export async function formatProject(projectCms: ProjectSanity) {
   const project: Project = {
     ...projectCms,
     id: projectCms._id,
+    tags: formatTags(projectCms.tags ?? []),
     mainImage: {
-      url: formatImage(projectCms.mainImage.url, imageWidth),
+      url: formatImage(projectCms.mainImage.url, 1000),
       alt: projectCms.mainImage.alt,
       placeholder: await getPlaceholder(
-        formatImage(projectCms.mainImage.url, imageWidth),
+        formatImage(projectCms.mainImage.url, 1000),
       ),
     },
-    images: images
-      ? await Promise.all(
-          (projectCms.images ?? []).map(async (image) => ({
-            url: formatImage(image.url, imageWidth),
-            alt: image.alt,
-            placeholder: await getPlaceholder(
-              formatImage(image.url, imageWidth),
-            ),
-          })),
-        )
-      : [],
-    development: projectCms.development ?? [],
-    design: projectCms.design ?? [],
+    images: await Promise.all(
+      (projectCms.images ?? []).map(async (image) => ({
+        url: formatImage(image.url, 1000),
+        alt: image.alt,
+        placeholder: await getPlaceholder(formatImage(image.url, 1000)),
+      })),
+    ),
   };
 
   return project;
 }
 
-export async function formatProjectsSitemap(
+export function formatProjectsSitemap(
   projectsSitemapCms: ProjectSitemapSanity[],
 ) {
   const projectsSitemap = projectsSitemapCms.map((projectSitemap) => ({
@@ -72,8 +82,47 @@ export async function formatProjectsSitemap(
   return projectsSitemap;
 }
 
-export async function formatArticles(articlesCms: ArticleSanity[]) {
-  const articles: Article[] = articlesCms.map((article: ArticleSanity) => ({
+export function formatServices(servicesCms: ServiceSanity[]) {
+  console.log(servicesCms);
+  const services: Service[] = servicesCms.map((service) => ({
+    ...service,
+    id: service._id,
+    tags: formatTagsShort(service.tags ?? []),
+  }));
+
+  return services;
+}
+
+export function formatServiceShort(serviceShortCms: ServiceShortSanity) {
+  const serviceShort: ServiceShort = {
+    ...serviceShortCms,
+    id: serviceShortCms._id,
+  };
+
+  return serviceShort;
+}
+
+export function formatTags(tagsCms: TagSanity[]) {
+  const tags: Tag[] = tagsCms.map((tag) => ({
+    ...tag,
+    id: tag._id,
+    service: formatServiceShort(tag.service),
+  }));
+
+  return tags;
+}
+
+export function formatTagsShort(tagsShortCms: TagShortSanity[]) {
+  const tagsShort: TagShort[] = tagsShortCms.map((tagShort) => ({
+    ...tagShort,
+    id: tagShort._id,
+  }));
+
+  return tagsShort;
+}
+
+export function formatArticles(articlesCms: ArticleSanity[]) {
+  const articles: Article[] = articlesCms.map((article) => ({
     ...article,
     id: article._id,
   }));

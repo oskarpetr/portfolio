@@ -1,9 +1,3 @@
-import {
-  ProjectCategory,
-  ProjectDesign,
-  ProjectDevelopment,
-} from "./Project.types";
-
 export interface Translation {
   sectionTitles: {
     projects: string;
@@ -12,24 +6,10 @@ export interface Translation {
     articles: string;
     footer: string;
   };
-  categories: {
-    [key in ProjectCategory]: string;
-  };
-  development: {
-    [key in ProjectDevelopment]: string;
-  };
-  design: {
-    [key in ProjectDesign]: string;
-  };
   projectDetail: {
     client: string;
     projectType: string;
     personal: string;
-  };
-  services: {
-    development: string;
-    design: string;
-    writing: string;
   };
   menu: {
     projects: string;
@@ -46,6 +26,10 @@ export interface Translation {
 
 export type Translations = {
   [key in LanguageType]: Translation;
+};
+
+export type LanguagesType = {
+  [key in LanguageType]: string;
 };
 
 export type LanguageType = "en" | "cs";

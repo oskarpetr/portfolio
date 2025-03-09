@@ -15,14 +15,22 @@ function ParagraphSplit({ text, indent = true, delay = 0 }: Props) {
   const words = text.split(" ");
   const stagger = 0.01;
 
+  const variants = {
+    initial: { y: "200%", clipPath: "inset(100% 0 100% 0)" },
+    whileInView: { y: 0, clipPath: "inset(0 0 0 0)" },
+  };
+
   return (
-    <div className="inline-block overflow-hidden">
+    <motion.p
+      initial="initial"
+      whileInView="whileInView"
+      viewport={{ once: true, amount: 1 }}
+      className="inline-block overflow-hidden"
+    >
       {words.map((word, index) => (
         <motion.span
           key={index}
-          initial={{ y: "200%", clipPath: "inset(100% 0 100% 0)" }}
-          animate={{ y: 0, clipPath: "inset(0 0 0 0)" }}
-          // viewport={{ once: true }}
+          variants={variants}
           transition={{
             delay: delay + index * stagger,
             duration: 1,
@@ -36,7 +44,7 @@ function ParagraphSplit({ text, indent = true, delay = 0 }: Props) {
           {word}&nbsp;
         </motion.span>
       ))}
-    </div>
+    </motion.p>
   );
 }
 
