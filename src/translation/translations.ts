@@ -3,6 +3,8 @@ import { Translation, Translations } from "@/types/Translation.types";
 const translationEn: Translation = {
   sectionTitles: {
     projects: "Projects",
+    about: "About",
+    university: "University",
     services: "Services",
     graphicDesigns: "Graphic designs",
     articles: "Articles",
@@ -29,6 +31,8 @@ const translationEn: Translation = {
 const translationCs: Translation = {
   sectionTitles: {
     projects: "Projekty",
+    about: "O mně",
+    university: "Vysoká škola",
     services: "Služby",
     graphicDesigns: "Grafické designy",
     articles: "Články",

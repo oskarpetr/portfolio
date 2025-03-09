@@ -83,14 +83,15 @@ export function formatProjectsSitemap(
 }
 
 export function formatServices(servicesCms: ServiceSanity[]) {
-  console.log(servicesCms);
   const services: Service[] = servicesCms.map((service) => ({
     ...service,
     id: service._id,
     tags: formatTagsShort(service.tags ?? []),
   }));
 
-  return services;
+  const servicesSorted = services.sort((a, b) => a.order - b.order);
+
+  return servicesSorted;
 }
 
 export function formatServiceShort(serviceShortCms: ServiceShortSanity) {

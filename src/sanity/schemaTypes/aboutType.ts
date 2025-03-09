@@ -1,31 +1,42 @@
 import { InfoOutlineIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { apiVersion } from "../env";
 
 export const aboutType = defineType({
-  name: "aboutPage",
-  title: "About Page",
+  name: "about",
   type: "document",
   icon: InfoOutlineIcon,
   fields: [
     defineField({
       name: "title",
-      type: "string",
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English",
+          type: "text",
+        },
+        {
+          name: "cs",
+          title: "Czech",
+          type: "text",
+        },
+      ],
     }),
     defineField({
-      name: "url",
-      type: "url",
-    }),
-    defineField({
-      name: "publishedAt",
-      type: "date",
+      name: "subtitle",
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English",
+          type: "text",
+        },
+        {
+          name: "cs",
+          title: "Czech",
+          type: "text",
+        },
+      ],
     }),
   ],
-  validation: (Rule) =>
-    Rule.custom(async (value, context) => {
-      const existing = await context
-        .getClient({ apiVersion })
-        .fetch('*[_type == "aboutPage"]');
-      return existing.length === 0 ? true : "An About Page already exists.";
-    }),
 });

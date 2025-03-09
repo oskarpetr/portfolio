@@ -9,17 +9,17 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-const fetchProject = cache((slug: string) => getProject(slug));
+const fetchProject = cache(getProject);
 
 export default async function ProjectPage({ params }: Props) {
   return (
     <Suspense fallback={<EmptyPage />}>
-      <ProjectContent slug={(await params).slug} />
+      <ProjectSection slug={(await params).slug} />
     </Suspense>
   );
 }
 
-async function ProjectContent({ slug }: { slug: string }) {
+async function ProjectSection({ slug }: { slug: string }) {
   const project = await fetchProject(slug);
   return <ProjectDetail project={project} />;
 }

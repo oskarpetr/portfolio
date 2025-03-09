@@ -16,6 +16,7 @@ import {
   articlesQuery,
   graphicDesignsQuery,
   servicesQuery,
+  aboutQuery,
 } from "./queries";
 
 export async function getProjectsShort() {
@@ -58,4 +59,9 @@ export async function getGraphicDesigns() {
   const graphicDesigns = formatGraphicDesigns(graphicDesignsCms);
 
   return graphicDesigns;
+}
+
+export async function getAbout() {
+  const aboutCms = await sanityClient.fetch(aboutQuery);
+  return aboutCms;
 }

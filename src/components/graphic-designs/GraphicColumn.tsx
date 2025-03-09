@@ -26,8 +26,7 @@ function Column({ graphicDesigns, y, className }: Props) {
             src={graphicDesign.image.url}
             alt={graphicDesign.image.alt}
             fill
-            priority
-            loading="eager"
+            loading="lazy"
             placeholder="blur"
             blurDataURL={graphicDesign.image.placeholder}
             className="relative h-full w-full rounded-sm object-cover grayscale"

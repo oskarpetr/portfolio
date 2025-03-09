@@ -25,7 +25,7 @@ function ParagraphSplit({ text, indent = true, delay = 0 }: Props) {
       initial="initial"
       whileInView="whileInView"
       viewport={{ once: true, amount: 1 }}
-      className="inline-block overflow-hidden"
+      className="inline-block overflow-hidden text-balance"
     >
       {words.map((word, index) => (
         <motion.span

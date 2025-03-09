@@ -28,6 +28,7 @@ export default function SchemaMarkup() {
       key="json-ld-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: schemaString }}
+      strategy="afterInteractive"
     />
   );
 }

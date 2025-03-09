@@ -44,7 +44,12 @@ export const serviceType = defineType({
       type: "array",
       of: [{ name: "tag", type: "reference", to: [{ type: "tag" }] }],
     }),
+    defineField({
+      name: "order",
+      type: "number",
+    }),
   ],
+
   preview: {
     select: {
       title: "name.en",

@@ -23,7 +23,7 @@ export default function ParagraphOpacity({ text }: Props) {
   const words = text.split(" ");
 
   return (
-    <p ref={textRef}>
+    <p ref={textRef} className="">
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;

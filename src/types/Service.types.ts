@@ -6,11 +6,13 @@ export interface Service {
   name: LanguagesType;
   description: LanguagesType;
   tags: TagShort[];
+  order: number;
 }
 
 export interface ServiceShort {
   id: string;
   name: LanguagesType;
+  order: number;
 }
 
 export type ServiceSanity = Omit<Service, "id" | "tags"> & {

@@ -55,7 +55,8 @@ export const servicesQuery = `*[_type == "service"] {
       _id,
       name,
       description,
-    }
+    },
+    order
   }`;
 
 export const articlesQuery = `*[_type == "article"] {
@@ -72,3 +73,9 @@ export const graphicDesignsQuery = `*[_type == "graphicDesign"] {
     alt
   },
 }`;
+
+export const aboutQuery = `*[_type == "about"] {
+  "id": _id,
+  title,
+  subtitle
+}[0]`;

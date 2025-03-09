@@ -1,6 +1,8 @@
 export interface Translation {
   sectionTitles: {
     projects: string;
+    about: string;
+    university: string;
     services: string;
     graphicDesigns: string;
     articles: string;

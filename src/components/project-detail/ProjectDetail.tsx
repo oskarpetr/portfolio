@@ -7,6 +7,7 @@ import ParagraphSplit from "../animation/ParagraphSplit";
 import ProjectDetailImage from "./ProjectDetailImage";
 import { memo } from "react";
 import Tags from "../tags/Tags";
+import { groupTagsByService } from "@/utils/formatters";
 import { TagShort } from "@/types/Tag.types";
 
 interface Props {
@@ -16,9 +17,7 @@ interface Props {
 function ProjectDetail({ project }: Props) {
   const { language, translation } = useTranslationStore();
 
-  const tags = Object.entries(
-    Object.groupBy(project.tags, (tag) => tag.service.name[language]),
-  );
+  const tags = groupTagsByService(project.tags, language);
 
   return (
     <div className="min-h-[70vh]">
@@ -56,21 +55,21 @@ function ProjectDetail({ project }: Props) {
                   key={`service-${service}`}
                   className="flex flex-col gap-4 xl:flex-row xl:gap-24"
                 >
-                  <FadeIn delay={0.3 + 0.1 * index}>
+                  <FadeIn delay={0.5 + 0.1 * index}>
                     <div className="w-32 text-base whitespace-nowrap">
                       {service}
                     </div>
                   </FadeIn>
 
                   <div className="w-96">
-                    <Tags tags={tags as TagShort[]} delay={0.3 + 0.1 * index} />
+                    <Tags tags={tags as TagShort[]} delay={0.5 + 0.1 * index} />
                   </div>
                 </div>
               ) : null,
             )}
 
             <div className="flex flex-col gap-4 xl:flex-row xl:gap-24">
-              <FadeIn delay={0.5}>
+              <FadeIn delay={0.5 + 0.1 * tags.length}>
                 <div className="w-32 text-base">
                   {project.personal
                     ? translation.projectDetail.projectType
@@ -78,14 +77,14 @@ function ProjectDetail({ project }: Props) {
                 </div>
               </FadeIn>
 
-              <div className="text-base font-normal">
+              <div className="w-96 text-base font-normal">
                 <ParagraphSplit
                   text={
                     project.personal
                       ? translation.projectDetail.personal
                       : (project.client ?? "")
                   }
-                  delay={0.5}
+                  delay={0.5 + 0.1 * tags.length}
                   indent={false}
                 />
               </div>
