@@ -1,9 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Providers from "./Providers";
 import Layout from "./Layout";
+import { AnimatePresence } from "framer-motion";
+import Preloader from "./Preloader";
 
 interface Props {
   children: ReactNode;
@@ -12,15 +14,26 @@ interface Props {
 export default function App({ children }: Props) {
   const pathname = usePathname();
 
-  // const [preloader, setPreloader] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setPreloader(false);
-  //   }, 1000);
+  const preloaderTime = 3500;
+  const contentDelay = 500;
 
-  //   return () => clearTimeout(timeout);
-  // }, []);
+  useEffect(() => {
+    const timeoutLoading = setTimeout(() => {
+      setIsLoading(false);
+    }, preloaderTime);
+
+    const timeoutContent = setTimeout(() => {
+      setShowContent(true);
+    }, preloaderTime + contentDelay);
+
+    return () => {
+      clearTimeout(timeoutLoading);
+      clearTimeout(timeoutContent);
+    };
+  }, []);
 
   if (pathname.startsWith("/admin")) {
     return children;
@@ -28,11 +41,13 @@ export default function App({ children }: Props) {
 
   return (
     <Providers>
-      {/* <AnimatePresence mode="wait">
-        {preloader && <Preloader />}
-      </AnimatePresence> */}
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader />}
+      </AnimatePresence>
 
-      <Layout>{children}</Layout>
+      <AnimatePresence>
+        {showContent && <Layout>{children}</Layout>}
+      </AnimatePresence>
     </Providers>
   );
 }

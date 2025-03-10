@@ -1,30 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { BEZIER_EASING } from "@/utils/animation";
-import Image from "next/image";
-import logo from "../../../public/images/logo.svg";
-import FadeIn from "../animation/FadeIn";
-import Reveal from "../animation/Reveal";
+import ParagraphSplit from "../animation/ParagraphSplit";
+import { useEffect, useState } from "react";
 
 export default function Preloader() {
+  const [showName, setShowName] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowName(false);
+    }, 2500);
+
+    return () => setShowName(true);
+  }, []);
+
+  const stairsCount = 4;
+
   return (
-    <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: "-100vh" }}
-      transition={{
-        delay: 1,
-        duration: 1.5,
-        ease: BEZIER_EASING,
-      }}
-      className="fixed top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-4 bg-green-300"
-    >
-      <Reveal direction="up" delay={0.1}>
-        <Image src={logo} alt="Logo" width={60} height={60} />
-      </Reveal>
-      <FadeIn delay={0.2}>
-        <div className="text-2xl">Oskar Petr</div>
-      </FadeIn>
-    </motion.div>
+    <div>
+      <div className="pointer-events-none fixed top-0 left-0 z-40 flex h-screen w-full">
+        {[...Array(stairsCount)].map((_, index) => (
+          <motion.div
+            initial={{ y: 0 }}
+            exit={{
+              y: "-100vh",
+              transition: {
+                duration: 1,
+                delay: index * 0.1,
+                ease: BEZIER_EASING,
+              },
+            }}
+            key={`stair-${index}`}
+            className="h-full w-full bg-black"
+          />
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        {showName && (
+          <div className="absolute bottom-10 left-10 z-50 flex items-baseline text-white">
+            <div className="text-4xl tracking-tighter sm:text-6xl lg:text-8xl">
+              <ParagraphSplit text="Oskar Petr" />
+            </div>
+            <div className="-ml-6 text-4xl sm:text-5xl lg:text-6xl">
+              <ParagraphSplit text="©" />
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

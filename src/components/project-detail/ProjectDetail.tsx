@@ -21,7 +21,7 @@ function ProjectDetail({ project }: Props) {
 
   return (
     <div className="min-h-[70vh]">
-      <div className="flex flex-col-reverse gap-24 lg:flex-row lg:gap-0">
+      <div className="mt-20 flex flex-col-reverse gap-24 lg:flex-row lg:gap-0">
         <div className="lg:w-1/2">
           <div className="flex flex-col gap-12 lg:w-3/4">
             {[project.mainImage, ...project.images].map((image, index) => (
@@ -30,8 +30,8 @@ function ProjectDetail({ project }: Props) {
           </div>
         </div>
 
-        <div className="flex h-full flex-col gap-8 lg:sticky lg:top-[205px] lg:mt-20 lg:w-1/2 xl:gap-16">
-          <div className="flex flex-col gap-4 xl:flex-row xl:gap-24">
+        <div className="flex h-full flex-col gap-8 lg:sticky lg:top-[205px] lg:mt-0 lg:w-1/2 xl:gap-16">
+          <div className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24">
             <FadeIn delay={0.2}>
               <div className="w-32 whitespace-nowrap">{project.title}</div>
             </FadeIn>
@@ -53,7 +53,7 @@ function ProjectDetail({ project }: Props) {
               tags!.length > 0 ? (
                 <div
                   key={`service-${service}`}
-                  className="flex flex-col gap-4 xl:flex-row xl:gap-24"
+                  className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24"
                 >
                   <FadeIn delay={0.5 + 0.1 * index}>
                     <div className="w-32 text-base whitespace-nowrap">
@@ -68,7 +68,7 @@ function ProjectDetail({ project }: Props) {
               ) : null,
             )}
 
-            <div className="flex flex-col gap-4 xl:flex-row xl:gap-24">
+            <div className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24">
               <FadeIn delay={0.5 + 0.1 * tags.length}>
                 <div className="w-32 text-base">
                   {project.personal
