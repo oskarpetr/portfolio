@@ -13,10 +13,10 @@ export default function Articles({ articles }: Props) {
   const { translation } = useTranslationStore();
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between">
+    <div className="flex flex-col">
       <SectionTitle title={translation.sectionTitles.articles} />
 
-      <div className="w-full lg:w-2/3">
+      <div className="w-full">
         {articles.map((article) => (
           <ArticleItem key={`article-${article.id}`} article={article} />
         ))}

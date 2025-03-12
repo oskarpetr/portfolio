@@ -24,6 +24,9 @@ export interface Translation {
     location: string;
     country: string;
   };
+  tooltips: {
+    visit: string;
+  };
 }
 
 export type Translations = {

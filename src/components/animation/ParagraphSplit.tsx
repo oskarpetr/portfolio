@@ -9,24 +9,33 @@ interface Props {
   text: string;
   indent?: boolean;
   delay?: number;
+  animateWhileInView?: boolean;
+  includeExitAnimation?: boolean;
 }
 
-function ParagraphSplit({ text, indent = true, delay = 0 }: Props) {
+function ParagraphSplit({
+  text,
+  indent = true,
+  delay = 0,
+  animateWhileInView = true,
+  includeExitAnimation = false,
+}: Props) {
   const words = text.split(" ");
   const stagger = 0.01;
 
   const variants = {
     initial: { y: "200%", clipPath: "inset(100% 0 100% 0)" },
-    whileInView: { y: 0, clipPath: "inset(0 0 0 0)" },
+    animate: { y: 0, clipPath: "inset(0 0 0 0)" },
   };
 
   return (
     <motion.p
       initial="initial"
-      whileInView="whileInView"
-      exit="initial"
-      viewport={{ once: true, amount: 1 }}
-      className="inline-block overflow-hidden"
+      animate={animateWhileInView ? undefined : "animate"}
+      whileInView={animateWhileInView ? "animate" : undefined}
+      exit={includeExitAnimation ? "initial" : undefined}
+      viewport={animateWhileInView ? { once: true, amount: 1 } : undefined}
+      className="relative inline-block overflow-hidden"
     >
       {words.map((word, index) => (
         <motion.span

@@ -1,9 +1,10 @@
 import Image from "next/image";
-import HoverElement from "../animation/HoverElement";
 import Reveal from "../animation/Reveal";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { Fragment, memo, useEffect, useRef } from "react";
 import { ProjectImage } from "@/types/ProjectImage.types";
+import Tooltip from "../animation/Tooltip";
+import { useTranslationStore } from "@/translation/useTranslationStore";
 
 interface Props {
   image: ProjectImage;
@@ -11,6 +12,8 @@ interface Props {
 }
 
 function ProjectDetailImage({ image, index }: Props) {
+  const { language } = useTranslationStore();
+
   const imageRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -39,33 +42,27 @@ function ProjectDetailImage({ image, index }: Props) {
   }, []);
 
   const imageComponent = (
-    <HoverElement
-      hoverText={{
-        title: image.alt,
-      }}
-    >
+    <Tooltip title={image.alt[language]}>
       <Reveal direction="up" delay={0.1 * index}>
         <div className="relative pt-[80%]">
           <Image
             src={image.url}
-            alt={image.alt}
+            alt={image.alt[language]}
             placeholder="blur"
             blurDataURL={image.placeholder}
             fill
-            // priority
             loading="lazy"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover grayscale"
           />
         </div>
       </Reveal>
-    </HoverElement>
+    </Tooltip>
   );
 
   return (
     <Fragment>
       <motion.div
-        key={image.alt}
         ref={imageRef}
         style={{ width }}
         className="hidden lg:block lg:h-[28vw] xl:h-[28vw]"

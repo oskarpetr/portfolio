@@ -25,7 +25,11 @@ function ProjectDetail({ project }: Props) {
         <div className="lg:w-1/2">
           <div className="flex flex-col gap-12 lg:w-3/4">
             {[project.mainImage, ...project.images].map((image, index) => (
-              <ProjectDetailImage key={image.alt} image={image} index={index} />
+              <ProjectDetailImage
+                key={`project-image-${image.url}`}
+                image={image}
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -52,12 +56,12 @@ function ProjectDetail({ project }: Props) {
             {tags.map(([service, tags], index) =>
               tags!.length > 0 ? (
                 <div
-                  key={`service-${service}`}
+                  key={`service-${service.id}`}
                   className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24"
                 >
                   <FadeIn delay={0.5 + 0.1 * index}>
                     <div className="w-32 text-base whitespace-nowrap">
-                      {service}
+                      {service.name[language]}
                     </div>
                   </FadeIn>
 

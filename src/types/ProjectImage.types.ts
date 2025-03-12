@@ -1,6 +1,8 @@
+import { LanguagesType } from "./Translation.types";
+
 export interface ProjectImage {
   url: string;
-  alt: string;
+  alt: LanguagesType;
   placeholder: string;
 }
 

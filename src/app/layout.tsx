@@ -1,12 +1,11 @@
-import { rootMetadata } from "@/utils/seo";
 import "./globals.css";
+import { rootMetadata } from "@/utils/seo";
 import App from "@/components/layout/App";
+import { ReactNode } from "react";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type Props = Readonly<{ children: ReactNode }>;
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       {/* <head>
@@ -19,6 +18,6 @@ export default function RootLayout({
   );
 }
 
-export async function generateMetadata() {
+export function generateMetadata() {
   return rootMetadata();
 }

@@ -1,3 +1,4 @@
+import { useTranslationStore } from "@/translation/useTranslationStore";
 import { type ProjectImage } from "@/types/ProjectImage.types";
 import Image from "next/image";
 
@@ -6,11 +7,13 @@ interface Props {
 }
 
 export default function ProjectImage({ image }: Props) {
+  const { language } = useTranslationStore();
+
   return (
     <div className="pt-[75%]">
       <Image
         src={image.url}
-        alt={image.alt}
+        alt={image.alt[language]}
         fill
         loading="lazy"
         placeholder="blur"

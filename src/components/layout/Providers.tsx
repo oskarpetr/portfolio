@@ -1,16 +1,15 @@
 import { Lenis } from "lenis/react";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import LazyWrapper from "../animation/LazyWrapper";
 
-interface Props {
-  children: ReactNode;
-}
-
-export default function Providers({ children }: Props) {
+export default function Providers({ children }: PropsWithChildren) {
   return (
-    <Lenis root>
-      {children}
-      <SpeedInsights />
-    </Lenis>
+    <LazyWrapper>
+      <Lenis root>
+        {children}
+        <SpeedInsights />
+      </Lenis>
+    </LazyWrapper>
   );
 }

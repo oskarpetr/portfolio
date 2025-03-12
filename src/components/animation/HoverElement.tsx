@@ -7,14 +7,13 @@ import {
   useSpring,
 } from "framer-motion";
 import { memo, ReactNode, useEffect, useState } from "react";
-import HoverText, { HoverTextType } from "./HoverText";
 
 interface Props {
   children: ReactNode;
-  hoverText: HoverTextType;
+  hoverChildren: ReactNode;
 }
 
-function HoverElement({ children, hoverText }: Props) {
+function HoverElement({ children, hoverChildren }: Props) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -57,7 +56,7 @@ function HoverElement({ children, hoverText }: Props) {
           top: useSpring(mouseY, animationConfig),
         }}
       >
-        <HoverText hoverText={hoverText} />
+        {hoverChildren}
       </motion.div>
     </div>
   );

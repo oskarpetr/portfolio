@@ -26,6 +26,9 @@ const translationEn: Translation = {
     location: "Location",
     country: "Czech Republic",
   },
+  tooltips: {
+    visit: "Visit",
+  },
 };
 
 const translationCs: Translation = {
@@ -53,6 +56,9 @@ const translationCs: Translation = {
     startProject: "Začneme projekt?",
     location: "Lokace",
     country: "Česká republika",
+  },
+  tooltips: {
+    visit: "Zobrazit",
   },
 };
 

@@ -1,14 +1,10 @@
 "use client";
 
-import { memo, ReactNode } from "react";
+import { memo, PropsWithChildren } from "react";
 import { motion } from "framer-motion";
 import { BEZIER_EASING } from "@/utils/animation";
 
-interface Props {
-  children: ReactNode;
-}
-
-function TextStagger({ children }: Props) {
+function TextStagger({ children }: PropsWithChildren) {
   return (
     <motion.div
       initial="initial"

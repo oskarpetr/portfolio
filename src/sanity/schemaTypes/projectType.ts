@@ -46,7 +46,24 @@ export const projectType = defineType({
     defineField({
       name: "mainImage",
       type: "image",
-      fields: [{ name: "alt", type: "string" }],
+      fields: [
+        {
+          name: "alt",
+          type: "object",
+          fields: [
+            {
+              name: "en",
+              title: "English",
+              type: "string",
+            },
+            {
+              name: "cs",
+              title: "Czech",
+              type: "string",
+            },
+          ],
+        },
+      ],
     }),
     defineField({
       name: "images",
@@ -57,7 +74,22 @@ export const projectType = defineType({
           name: "imageObject",
           fields: [
             { name: "image", type: "image" },
-            { name: "alt", type: "string" },
+            {
+              name: "alt",
+              type: "object",
+              fields: [
+                {
+                  name: "en",
+                  title: "English",
+                  type: "string",
+                },
+                {
+                  name: "cs",
+                  title: "Czech",
+                  type: "string",
+                },
+              ],
+            },
           ],
         },
       ],

@@ -5,8 +5,8 @@ import ProjectImage from "./ProjectImage";
 import Link from "next/link";
 import { useTranslationStore } from "@/translation/useTranslationStore";
 import Reveal from "../animation/Reveal";
-import HoverElement from "../animation/HoverElement";
 import Index from "../shared/Index";
+import Tooltip from "../animation/Tooltip";
 
 interface Props {
   project: ProjectShort;
@@ -14,20 +14,16 @@ interface Props {
 }
 
 export default function ProjectItem({ project, index }: Props) {
-  const { language } = useTranslationStore();
+  const { translation, language } = useTranslationStore();
 
   return (
     <div className="relative">
       <Link href={`/projects/${project.slug}`}>
-        <HoverElement
-          hoverText={{
-            title: "Visit",
-          }}
-        >
+        <Tooltip title={translation.tooltips.visit}>
           <Reveal direction="up" delay={0.2 * index}>
             <ProjectImage image={project.mainImage} />
           </Reveal>
-        </HoverElement>
+        </Tooltip>
       </Link>
 
       <div className="static block w-full overflow-hidden sm:absolute">

@@ -3,5 +3,9 @@ interface Props {
 }
 
 export default function Index({ index }: Props) {
-  return <div className="text-sm">[ {String(index).padStart(2, "0")} ]</div>;
+  return (
+    <div className="text-sm tabular-nums">
+      [ {String(index).padStart(2, "0")} ]
+    </div>
+  );
 }

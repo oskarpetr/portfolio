@@ -1,11 +1,15 @@
-import { ProjectImage } from "./ProjectImage.types";
-
 export interface GraphicDesign {
   id: string;
-  image: ProjectImage;
+  image: GraphicDesignImage;
 }
 
 export interface GraphicDesignSanity {
   _id: string;
-  image: Omit<ProjectImage, "placeholder">;
+  image: Omit<GraphicDesignImage, "placeholder">;
+}
+
+interface GraphicDesignImage {
+  url: string;
+  alt: string;
+  placeholder: string;
 }
