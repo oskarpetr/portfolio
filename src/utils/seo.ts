@@ -46,7 +46,7 @@ export function projectMetadata(project: Project): Metadata {
         avatarUrl,
         ...project.images.map((image) => ({
           url: image.url,
-          alt: image.alt,
+          alt: image.alt.en,
         })),
       ],
     },
