@@ -4,6 +4,7 @@ import { Article } from "@/types/Article.types";
 import SectionTitle from "../shared/SectionTitle";
 import ArticleItem from "./ArticleItem";
 import { useTranslationStore } from "@/translation/useTranslationStore";
+import Tooltip from "../animation/Tooltip";
 
 interface Props {
   articles: Article[];
@@ -14,13 +15,16 @@ export default function Articles({ articles }: Props) {
 
   return (
     <div className="flex flex-col">
-      <SectionTitle title={translation.sectionTitles.articles} />
+      <SectionTitle
+        title={translation.sectionTitles.articles}
+        number={articles.length}
+      />
 
-      <div className="w-full">
+      <Tooltip icon="ArrowUpRight" title={translation.tooltips.read}>
         {articles.map((article) => (
           <ArticleItem key={`article-${article.id}`} article={article} />
         ))}
-      </div>
+      </Tooltip>
     </div>
   );
 }

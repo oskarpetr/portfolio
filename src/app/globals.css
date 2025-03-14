@@ -7,6 +7,11 @@ body {
   font-size: 1.1rem;
 }
 
+.serif {
+  font-family: "Instrument Serif";
+  letter-spacing: -0.02rem;
+}
+
 ::selection {
   background-color: black;
   color: white;

@@ -14,7 +14,10 @@ export default function Projects({ projects }: Props) {
 
   return (
     <div className="mt-20">
-      <SectionTitle title={translation.sectionTitles.projects} />
+      <SectionTitle
+        title={translation.sectionTitles.projects}
+        number={projects.length}
+      />
 
       <div id="projects">
         <div className="hidden grid-cols-4 lg:grid">

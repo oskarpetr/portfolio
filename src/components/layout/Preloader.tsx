@@ -22,7 +22,7 @@ export default function Preloader() {
 
       <AnimatePresence mode="wait">
         {showName && (
-          <div className="absolute bottom-10 left-10 z-50 flex items-baseline text-white">
+          <div className="absolute right-10 bottom-10 left-10 z-50 flex items-baseline justify-center text-white lg:justify-start">
             <div className="text-4xl tracking-tighter sm:text-6xl lg:text-8xl">
               <ParagraphSplit text="Oskar Petr" includeExitAnimation />
             </div>

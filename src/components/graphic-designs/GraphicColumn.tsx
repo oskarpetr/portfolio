@@ -29,7 +29,7 @@ function Column({ graphicDesigns, y, className }: Props) {
             loading="lazy"
             placeholder="blur"
             blurDataURL={graphicDesign.image.placeholder}
-            className="relative h-full w-full rounded-sm object-cover grayscale"
+            className="relative h-full w-full object-cover grayscale"
           />
         </div>
       ))}

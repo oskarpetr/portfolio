@@ -1,12 +1,14 @@
 "use client";
 
-import { motion, PanInfo, useAnimation } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import TestimonialItem from "./TestimonialItem";
 import SectionTitle from "../shared/SectionTitle";
 import { Testimonial } from "@/types/Testimonial.types";
+import TestimonialCarousel from "./TestimonialCarousel";
+import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useState } from "react";
 
 export default function Testimonials() {
+  const { translation } = useTranslationStore();
+
   const testimonials: Testimonial[] = [
     {
       id: 1,
@@ -25,102 +27,27 @@ export default function Testimonials() {
       logo: "/images/renata5.svg",
     },
   ];
-
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
   const [currentSlide, setCurrentSlide] = useState(0);
-  const controls = useAnimation();
-
-  const slides = testimonials.length;
-  const slidesGap = 80;
-
-  const calculateConstraints = () => {
-    if (containerRef.current) {
-      const viewportWidth = containerRef.current.offsetWidth;
-      const slideWidth = viewportWidth / 2;
-
-      setConstraints({
-        left: -(
-          viewportWidth * 0.25 +
-          (slides - 1) * slidesGap +
-          (slides - 1) * slideWidth -
-          viewportWidth / 4 -
-          (slides - 1) * (slidesGap / 2)
-        ),
-        right: 0,
-      });
-    }
-  };
-
-  useEffect(() => {
-    calculateConstraints();
-
-    window.addEventListener("resize", calculateConstraints);
-
-    return () => {
-      window.removeEventListener("resize", calculateConstraints);
-    };
-  }, []);
-
-  const handleDragEnd = (_event: PointerEvent, info: PanInfo) => {
-    const velocity = info.velocity.x;
-    const slideWidth = containerRef.current?.offsetWidth || 1;
-    const threshold = 1000;
-
-    let nextSlide = currentSlide;
-
-    if (Math.abs(velocity) > threshold) {
-      const direction = velocity > 0 ? -1 : 1;
-      nextSlide = Math.max(0, Math.min(slides - 1, currentSlide + direction));
-    }
-
-    setCurrentSlide(nextSlide);
-    controls.start(
-      { x: -nextSlide * (slideWidth / 2) + -nextSlide * (slidesGap / 2) },
-      { duration: 0.5, type: "spring" },
-    );
-  };
 
   return (
-    <div>
-      <SectionTitle title="Testimonials" />
-
-      <div className="relative -right-10 -left-10 w-screen cursor-grab overflow-hidden">
-        <motion.div
-          ref={containerRef}
-          className="flex cursor-grab flex-nowrap gap-20"
-          drag="x"
-          dragConstraints={constraints}
-          dragElastic={0.05}
-          animate={controls}
-          onDragEnd={handleDragEnd}
-          style={{ touchAction: "none" }}
-        >
-          <div className="h-full w-[calc((100%-5rem)*0.25-2.5rem)] flex-shrink-0"></div>
-
-          {testimonials.map((testimonial) => (
-            <div
-              key={`testimonial-${testimonial.id}`}
-              className="w-[calc((100%-5rem)*0.5)] flex-shrink-0"
-            >
-              <TestimonialItem testimonial={testimonial} />
-            </div>
-          ))}
-
-          {/* <div
-            style={{
-              width: constraints.left * -1,
-              height: 100,
-              position: "absolute",
-              backgroundColor: "blue",
-            }}
-          ></div> */}
-        </motion.div>
+    <div className="flex flex-col gap-24">
+      <div className="mx-auto w-1/2">
+        <SectionTitle
+          title={translation.sectionTitles.testimonials}
+          number={testimonials.length}
+          enableMargin={false}
+        />
       </div>
 
-      <div className="mx-auto mt-24 w-1/2 text-sm tabular-nums">
-        [ {String(currentSlide + 1).padStart(2, "0")} /{" "}
-        {String(slides).padStart(2, "0")} ]
+      <TestimonialCarousel
+        testimonials={testimonials}
+        currentSlide={currentSlide}
+        setCurrentSlide={setCurrentSlide}
+      />
+
+      <div className="serif mx-auto w-1/2 text-xl">
+        {String(currentSlide + 1).padStart(2, "0")} /{" "}
+        {String(testimonials.length).padStart(2, "0")}
       </div>
     </div>
   );

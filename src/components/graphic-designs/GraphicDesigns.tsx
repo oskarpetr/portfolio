@@ -23,19 +23,22 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, height * 1.5]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, height * 1.1]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.4]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
 
   return (
     <div>
-      <SectionTitle title={translation.sectionTitles.graphicDesigns} />
+      <SectionTitle
+        title={translation.sectionTitles.graphicDesigns}
+        number={graphicDesigns.length}
+      />
 
       <div className="relative -right-10 -left-10 w-screen">
         <div
           ref={postersRef}
-          className="box-border flex h-[175vh] gap-10 overflow-hidden bg-neutral-900 p-10"
+          className="box-border flex h-[150vh] gap-10 overflow-hidden bg-neutral-900 p-10"
         >
           <GraphicColumn
             graphicDesigns={[

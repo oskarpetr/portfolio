@@ -8,6 +8,7 @@ const translationEn: Translation = {
     services: "Services",
     graphicDesigns: "Graphic designs",
     articles: "Articles",
+    testimonials: "Testimonials",
     footer: "Footer",
   },
   projectDetail: {
@@ -27,7 +28,11 @@ const translationEn: Translation = {
     country: "Czech Republic",
   },
   tooltips: {
-    visit: "Visit",
+    explore: "Explore",
+    read: "Read",
+  },
+  alts: {
+    myself: "Myself",
   },
 };
 
@@ -39,6 +44,7 @@ const translationCs: Translation = {
     services: "Služby",
     graphicDesigns: "Grafické designy",
     articles: "Články",
+    testimonials: "Reference",
     footer: "Zápatí",
   },
   projectDetail: {
@@ -58,7 +64,11 @@ const translationCs: Translation = {
     country: "Česká republika",
   },
   tooltips: {
-    visit: "Zobrazit",
+    explore: "Zobrazit",
+    read: "Přečíst",
+  },
+  alts: {
+    myself: "Já sám",
   },
 };
 

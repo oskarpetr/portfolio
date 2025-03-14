@@ -15,13 +15,13 @@ export default function TagItem({ tag, isLast, delay }: Props) {
 
   return (
     <FadeIn key={`tag-${tag.id}`} delay={delay}>
-      <Tooltip description={tag.description[language]}>
-        <TextStagger>
-          <div className="cursor-pointer text-base font-normal underline decoration-neutral-300 underline-offset-4">
+      <Tooltip description={tag.description[language]} icon="BracketsCurly">
+        <div className="cursor-pointer border-b border-neutral-400 text-base font-normal">
+          <TextStagger>
             {tag.name[language]}
             {!isLast ? "," : ""}
-          </div>
-        </TextStagger>
+          </TextStagger>
+        </div>
       </Tooltip>
     </FadeIn>
   );

@@ -1,13 +1,12 @@
 "use client";
 
 import { Service } from "@/types/Service.types";
-import Index from "../shared/Index";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import { useTranslationStore } from "@/translation/useTranslationStore";
 import FadeIn from "../animation/FadeIn";
-import { motion } from "framer-motion";
-import { BEZIER_EASING } from "@/utils/animation";
 import Tags from "../tags/Tags";
+import SectionTitle from "../shared/SectionTitle";
+import AnimatedDivider from "../animation/AnimatedDivider";
 
 interface Props {
   service: Service;
@@ -19,31 +18,16 @@ export default function ServiceItem({ service, index }: Props) {
 
   return (
     <div>
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: true }}
-        transition={{
-          delay: 0.1 * index + 0.2,
-          duration: 1,
-          ease: BEZIER_EASING,
-        }}
-        className="border-t"
-      ></motion.div>
+      <AnimatedDivider delay={0.1 * index + 0.2} />
 
       <div className="flex w-full flex-col py-8 lg:flex-row">
-        <div className="lg:mb:0 mb-4 flex flex-row-reverse items-center justify-between lg:w-1/2 lg:flex-row lg:items-start lg:justify-center">
-          <div className="lg:w-1/2">
-            <FadeIn delay={0.1 * index + 0.1 * index + 0.2}>
-              <Index index={index} />
-            </FadeIn>
-          </div>
-
-          <div className="lg:w-1/2">
-            <FadeIn delay={0.1 * index + 0.1 * index + 0.2}>
-              <div>{service.name[language]}</div>
-            </FadeIn>
-          </div>
+        <div className="w-1/2">
+          <FadeIn delay={0.1 * index + 0.1 * index + 0.2}>
+            <SectionTitle
+              title={service.name[language]}
+              number={service.tags.length}
+            />
+          </FadeIn>
         </div>
 
         <div className="flex flex-col gap-2 lg:w-1/2">

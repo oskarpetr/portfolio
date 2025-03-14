@@ -9,7 +9,6 @@ import {
 } from "@/utils/cms";
 import { rootMetadata } from "@/utils/seo";
 import { cache, Suspense } from "react";
-// import KnowBetter from "@/components/know-better/KnowBetter";
 import dynamic from "next/dynamic";
 import PageLayout from "@/components/layout/PageLayout";
 
@@ -20,27 +19,17 @@ export default async function HomePage() {
         <ProjectsSection />
       </Suspense>
 
-      <Suspense fallback={<EmptyPage />}>
-        <AboutSection />
-      </Suspense>
+      <AboutSection />
 
-      <Suspense fallback={<EmptyPage />}>
-        <ServicesSection />
-      </Suspense>
+      <ServicesSection />
 
-      {/* <KnowBetter />
+      {/* <KnowBetter /> */}
 
-      <Suspense fallback={<EmptyPage />}>
-        <ArticlesSection />
-      </Suspense>
+      {/* <ArticlesSection /> */}
 
-      <Suspense fallback={<EmptyPage />}>
-        <GraphicDesignsSection />
-      </Suspense>
+      {/* <GraphicDesignsSection /> */}
 
-      <Suspense fallback={<EmptyPage />}>
-        <TestimonialsSection />
-      </Suspense> */}
+      {/* <TestimonialsSection /> */}
     </PageLayout>
   );
 }
@@ -53,14 +42,22 @@ const fetchServices = cache(getServices);
 // const fetchGraphicDesigns = cache(getGraphicDesigns);
 
 // dynamic imports
-const About = dynamic(() => import("@/components/about/About"));
-const Services = dynamic(() => import("@/components/services/Services"));
-// const Articles = dynamic(() => import("@/components/articles/Articles"));
+const About = dynamic(() => import("@/components/about/About"), {
+  loading: () => <EmptyPage />,
+});
+const Services = dynamic(() => import("@/components/services/Services"), {
+  loading: () => <EmptyPage />,
+});
+// const Articles = dynamic(() => import("@/components/articles/Articles"), {
+//   loading: () => <EmptyPage />,
+// });
 // const GraphicDesigns = dynamic(
 //   () => import("@/components/graphic-designs/GraphicDesigns"),
+//   { loading: () => <EmptyPage /> },
 // );
 // const Testimonials = dynamic(
 //   () => import("@/components/testimonials/Testimonials"),
+//   { loading: () => <EmptyPage /> },
 // );
 
 async function ProjectsSection() {

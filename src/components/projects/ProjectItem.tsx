@@ -19,7 +19,10 @@ export default function ProjectItem({ project, index }: Props) {
   return (
     <div className="relative">
       <Link href={`/projects/${project.slug}`}>
-        <Tooltip title={translation.tooltips.visit}>
+        <Tooltip
+          title={translation.tooltips.explore}
+          icon="ArrowElbowDownRight"
+        >
           <Reveal direction="up" delay={0.2 * index}>
             <ProjectImage image={project.mainImage} />
           </Reveal>
@@ -31,7 +34,7 @@ export default function ProjectItem({ project, index }: Props) {
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>
-              <div className="text-sm opacity-70">
+              <div className="text-sm font-normal">
                 {project.service.name[language]}
               </div>
             </div>

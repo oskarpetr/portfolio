@@ -56,7 +56,7 @@ const Word = ({ word, progress, range }: WordProps) => {
       <span
         className={cn(
           "pointer-events-none absolute opacity-10 select-none",
-          firstWord ? "ml-0 sm:ml-32" : "",
+          firstWord ? "ml-16 sm:ml-32" : "",
         )}
       >
         {word}&nbsp;
@@ -64,7 +64,7 @@ const Word = ({ word, progress, range }: WordProps) => {
 
       <motion.span
         style={{ opacity: useSpring(opacity) }}
-        className={firstWord ? "ml-0 sm:ml-32" : ""}
+        className={firstWord ? "ml-16 sm:ml-32" : ""}
       >
         {word}&nbsp;
       </motion.span>

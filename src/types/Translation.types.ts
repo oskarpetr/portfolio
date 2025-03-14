@@ -6,6 +6,7 @@ export interface Translation {
     services: string;
     graphicDesigns: string;
     articles: string;
+    testimonials: string;
     footer: string;
   };
   projectDetail: {
@@ -25,7 +26,11 @@ export interface Translation {
     country: string;
   };
   tooltips: {
-    visit: string;
+    explore: string;
+    read: string;
+  };
+  alts: {
+    myself: string;
   };
 }
 
