@@ -7,13 +7,15 @@ import {
   useSpring,
 } from "framer-motion";
 import { memo, ReactNode, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface Props {
   children: ReactNode;
   hoverChildren: ReactNode;
+  zIndex?: number;
 }
 
-function HoverElement({ children, hoverChildren }: Props) {
+function HoverElement({ children, hoverChildren, zIndex = 10 }: Props) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -37,27 +39,31 @@ function HoverElement({ children, hoverChildren }: Props) {
     stiffness: 300,
   };
 
+  const hoverElement = (
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: isHovered ? 1 : 0,
+        scale: isHovered ? 1 : 0,
+      }}
+      className="pointer-events-none fixed hidden sm:block"
+      style={{
+        left: useSpring(mouseX, animationConfig),
+        top: useSpring(mouseY, animationConfig),
+        zIndex,
+      }}
+    >
+      {hoverChildren}
+    </motion.div>
+  );
+
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {children}
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{
-          opacity: isHovered ? 1 : 0,
-          scale: isHovered ? 1 : 0,
-        }}
-        className="pointer-events-none fixed z-10 hidden sm:block"
-        style={{
-          left: useSpring(mouseX, animationConfig),
-          top: useSpring(mouseY, animationConfig),
-        }}
-      >
-        {hoverChildren}
-      </motion.div>
+      {createPortal(hoverElement, document.body)}
     </div>
   );
 }

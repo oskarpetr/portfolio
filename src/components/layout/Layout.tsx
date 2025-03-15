@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion";
 import { Geist, Instrument_Serif } from "next/font/google";
 import Footer from "./Footer";
 import SchemaMarkup from "../seo/SchemaMarkup";
-import { useTranslationStore } from "@/translation/useTranslationStore";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,8 +20,6 @@ const instrumentalSerif = Instrument_Serif({
 export default function Layout({ children }: PropsWithChildren) {
   const pathname = usePathname();
 
-  const { language } = useTranslationStore();
-
   return (
     <div
       className={`${geistSans.variable} ${instrumentalSerif.variable} antialiased`}
@@ -32,7 +29,7 @@ export default function Layout({ children }: PropsWithChildren) {
       <Menu />
 
       <AnimatePresence mode="sync">
-        <div key={`${pathname}-${language}`} className="p-10">
+        <div key={`${pathname}`} className="p-10">
           {children}
         </div>
       </AnimatePresence>

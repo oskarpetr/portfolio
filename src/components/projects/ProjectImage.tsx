@@ -1,5 +1,5 @@
 import { useTranslationStore } from "@/translation/useTranslationStore";
-import { type ProjectImage } from "@/types/ProjectImage.types";
+import { type ProjectImage } from "@/types/Project.types";
 import Image from "next/image";
 
 interface Props {

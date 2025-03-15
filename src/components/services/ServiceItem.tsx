@@ -7,6 +7,7 @@ import FadeIn from "../animation/FadeIn";
 import Tags from "../tags/Tags";
 import SectionTitle from "../shared/SectionTitle";
 import AnimatedDivider from "../animation/AnimatedDivider";
+import Parallax from "../animation/Parallax";
 
 interface Props {
   service: Service;
@@ -17,7 +18,7 @@ export default function ServiceItem({ service, index }: Props) {
   const { language } = useTranslationStore();
 
   return (
-    <div>
+    <Parallax multiplier={index * 0.5}>
       <AnimatedDivider delay={0.1 * index + 0.2} />
 
       <div className="flex w-full flex-col py-8 lg:flex-row">
@@ -43,6 +44,6 @@ export default function ServiceItem({ service, index }: Props) {
           </div>
         </div>
       </div>
-    </div>
+    </Parallax>
   );
 }

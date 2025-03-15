@@ -15,9 +15,8 @@ export interface ServiceShort {
   order: number;
 }
 
-export type ServiceSanity = Omit<Service, "id" | "tags"> & {
-  _id: string;
+export type ServiceSanity = Omit<Service, "tags"> & {
   tags: TagShortSanity[];
 };
 
-export type ServiceShortSanity = Omit<ServiceShort, "id"> & { _id: string };
+export type ServiceShortSanity = ServiceShort;

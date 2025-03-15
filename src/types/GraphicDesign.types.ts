@@ -4,12 +4,14 @@ export interface GraphicDesign {
 }
 
 export interface GraphicDesignSanity {
-  _id: string;
-  image: Omit<GraphicDesignImage, "placeholder">;
+  id: string;
+  image: GraphicDesignImageSanity;
 }
 
-interface GraphicDesignImage {
+export interface GraphicDesignImage {
   url: string;
   alt: string;
   placeholder: string;
 }
+
+export type GraphicDesignImageSanity = Omit<GraphicDesignImage, "placeholder">;

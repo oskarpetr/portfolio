@@ -6,7 +6,7 @@ export interface Article {
 }
 
 export interface ArticleSanity {
-  _id: string;
+  id: string;
   title: string;
   url: string;
   publishedAt: string;

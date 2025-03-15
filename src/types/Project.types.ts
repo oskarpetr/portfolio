@@ -1,4 +1,3 @@
-import { ProjectImage, ProjectImageSanity } from "./ProjectImage.types";
 import { ServiceShort, ServiceShortSanity } from "./Service.types";
 import { Tag, TagSanity } from "./Tag.types";
 import { LanguagesType } from "./Translation.types";
@@ -25,21 +24,13 @@ export interface ProjectShort {
   startedAt: string;
 }
 
-export type ProjectSanity = Omit<
-  Project,
-  "id" | "tags" | "mainImage" | "images"
-> & {
-  _id: string;
+export type ProjectSanity = Omit<Project, "tags" | "mainImage" | "images"> & {
   tags: TagSanity[];
   mainImage: ProjectImageSanity;
   images: ProjectImageSanity[];
 };
 
-export type ProjectShortSanity = Omit<
-  ProjectShort,
-  "id" | "service" | "mainImage"
-> & {
-  _id: string;
+export type ProjectShortSanity = Omit<ProjectShort, "service" | "mainImage"> & {
   service: ServiceShortSanity;
   mainImage: ProjectImageSanity;
 };
@@ -48,3 +39,11 @@ export interface ProjectSitemapSanity {
   slug: string;
   images: string[];
 }
+
+export interface ProjectImage {
+  url: string;
+  alt: LanguagesType;
+  placeholder: string;
+}
+
+export type ProjectImageSanity = Omit<ProjectImage, "placeholder">;

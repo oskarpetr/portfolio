@@ -2,9 +2,9 @@ import Image from "next/image";
 import Reveal from "../animation/Reveal";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { Fragment, memo, useEffect, useRef } from "react";
-import { ProjectImage } from "@/types/ProjectImage.types";
 import Tooltip from "../animation/Tooltip";
 import { useTranslationStore } from "@/translation/useTranslationStore";
+import { ProjectImage } from "@/types/Project.types";
 
 interface Props {
   image: ProjectImage;

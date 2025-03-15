@@ -1,9 +1,9 @@
 export const projectsShortQuery = `*[_type == "project"] {
-    _id,
+    "id": _id,
     title,
     "slug": slug.current,
     service->{
-      _id,
+      "id": _id,
       name,
     },
     mainImage {
@@ -16,13 +16,13 @@ export const projectsShortQuery = `*[_type == "project"] {
 export const projectQuery = (
   slug: string,
 ) => `*[_type == "project" && slug.current == "${slug}"] {
-     _id,
+     "id": _id,
     title,
     "slug": slug.current,
     tags[]->{
-      _id,
+      "id": _id,
       service->{
-        _id,
+        "id": _id,
         name
       },
       name,
@@ -48,11 +48,11 @@ export const projectsSitemapQuery = `*[_type == "project"] {
   }`;
 
 export const servicesQuery = `*[_type == "service"] {
-    _id,
+    "id": _id,
     name,
     description,  
     tags[]->{
-      _id,
+      "id": _id,
       name,
       description,
     },
@@ -60,14 +60,14 @@ export const servicesQuery = `*[_type == "service"] {
   }`;
 
 export const articlesQuery = `*[_type == "article"] {
-    _id,
+    "id": _id,
     title,
     url,
     publishedAt,
   }`;
 
 export const graphicDesignsQuery = `*[_type == "graphicDesign"] {
-  _id,
+  "id": _id,
 	image {
 		"url": asset->url,
     alt
@@ -77,5 +77,4 @@ export const graphicDesignsQuery = `*[_type == "graphicDesign"] {
 export const aboutQuery = `*[_type == "about"] {
   "id": _id,
   title,
-  subtitle
 }[0]`;

@@ -14,9 +14,8 @@ export type TagShort = {
   description: LanguagesType;
 };
 
-export type TagSanity = Omit<Tag, "id" | "service"> & {
-  _id: string;
+export type TagSanity = Omit<Tag, "service"> & {
   service: ServiceShortSanity;
 };
 
-export type TagShortSanity = Omit<TagShort, "id"> & { _id: string };
+export type TagShortSanity = TagShort;

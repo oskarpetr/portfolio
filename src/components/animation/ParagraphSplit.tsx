@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslationStore } from "@/translation/useTranslationStore";
 import { BEZIER_EASING } from "@/utils/animation";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
@@ -20,6 +21,8 @@ function ParagraphSplit({
   animateWhileInView = true,
   includeExitAnimation = false,
 }: Props) {
+  const { language } = useTranslationStore();
+
   const words = text.split(" ");
   const stagger = 0.01;
 
@@ -30,6 +33,7 @@ function ParagraphSplit({
 
   return (
     <motion.p
+      key={`paragraph-${language}`}
       initial="initial"
       animate={animateWhileInView ? undefined : "animate"}
       whileInView={animateWhileInView ? "animate" : undefined}

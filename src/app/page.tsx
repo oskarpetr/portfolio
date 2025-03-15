@@ -1,5 +1,4 @@
 import EmptyPage from "@/components/layout/EmptyPage";
-import Projects from "@/components/projects/Projects";
 import {
   getAbout,
   // getArticles,
@@ -11,19 +10,16 @@ import { rootMetadata } from "@/utils/seo";
 import { cache, Suspense } from "react";
 import dynamic from "next/dynamic";
 import PageLayout from "@/components/layout/PageLayout";
+import ProjectsAbout from "@/components/projects/ProjectsAbout";
 
 export default async function HomePage() {
   return (
     <PageLayout>
       <Suspense fallback={<EmptyPage />}>
-        <ProjectsSection />
+        <ProjectsAboutSection />
       </Suspense>
 
-      <AboutSection />
-
       <ServicesSection />
-
-      {/* <KnowBetter /> */}
 
       {/* <ArticlesSection /> */}
 
@@ -42,9 +38,6 @@ const fetchServices = cache(getServices);
 // const fetchGraphicDesigns = cache(getGraphicDesigns);
 
 // dynamic imports
-const About = dynamic(() => import("@/components/about/About"), {
-  loading: () => <EmptyPage />,
-});
 const Services = dynamic(() => import("@/components/services/Services"), {
   loading: () => <EmptyPage />,
 });
@@ -60,14 +53,11 @@ const Services = dynamic(() => import("@/components/services/Services"), {
 //   { loading: () => <EmptyPage /> },
 // );
 
-async function ProjectsSection() {
+async function ProjectsAboutSection() {
   const projects = await fetchProjectsShort();
-  return <Projects projects={projects} />;
-}
-
-async function AboutSection() {
   const about = await fetchAbout();
-  return <About about={about} />;
+
+  return <ProjectsAbout projects={projects} about={about} />;
 }
 
 async function ServicesSection() {

@@ -7,9 +7,10 @@ export interface Props {
   icon?: IconNames;
   title?: string;
   description?: string;
+  zIndex?: number;
 }
 
-function Tooltip({ children, icon, title, description }: Props) {
+function Tooltip({ children, icon, title, description, zIndex = 10 }: Props) {
   const tooltip = (
     <div className="flex items-center gap-2 border bg-white px-4 py-2 whitespace-nowrap shadow-2xl">
       {icon && <Icon name={icon} size={16} />}
@@ -22,7 +23,11 @@ function Tooltip({ children, icon, title, description }: Props) {
     </div>
   );
 
-  return <HoverElement hoverChildren={tooltip}>{children}</HoverElement>;
+  return (
+    <HoverElement hoverChildren={tooltip} zIndex={zIndex}>
+      {children}
+    </HoverElement>
+  );
 }
 
 export default memo(Tooltip);
