@@ -1,10 +1,12 @@
+"use client";
+
 import { memo, ReactNode } from "react";
 import HoverElement from "./HoverElement";
-import Icon, { IconNames } from "../shared/Icon";
+import Icon, { IconType } from "../shared/Icon";
 
 export interface Props {
   children: ReactNode;
-  icon?: IconNames;
+  icon?: IconType;
   title?: string;
   description?: string;
   zIndex?: number;

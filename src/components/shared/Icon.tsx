@@ -1,15 +1,18 @@
-import React, { ComponentProps, ComponentType } from "react";
-import * as Icons from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowElbowDownRight,
+  ArrowUpRight,
+  Eyes,
+  IconWeight,
+} from "@phosphor-icons/react";
 
-export type IconWeight = "bold" | "duotone" | "fill" | "regular" | "thin";
-export type IconNames = keyof typeof Icons;
+export type IconType = "ArrowUpRight" | "ArrowElbowDownRight" | "Eyes";
 
 interface Props {
-  name: IconNames;
+  name: IconType;
   size?: number;
   weight?: IconWeight;
   color?: string;
-  className?: ComponentProps<"div">["className"];
+  className?: string;
 }
 
 const Icon = ({
@@ -19,13 +22,10 @@ const Icon = ({
   color = "currentColor",
   className,
 }: Props) => {
-  const PhosphorIcon = Icons[name] as ComponentType<{
-    size?: number;
-    weight?: IconWeight;
-    color?: string;
-    className?: string;
-    weights?: unknown;
-  }>;
+  const icons = { ArrowUpRight, ArrowElbowDownRight, Eyes };
+  const PhosphorIcon = icons[name as keyof typeof icons];
+
+  if (!PhosphorIcon) return null;
 
   return (
     <PhosphorIcon

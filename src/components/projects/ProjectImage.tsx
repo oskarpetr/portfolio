@@ -10,12 +10,12 @@ export default function ProjectImage({ image }: Props) {
   const { language } = useTranslationStore();
 
   return (
-    <div className="pt-[75%]">
+    <div className="relative pt-[75%]">
       <Image
         src={image.url}
         alt={image.alt[language]}
         fill
-        loading="lazy"
+        priority
         placeholder="blur"
         blurDataURL={image.placeholder}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

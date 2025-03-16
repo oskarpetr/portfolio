@@ -21,7 +21,6 @@ export default function AboutImage() {
                 alt="Myself"
                 width={400}
                 height={0}
-                loading="lazy"
                 placeholder="blur"
                 className="object-cover grayscale"
               />

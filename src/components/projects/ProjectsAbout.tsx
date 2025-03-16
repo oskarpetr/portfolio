@@ -1,10 +1,10 @@
 "use client";
 
 import { Fragment, useRef } from "react";
-import Projects from "./Projects";
 import { About as AboutType } from "@/types/About.types";
-import About from "../about/About";
 import { ProjectShort } from "@/types/Project.types";
+import dynamic from "next/dynamic";
+import EmptyPage from "../layout/EmptyPage";
 
 interface Props {
   projects: ProjectShort[];
@@ -13,6 +13,14 @@ interface Props {
 
 export default function ProjectsAbout({ projects, about }: Props) {
   const aboutRef = useRef<HTMLDivElement | null>(null);
+
+  const Projects = dynamic(() => import("@/components/projects/Projects"), {
+    loading: () => <EmptyPage />,
+  });
+
+  const About = dynamic(() => import("@/components/about/About"), {
+    loading: () => <EmptyPage />,
+  });
 
   return (
     <Fragment>

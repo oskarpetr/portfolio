@@ -2,10 +2,10 @@
 
 import { useTranslationStore } from "@/translation/useTranslationStore";
 import SectionTitle from "../shared/SectionTitle";
-import ProjectGrid from "./ProjectGrid";
 import { ProjectShort } from "@/types/Project.types";
 import SectionSlideUp from "../animation/SectionSlideUp";
 import { RefObject } from "react";
+import ProjectGrid from "./ProjectGrid";
 
 interface Props {
   projects: ProjectShort[];

@@ -1,11 +1,10 @@
 import "./globals.css";
 import { rootMetadata } from "@/utils/seo";
 import App from "@/components/layout/App";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
+// import { WebVitals } from "@/components/shared/WebVitals";
 
-type Props = Readonly<{ children: ReactNode }>;
-
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       {/* <head>
@@ -13,6 +12,7 @@ export default function RootLayout({ children }: Props) {
       </head> */}
       <body>
         <App>{children}</App>
+        {/* <WebVitals /> */}
       </body>
     </html>
   );

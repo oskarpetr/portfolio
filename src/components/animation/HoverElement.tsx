@@ -15,7 +15,7 @@ interface Props {
   zIndex?: number;
 }
 
-function HoverElement({ children, hoverChildren, zIndex = 10 }: Props) {
+function HoverElement({ children, hoverChildren, zIndex = 0 }: Props) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 

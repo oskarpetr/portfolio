@@ -1,9 +1,7 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
-  extends: [
-    "plugin:@typescript-eslint/recommended", // if you want to extend the recommended TypeScript rules
-  ],
+  extends: ["plugin:@typescript-eslint/recommended"],
   rules: {
-    "@typescript-eslint/no-explicit-any": "off", // Disable the rule
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };

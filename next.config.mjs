@@ -24,7 +24,9 @@ const nextConfig = {
       },
     ];
   },
-
+  experimental: {
+    optimizePackageImports: ["@phosphor-icons/react"],
+  },
   // experimental: {
   //   viewTransition: true,
   // },
