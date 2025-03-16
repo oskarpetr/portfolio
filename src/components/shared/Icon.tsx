@@ -1,11 +1,16 @@
 import {
   ArrowElbowDownRight,
   ArrowUpRight,
+  BracketsCurly,
   Eyes,
   IconWeight,
 } from "@phosphor-icons/react";
 
-export type IconType = "ArrowUpRight" | "ArrowElbowDownRight" | "Eyes";
+export type IconType =
+  | "ArrowUpRight"
+  | "ArrowElbowDownRight"
+  | "Eyes"
+  | "BracketsCurly";
 
 interface Props {
   name: IconType;
@@ -22,7 +27,7 @@ const Icon = ({
   color = "currentColor",
   className,
 }: Props) => {
-  const icons = { ArrowUpRight, ArrowElbowDownRight, Eyes };
+  const icons = { ArrowUpRight, ArrowElbowDownRight, Eyes, BracketsCurly };
   const PhosphorIcon = icons[name as keyof typeof icons];
 
   if (!PhosphorIcon) return null;
