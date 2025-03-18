@@ -5,9 +5,9 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { singletonTools } from "sanity-plugin-singleton-tools";
 
-import { apiVersion, dataset, projectId } from "./src/sanity/env";
-import { schema } from "./src/sanity/schemaTypes";
-import { structure } from "./src/sanity/structure";
+import { apiVersion, dataset, projectId } from "./sanity/env";
+import { schema } from "./sanity/schemaTypes";
+import { structure } from "./sanity/structure";
 
 export default defineConfig({
   basePath: "/admin",

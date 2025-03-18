@@ -17,7 +17,6 @@ export const socialSites: SocialSite[] = [
 
 export const contact: Contact = {
   email: "contact@oskarpetr.com",
-  phone: "(+420) 608 182 315",
 };
 
 export const location: Location = {

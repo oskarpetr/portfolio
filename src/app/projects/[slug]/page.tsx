@@ -1,27 +1,22 @@
-import { Suspense } from "react";
-import ProjectDetail from "@/components/project-detail/ProjectDetail";
 import { getProject } from "@/utils/cms";
 import { projectMetadata } from "@/utils/seo";
 import { cache } from "react";
-import EmptyPage from "@/components/layout/EmptyPage";
+import ProjectSectionWrapper from "@/components/wrappers/projects/ProjectSection";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// fetch data
 const fetchProject = cache(getProject);
 
 export default async function ProjectPage({ params }: Props) {
-  return (
-    <Suspense fallback={<EmptyPage />}>
-      <ProjectSection slug={(await params).slug} />
-    </Suspense>
-  );
+  return <ProjectSection slug={(await params).slug} />;
 }
 
 async function ProjectSection({ slug }: { slug: string }) {
   const project = await fetchProject(slug);
-  return <ProjectDetail project={project} />;
+  return <ProjectSectionWrapper project={project} />;
 }
 
 export async function generateMetadata({ params }: Props) {

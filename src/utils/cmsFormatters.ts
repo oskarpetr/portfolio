@@ -7,8 +7,8 @@ import {
   ProjectShortSanity,
   ProjectSitemapSanity,
 } from "@/types/Project.types";
-import { urlFor } from "@/sanity/lib/image";
-import { ArticleSanity } from "@/types/Article.types";
+import { urlFor } from "../../sanity/lib/image";
+import { Article, ArticleSanity } from "@/types/Article.types";
 import {
   GraphicDesign,
   GraphicDesignImage,
@@ -17,6 +17,11 @@ import {
 } from "@/types/GraphicDesign.types";
 import { getPlaceholder } from "./placeholder";
 import { Service, ServiceSanity } from "@/types/Service.types";
+import {
+  TestimoniaImageSanity,
+  TestimonialImage,
+  TestimonialSanity,
+} from "@/types/Testimonial.types";
 
 export async function formatProjectsShort(
   projectsShortCms: ProjectShortSanity[],
@@ -84,7 +89,7 @@ export function formatArticles(articlesCms: ArticleSanity[]) {
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
-  return articlesSorted;
+  return articlesSorted as Article[];
 }
 
 export async function formatGraphicDesigns(
@@ -103,8 +108,28 @@ export async function formatGraphicDesigns(
   return graphicDesigns;
 }
 
+export async function formatTestimonials(testimonialsCms: TestimonialSanity[]) {
+  const testimonials = await Promise.all(
+    (testimonialsCms ?? []).map(async (testimonial) => ({
+      ...testimonial,
+      logo: (await formatImage(testimonial.logo, 100)) as TestimonialImage,
+      content: testimonial.content,
+    })),
+  );
+
+  const testimonialsSorted = testimonials.sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
+
+  return testimonialsSorted;
+}
+
 async function formatImage(
-  imageSanity: ProjectImageSanity | GraphicDesignImageSanity,
+  imageSanity:
+    | ProjectImageSanity
+    | GraphicDesignImageSanity
+    | TestimoniaImageSanity,
   width: number,
 ) {
   const formattedUrl = formatImageUrl(imageSanity.url, width);
@@ -116,7 +141,7 @@ async function formatImage(
   };
 
   if (typeof image.alt === "object") return image as ProjectImage;
-  return image as GraphicDesignImage;
+  return image;
 }
 
 function formatImageUrl(url: string, width: number) {

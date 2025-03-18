@@ -25,11 +25,21 @@ const nextConfig = {
     ];
   },
   experimental: {
-    optimizePackageImports: ["@phosphor-icons/react"],
+    optimizePackageImports: [
+      "@phosphor-icons/react",
+      "@sanity/client",
+      "@sanity/image-url",
+      "@sanity/vision",
+    ],
   },
   // experimental: {
   //   viewTransition: true,
   // },
 };
 
-export default withPlaiceholder(nextConfig);
+import bundleAnalyzer from "@next/bundle-analyzer";
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default withBundleAnalyzer(withPlaiceholder(nextConfig));

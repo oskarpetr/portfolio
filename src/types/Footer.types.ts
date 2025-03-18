@@ -5,7 +5,6 @@ export interface SocialSite {
 
 export interface Contact {
   email: string;
-  phone: string;
 }
 
 export interface Location {

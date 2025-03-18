@@ -2,12 +2,15 @@ import Image from "next/image";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import { Testimonial } from "@/types/Testimonial.types";
 import { motion } from "framer-motion";
+import { useTranslationStore } from "@/translation/useTranslationStore";
 
 interface Props {
   testimonial: Testimonial;
 }
 
 export default function TestimonialItem({ testimonial }: Props) {
+  const { language } = useTranslationStore();
+
   return (
     <motion.div
       className="pointer-events-none flex flex-col gap-12"
@@ -17,17 +20,19 @@ export default function TestimonialItem({ testimonial }: Props) {
       }}
     >
       <Image
-        src={testimonial.logo}
-        alt={testimonial.author}
+        src={testimonial.logo.url}
+        alt={testimonial.logo.alt}
         height={70}
         width={70}
+        placeholder="blur"
+        blurDataURL={testimonial.logo.placeholder}
         className="h-8 w-fit object-cover"
       />
 
       <div className="flex flex-col gap-4">
         <div className="text-2xl font-normal sm:text-3xl">
           <ParagraphSplit
-            text={`“${testimonial.content}”`}
+            text={`“${testimonial.content[language]}”`}
             animateWhileInView={false}
             indent={false}
           />

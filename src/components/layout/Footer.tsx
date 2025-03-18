@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <div
-      className="relative mt-48 sm:h-[500px]"
+      className="invert-select relative mt-48 sm:h-[500px]"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
       <div className="bottom-0 w-full sm:fixed sm:h-[500px]">
@@ -43,17 +43,13 @@ function StartProject() {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="opacity-50">{translation.footer.startProject}</div>
-
-      <div className="w-fit">
-        <TextStagger>
-          <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
-        </TextStagger>
+      <div className="font-normal opacity-50">
+        {translation.footer.startProject}
       </div>
 
       <div className="w-fit">
         <TextStagger>
-          <Link href={`tel:${contact.phone}`}>{contact.phone}</Link>
+          <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
         </TextStagger>
       </div>
     </div>
@@ -65,16 +61,24 @@ function Location() {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="opacity-50">{translation.footer.location}</div>
-      <div>{translation.footer.country}</div>
+      <div className="font-normal opacity-50">
+        {translation.footer.location}
+      </div>
+      <div>{translation.footer.country}, </div>
       <div>{location.city}</div>
     </div>
   );
 }
 
 function SocialSites() {
+  const { translation } = useTranslationStore();
+
   return (
     <div className="flex flex-col gap-1">
+      <div className="font-normal opacity-50">
+        {translation.footer.socialSites}
+      </div>
+
       {socialSites.map((site) => (
         <div className="w-fit" key={`social-site-${site.name}`}>
           <TextStagger>
@@ -98,6 +102,8 @@ function FooterItems() {
 
   return (
     <div className="flex flex-col gap-1">
+      <div className="font-normal opacity-50">{translation.footer.pages}</div>
+
       {menuItems.map((item) => (
         <TextStagger key={`footer-item-${item.title}`}>
           <Link href={`/#${item.name}`} className="flex cursor-pointer">

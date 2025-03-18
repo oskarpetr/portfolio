@@ -78,3 +78,15 @@ export const aboutQuery = `*[_type == "about"] {
   "id": _id,
   title,
 }[0]`;
+
+export const testimonialsQuery = `*[_type == "testimonial"] {
+  "id": _id,
+  logo {
+    "url": asset->url,
+    alt
+  },
+  content,
+  author,
+  authorPosition,
+  publishedAt
+}`;

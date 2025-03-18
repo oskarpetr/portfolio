@@ -23,6 +23,8 @@ export interface Translation {
   footer: {
     startProject: string;
     location: string;
+    socialSites: string;
+    pages: string;
     country: string;
   };
   tooltips: {

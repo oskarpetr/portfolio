@@ -1,6 +1,6 @@
 "use server";
 
-import { sanityClient } from "@/sanity/lib/client";
+import { sanityClient } from "../../sanity/lib/client";
 import {
   formatArticles,
   formatGraphicDesigns,
@@ -8,6 +8,7 @@ import {
   formatProjectsShort,
   formatProjectsSitemap,
   formatServices,
+  formatTestimonials,
 } from "./cmsFormatters";
 import {
   projectQuery,
@@ -17,6 +18,7 @@ import {
   graphicDesignsQuery,
   servicesQuery,
   aboutQuery,
+  testimonialsQuery,
 } from "./queries";
 
 export async function getProjectsShort() {
@@ -64,4 +66,11 @@ export async function getGraphicDesigns() {
 export async function getAbout() {
   const aboutCms = await sanityClient.fetch(aboutQuery);
   return aboutCms;
+}
+
+export async function getTestimonials() {
+  const testimonialsCms = await sanityClient.fetch(testimonialsQuery);
+  const testimonials = formatTestimonials(testimonialsCms);
+
+  return testimonials;
 }

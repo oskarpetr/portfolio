@@ -25,6 +25,8 @@ const translationEn: Translation = {
   footer: {
     startProject: "Start a project?",
     location: "Location",
+    socialSites: "Social sites",
+    pages: "Pages",
     country: "Czech Republic",
   },
   tooltips: {
@@ -61,6 +63,8 @@ const translationCs: Translation = {
   footer: {
     startProject: "Začneme projekt?",
     location: "Lokace",
+    socialSites: "Sociální sítě",
+    pages: "Stránky",
     country: "Česká republika",
   },
   tooltips: {

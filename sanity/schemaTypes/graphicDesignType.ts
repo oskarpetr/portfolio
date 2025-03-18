@@ -1,11 +1,11 @@
-import { ImageIcon } from "@sanity/icons";
+// import { ImageIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const graphicDesignType = defineType({
   name: "graphicDesign",
   title: "Graphic Designs",
   type: "document",
-  icon: ImageIcon,
+  // icon: ImageIcon,
   fields: [
     defineField({
       name: "image",

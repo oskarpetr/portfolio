@@ -1,12 +1,17 @@
-import { CogIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
+// import { TagIcon } from "@sanity/icons";
 
-export const serviceType = defineType({
-  name: "service",
-  title: "Services",
+export const tagType = defineType({
+  name: "tag",
+  title: "Tags",
   type: "document",
-  icon: CogIcon,
+  // icon: TagIcon,
   fields: [
+    defineField({
+      name: "service",
+      type: "reference",
+      to: [{ type: "service" }],
+    }),
     defineField({
       name: "name",
       type: "object",
@@ -30,29 +35,20 @@ export const serviceType = defineType({
         {
           name: "en",
           title: "English",
-          type: "text",
+          type: "string",
         },
         {
           name: "cs",
           title: "Czech",
-          type: "text",
+          type: "string",
         },
       ],
     }),
-    defineField({
-      name: "tags",
-      type: "array",
-      of: [{ name: "tag", type: "reference", to: [{ type: "tag" }] }],
-    }),
-    defineField({
-      name: "order",
-      type: "number",
-    }),
   ],
-
   preview: {
     select: {
       title: "name.en",
+      subtitle: "service.name.en",
     },
   },
 });

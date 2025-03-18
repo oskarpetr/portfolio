@@ -4,18 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "analyze": "ANALYZE=true pnpm run build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^15.2.3",
     "@phosphor-icons/react": "^2.1.7",
     "@plaiceholder/next": "^3.0.0",
-    "@sanity/icons": "^3.7.0",
+    "@sanity/client": "^6.28.3",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
     "@vercel/speed-insights": "^1.2.0",
-    "babel-plugin-react-compiler": "19.0.0-beta-bafa41b-20250307",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "lenis": "^1.1.21",
@@ -27,14 +28,11 @@
     "sanity": "3",
     "sanity-plugin-singleton-tools": "^1.1.0",
     "sharp": "0.32.6",
-    "styled-components": "6",
+    "styled-components": "^6.1.15",
     "tailwind-merge": "^3.0.2",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
-    "@babel/preset-env": "^7.26.9",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
