@@ -2,16 +2,18 @@
 
 import { usePathname } from "next/navigation";
 import { PropsWithChildren, useState } from "react";
-import Providers from "./Providers";
-import Layout from "./Layout";
 import { AnimatePresence } from "framer-motion";
 import { useTimeout } from "../hooks/useTimeout";
-import Preloader from "./Preloader";
+import dynamic from "next/dynamic";
+
+const Preloader = dynamic(() => import("./Preloader"));
+const Providers = dynamic(() => import("./Providers"));
+const Layout = dynamic(() => import("./Layout"));
 
 export default function App({ children }: PropsWithChildren) {
   const pathname = usePathname();
 
-  //preloader
+  // preloader
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 

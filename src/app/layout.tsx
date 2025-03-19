@@ -2,7 +2,7 @@ import "./globals.css";
 import { rootMetadata } from "@/utils/seo";
 import App from "@/components/layout/App";
 import { PropsWithChildren } from "react";
-// import { WebVitals } from "@/components/shared/WebVitals";
+import { WebVitals } from "@/components/shared/WebVitals";
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </head> */}
       <body>
         <App>{children}</App>
-        {/* <WebVitals /> */}
+        <WebVitals />
       </body>
     </html>
   );

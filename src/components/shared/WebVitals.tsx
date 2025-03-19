@@ -8,6 +8,9 @@ export function WebVitals() {
       case "LCP": {
         console.log(metric);
       }
+      default: {
+        console.log(metric);
+      }
     }
   });
 

@@ -2,7 +2,7 @@ import { Project } from "@/types/Project.types";
 import { Metadata } from "next";
 
 export const baseUrl = "https://oskarpetr.com";
-export const avatarUrl = `${baseUrl}/images/avatar.webp`;
+export const avatarUrl = `${baseUrl}/images/myself.webp`;
 
 export function rootMetadata(): Metadata {
   const title = "Oskar Petr";

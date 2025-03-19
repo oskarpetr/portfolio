@@ -1,4 +1,4 @@
-import { Lenis } from "lenis/react";
+import Lenis from "lenis/react";
 import { PropsWithChildren } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import LazyWrapper from "../animation/LazyWrapper";

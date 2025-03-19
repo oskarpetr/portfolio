@@ -30,6 +30,7 @@ const nextConfig = {
       "@sanity/client",
       "@sanity/image-url",
       "@sanity/vision",
+      "next-sanity",
     ],
   },
   // experimental: {
