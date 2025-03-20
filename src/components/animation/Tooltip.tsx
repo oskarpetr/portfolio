@@ -1,8 +1,8 @@
 "use client";
 
 import { memo, ReactNode } from "react";
-import HoverElement from "./HoverElement";
 import Icon, { IconType } from "../shared/Icon";
+import dynamic from "next/dynamic";
 
 export interface Props {
   children: ReactNode;
@@ -11,6 +11,8 @@ export interface Props {
   description?: string;
   zIndex?: number;
 }
+
+const HoverElement = dynamic(() => import("./HoverElement"), { ssr: false });
 
 function Tooltip({ children, icon, title, description, zIndex = 10 }: Props) {
   const tooltip = (

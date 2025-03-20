@@ -1,11 +1,12 @@
 "use client";
 
 import { useTranslationStore } from "@/translation/useTranslationStore";
-import SectionTitle from "../shared/SectionTitle";
 import { ProjectShort } from "@/types/Project.types";
 import SectionSlideUp from "../animation/SectionSlideUp";
 import { RefObject } from "react";
 import ProjectGrid from "./ProjectGrid";
+import SectionTitle from "../shared/SectionTitle";
+import { appDelay } from "../layout/App";
 
 interface Props {
   projects: ProjectShort[];
@@ -21,6 +22,7 @@ export default function Projects({ projects, aboutRef }: Props) {
         <SectionTitle
           title={translation.sectionTitles.projects}
           number={projects.length}
+          delay={appDelay}
         />
         <div>
           <div className="hidden grid-cols-4 lg:grid">

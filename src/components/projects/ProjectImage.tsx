@@ -18,7 +18,7 @@ export default function ProjectImage({ image }: Props) {
         priority
         placeholder="blur"
         blurDataURL={image.placeholder}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         className="object-cover grayscale transition-all duration-500 hover:scale-105"
       />
     </div>

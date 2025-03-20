@@ -14,9 +14,11 @@ interface Props {
 // dynamic imports
 const Projects = dynamic(() => import("@/components/projects/Projects"), {
   loading: () => <EmptyPage />,
+  ssr: false,
 });
 const About = dynamic(() => import("@/components/about/About"), {
   loading: () => <EmptyPage />,
+  ssr: false,
 });
 
 export default function ProjectsAboutWrapper({ projects, about }: Props) {

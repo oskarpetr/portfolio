@@ -14,6 +14,7 @@ const instrumentalSerif = Instrument_Serif({
   variable: "--font-instrumental-serif",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
 });
 
 export default function Providers({ children }: PropsWithChildren) {

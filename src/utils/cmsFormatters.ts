@@ -145,5 +145,5 @@ async function formatImage(
 }
 
 function formatImageUrl(url: string, width: number) {
-  return urlFor(url).width(width).url();
+  return urlFor(url).width(width).saturation(-100).url();
 }

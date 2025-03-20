@@ -15,9 +15,7 @@ export default function Layout({ children }: PropsWithChildren) {
       <Menu />
 
       <AnimatePresence mode="sync">
-        <div key={`${pathname}`} className="p-10">
-          {children}
-        </div>
+        <div key={pathname}>{children}</div>
       </AnimatePresence>
 
       <Footer />

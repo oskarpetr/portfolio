@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 body {
+  font-display: swap;
   font-family: "Geist";
   letter-spacing: -0.04rem;
   font-weight: 500;

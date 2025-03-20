@@ -1,12 +1,13 @@
 "use client";
 
 import { ProjectShort } from "@/types/Project.types";
-import ProjectImage from "./ProjectImage";
 import Link from "next/link";
 import { useTranslationStore } from "@/translation/useTranslationStore";
 import Reveal from "../animation/Reveal";
 import Index from "../shared/Index";
 import Tooltip from "../animation/Tooltip";
+import ProjectImage from "./ProjectImage";
+import { appDelay } from "../layout/App";
 
 interface Props {
   project: ProjectShort;
@@ -23,14 +24,14 @@ export default function ProjectItem({ project, index }: Props) {
           title={translation.tooltips.explore}
           icon="ArrowElbowDownRight"
         >
-          <Reveal direction="up" delay={0.2 * index}>
+          <Reveal direction="up" delay={0.2 * index + appDelay}>
             <ProjectImage image={project.mainImage} />
           </Reveal>
         </Tooltip>
       </Link>
 
       <div className="static block w-full overflow-hidden sm:absolute">
-        <Reveal direction="down" delay={0.2 * index}>
+        <Reveal direction="down" delay={0.2 * index + appDelay}>
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>
