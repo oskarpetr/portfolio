@@ -12,7 +12,7 @@ const Providers = dynamic(() => import("@/components/layout/Providers"));
 // const Layout = dynamic(() => import("@/components/layout/Layout"));
 
 // preloader timing
-const preloaderTime = 3000;
+export const preloaderTime = 2000;
 const contentDelay = 500;
 
 export default function App({ children }: PropsWithChildren) {

@@ -19,7 +19,9 @@ export default function SectionTitle({
     <div className={enableMargin ? "mb-12" : ""}>
       <FadeIn delay={0.1 + delay}>
         <div className="flex items-end gap-2">
-          <h2 className="serif text-5xl whitespace-nowrap">{title}</h2>
+          <h2 className="serif text-4xl whitespace-nowrap sm:text-5xl">
+            {title}
+          </h2>
           {number && <div className="serif text-2xl">({number})</div>}
         </div>
       </FadeIn>

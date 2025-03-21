@@ -12,7 +12,7 @@ export default function AboutImage() {
 
   return (
     <div className="w-fit sm:ml-[50%]">
-      <Reveal direction="up" viewportAmount={0.5}>
+      <Reveal direction="up" viewportAmount={0.2}>
         <Tooltip title={translation.alts.myself} icon="Eyes" zIndex={20}>
           <ParallaxImage>
             <div className="h-[400px]">

@@ -23,14 +23,14 @@ export default function ProjectItem({ project, index }: Props) {
           title={translation.tooltips.explore}
           icon="ArrowElbowDownRight"
         >
-          <Reveal direction="up" delay={0.2 * index}>
+          <Reveal direction="up" delay={0.1 * index}>
             <ProjectImage image={project.mainImage} />
           </Reveal>
         </Tooltip>
       </Link>
 
       <div className="static block w-full overflow-hidden sm:absolute">
-        <Reveal direction="down" delay={0.2 * index}>
+        <Reveal direction="down" delay={0.1 * index}>
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>

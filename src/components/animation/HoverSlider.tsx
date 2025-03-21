@@ -39,7 +39,7 @@ function HoverSlider({ children }: PropsWithChildren) {
 
       <motion.div
         ref={scope}
-        className="absolute -top-full z-0 h-full w-full bg-black"
+        className="absolute -top-full z-0 hidden h-full w-full bg-black sm:block"
       ></motion.div>
     </div>
   );

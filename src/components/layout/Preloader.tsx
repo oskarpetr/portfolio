@@ -5,10 +5,11 @@ import { BEZIER_EASING } from "@/utils/animation";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import { useState } from "react";
 import { useTimeout } from "../hooks/useTimeout";
+import { preloaderTime } from "./App";
 
 export default function Preloader() {
   const [showName, setShowName] = useState(true);
-  useTimeout(() => setShowName(false), 2500);
+  useTimeout(() => setShowName(false), preloaderTime - 500);
 
   const stairsCount = 4;
 
