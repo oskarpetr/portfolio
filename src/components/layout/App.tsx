@@ -14,17 +14,16 @@ const Providers = dynamic(() => import("@/components/layout/Providers"));
 // preloader timing
 const preloaderTime = 3000;
 const contentDelay = 500;
-export const appDelay = (preloaderTime + contentDelay) / 1000;
 
 export default function App({ children }: PropsWithChildren) {
   const pathname = usePathname();
 
   // preloader
   const [isLoading, setIsLoading] = useState(true);
-  // const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useTimeout(() => setIsLoading(false), preloaderTime);
-  // useTimeout(() => setShowContent(true), preloaderTime + contentDelay);
+  useTimeout(() => setShowContent(true), preloaderTime + contentDelay);
 
   // cms page route
   if (pathname.startsWith("/admin")) {
@@ -38,7 +37,7 @@ export default function App({ children }: PropsWithChildren) {
       </AnimatePresence>
 
       <AnimatePresence>
-        <Layout key="layout">{children}</Layout>
+        {showContent && <Layout key="layout">{children}</Layout>}
       </AnimatePresence>
     </Providers>
   );

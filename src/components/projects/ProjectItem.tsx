@@ -7,7 +7,6 @@ import Reveal from "../animation/Reveal";
 import Index from "../shared/Index";
 import Tooltip from "../animation/Tooltip";
 import ProjectImage from "./ProjectImage";
-import { appDelay } from "../layout/App";
 
 interface Props {
   project: ProjectShort;
@@ -24,14 +23,14 @@ export default function ProjectItem({ project, index }: Props) {
           title={translation.tooltips.explore}
           icon="ArrowElbowDownRight"
         >
-          <Reveal direction="up" delay={0.2 * index + appDelay}>
+          <Reveal direction="up" delay={0.2 * index}>
             <ProjectImage image={project.mainImage} />
           </Reveal>
         </Tooltip>
       </Link>
 
       <div className="static block w-full overflow-hidden sm:absolute">
-        <Reveal direction="down" delay={0.2 * index + appDelay}>
+        <Reveal direction="down" delay={0.2 * index}>
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>

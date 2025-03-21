@@ -2,8 +2,8 @@
 
 import { ForwardedRef, forwardRef } from "react";
 import AboutImage from "./AboutImage";
-import AboutText from "./AboutText";
 import { type About } from "@/types/About.types";
+import AboutText from "./AboutText";
 
 interface Props {
   about: About;
