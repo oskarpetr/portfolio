@@ -29,7 +29,7 @@ export default function ServiceItem({ service, index }: Props) {
             <div className="w-1/2">
               <SectionTitle
                 title={service.name[language]}
-                number={service.tags.length}
+                // number={service.tags.length}
                 enableMargin={false}
               />
             </div>
@@ -42,7 +42,10 @@ export default function ServiceItem({ service, index }: Props) {
           <div className="lg:ml-[50%]">
             <div className="flex flex-col gap-2">
               <div className="text-base font-normal lg:text-2xl">
-                <ParagraphSplit text={service.description[language]} />
+                <ParagraphSplit
+                  delay={-0.2}
+                  text={service.description[language]}
+                />
               </div>
 
               <div className="pointer-events-auto flex flex-wrap items-center gap-2">

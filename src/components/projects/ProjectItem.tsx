@@ -33,8 +33,8 @@ export default function ProjectItem({ project, index }: Props) {
         <Reveal direction="down" delay={0.1 * index}>
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
-              <div>{project.title}</div>
-              <div className="text-sm font-normal">
+              <div className="">{project.title}</div>
+              <div className="text-sm font-normal opacity-80">
                 {project.service.name[language]}
               </div>
             </div>

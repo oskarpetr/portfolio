@@ -27,7 +27,7 @@ function ParagraphSplit({
   const stagger = 0.01;
 
   const variants = {
-    initial: { y: "200%", clipPath: "inset(100% 0 100% 0)" },
+    initial: { y: "300%", clipPath: "inset(100% 0 100% 0)" },
     animate: { y: 0, clipPath: "inset(0 0 0 0)" },
   };
 

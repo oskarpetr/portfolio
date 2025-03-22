@@ -1,1 +1,1 @@
-export const BEZIER_EASING = [0.22, 1, 0.36, 1];
+export const BEZIER_EASING = [0.2, 1, 0.4, 1];

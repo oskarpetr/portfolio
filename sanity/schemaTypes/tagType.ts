@@ -1,11 +1,11 @@
 import { defineField, defineType } from "sanity";
-// import { TagIcon } from "@sanity/icons";
+import { TagIcon } from "@sanity/icons";
 
 export const tagType = defineType({
   name: "tag",
   title: "Tags",
   type: "document",
-  // icon: TagIcon,
+  icon: TagIcon,
   fields: [
     defineField({
       name: "service",

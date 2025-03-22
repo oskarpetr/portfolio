@@ -13,6 +13,7 @@
     "@next/bundle-analyzer": "^15.2.3",
     "@phosphor-icons/react": "^2.1.7",
     "@plaiceholder/next": "^3.0.0",
+    "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
     "@vercel/speed-insights": "^1.2.0",

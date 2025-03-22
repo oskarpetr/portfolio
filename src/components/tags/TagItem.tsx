@@ -16,7 +16,7 @@ export default function TagItem({ tag, isLast, delay }: Props) {
   return (
     <FadeIn key={`tag-${tag.id}-${language}`} delay={delay}>
       <Tooltip description={tag.description[language]} icon="BracketsCurly">
-        <div className="cursor-pointer border-b border-neutral-400 text-base font-normal">
+        <div className="cursor-default border-b border-neutral-300 text-base font-normal">
           <TextStagger>
             {tag.name[language]}
             {!isLast ? "," : ""}

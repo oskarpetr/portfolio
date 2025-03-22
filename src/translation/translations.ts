@@ -68,11 +68,11 @@ const translationCs: Translation = {
     country: "Česká republika",
   },
   tooltips: {
-    explore: "Zobrazit",
+    explore: "Prozkoumat",
     read: "Přečíst",
   },
   alts: {
-    myself: "Já sám",
+    myself: "Moje fotka",
   },
 };
 

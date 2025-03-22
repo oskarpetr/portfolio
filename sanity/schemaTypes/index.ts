@@ -8,7 +8,7 @@ import { tagType } from "./tagType";
 import { aboutType } from "./aboutType";
 import { testimonialType } from "./testimonialType";
 
-export const schema: { types: SchemaTypeDefinition[] } = {
+export const schemaTypes: { types: SchemaTypeDefinition[] } = {
   types: [
     projectType,
     aboutType,

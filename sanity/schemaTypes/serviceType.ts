@@ -1,11 +1,11 @@
-// import { CogIcon } from "@sanity/icons";
+import { CogIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const serviceType = defineType({
   name: "service",
   title: "Services",
   type: "document",
-  // icon: CogIcon,
+  icon: CogIcon,
   fields: [
     defineField({
       name: "name",
