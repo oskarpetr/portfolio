@@ -8,3 +8,5 @@
 // export default function StudioPage() {
 //   return <NextStudio config={config} />;
 // }
+
+export default function StudioPage() {}
