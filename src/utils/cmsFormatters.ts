@@ -62,12 +62,15 @@ export async function formatProject(projectCms: ProjectSanity) {
 export function formatProjectsSitemap(
   projectsSitemapCms: ProjectSitemapSanity[],
 ) {
-  const projectsSitemap = projectsSitemapCms.map((projectSitemap) => ({
-    ...projectSitemap,
-    images: (projectSitemap.images ?? []).map((image) =>
-      formatImageUrl(image, 1000),
-    ),
-  }));
+  const projectsSitemap: ProjectSitemapSanity[] = projectsSitemapCms.map(
+    (projectSitemap) => ({
+      ...projectSitemap,
+      mainImage: formatImageUrl(projectSitemap.mainImage, 1000),
+      images: (projectSitemap.images ?? []).map((image) =>
+        formatImageUrl(image, 1000),
+      ),
+    }),
+  );
 
   return projectsSitemap;
 }

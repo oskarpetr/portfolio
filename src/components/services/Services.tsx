@@ -7,7 +7,7 @@ interface Props {
 
 export default function Services({ services }: Props) {
   return (
-    <div id="services" className="mb-[15vh]">
+    <div id="services" className="mb-[5vh]">
       {services.map((service, index) => (
         <ServiceItem
           key={`service-${service.id}`}

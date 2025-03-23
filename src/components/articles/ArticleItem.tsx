@@ -18,13 +18,13 @@ export default function ArticleItem({ article }: Props) {
         <AnimatedDivider delay={0.3} />
 
         <div className="flex items-center px-4 py-4">
-          <div className="flex items-center text-black transition-colors duration-300 sm:group-hover:text-white lg:w-1/2">
+          <div className="flex items-center text-black transition-colors duration-200 sm:group-hover:text-white lg:w-1/2">
             <Reveal direction="up" delay={0.3} viewportAmount={1}>
               <div className="text-base sm:text-lg">{article.title}</div>
             </Reveal>
           </div>
 
-          <div className="hidden w-1/2 items-center font-normal text-black transition-colors duration-300 sm:group-hover:text-white lg:flex">
+          <div className="hidden w-1/2 items-center font-normal text-black transition-colors duration-200 sm:group-hover:text-white lg:flex">
             <Reveal direction="up" delay={0.3} viewportAmount={1}>
               <div>{yearPublished}</div>
             </Reveal>
@@ -35,7 +35,7 @@ export default function ArticleItem({ article }: Props) {
               <Icon
                 size={24}
                 name="ArrowUpRight"
-                className="text-black transition-colors duration-300 sm:group-hover:text-white"
+                className="text-black transition-colors duration-200 sm:group-hover:text-white"
               />
             </Reveal>
           </div>

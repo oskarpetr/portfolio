@@ -44,6 +44,7 @@ export const projectQuery = (
 
 export const projectsSitemapQuery = `*[_type == "project"] {
     "slug": slug.current,
+    "mainImage": mainImage.asset->url,
     "images": images[].image.asset->url
   }`;
 

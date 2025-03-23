@@ -15,7 +15,7 @@ const About = forwardRef<HTMLDivElement, Props>(
       <div
         ref={ref}
         id="about"
-        className="relative z-20 flex flex-col gap-32 bg-white pt-20"
+        className="relative -left-10 z-20 flex w-screen flex-col gap-32 bg-white p-10 pt-20"
       >
         <AboutText about={about} />
         <AboutImage />

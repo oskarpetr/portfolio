@@ -10,11 +10,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/projects/${projectSitemap.slug}`,
       changeFrequency: "monthly",
       priority: 0.8,
-      images: projectSitemap.images,
+      images: [
+        replaceAmpersand(projectSitemap.mainImage),
+        ...projectSitemap.images.map(replaceAmpersand),
+      ],
     }),
   );
 
-  return [
+  const sitemap: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       changeFrequency: "weekly",
@@ -22,4 +25,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...projects,
   ];
+
+  return sitemap;
+}
+
+function replaceAmpersand(text: string) {
+  return text.replace("&", "&amp;");
 }
