@@ -1,5 +1,6 @@
 "use server";
 
+import { ProjectSlug } from "@/types/Project.types";
 import { sanityClient } from "../../sanity/lib/client";
 import {
   formatArticles,
@@ -19,6 +20,7 @@ import {
   servicesQuery,
   aboutQuery,
   testimonialsQuery,
+  projectsSlugsQuery,
 } from "./queries";
 
 export async function getProjectsShort() {
@@ -40,6 +42,12 @@ export async function getProjectsSitemap() {
   const projectsSitemap = formatProjectsSitemap(projectsSitemapCms);
 
   return projectsSitemap;
+}
+
+export async function getProjectsSlugs() {
+  const projectsSlugsCms: ProjectSlug[] =
+    await sanityClient.fetch(projectsSlugsQuery);
+  return projectsSlugsCms;
 }
 
 export async function getServices() {

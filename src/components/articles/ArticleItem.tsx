@@ -26,7 +26,7 @@ export default function ArticleItem({ article }: Props) {
 
           <div className="hidden w-1/2 items-center font-normal text-black transition-colors duration-200 sm:group-hover:text-white lg:flex">
             <Reveal direction="up" delay={0.3} viewportAmount={1}>
-              <div>{yearPublished}</div>
+              <div className="text-base">{yearPublished}</div>
             </Reveal>
           </div>
 

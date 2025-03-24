@@ -16,6 +16,8 @@ import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrap
 import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
 import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
 
+export const revalidate = 300;
+
 // fetch data
 const fetchProjectsShort = cache(getProjectsShort);
 const fetchAbout = cache(getAbout);
@@ -24,46 +26,30 @@ const fetchArticles = cache(getArticles);
 const fetchGraphicDesigns = cache(getGraphicDesigns);
 const fetchTestimonials = cache(getTestimonials);
 
-// sections
-async function ProjectsAboutSection() {
-  const projects = await fetchProjectsShort();
-  const about = await fetchAbout();
-  return <ProjectsAboutWrapper projects={projects} about={about} />;
-}
-
-async function ServicesSection() {
-  const services = await fetchServices();
-  return <ServicesWrapper services={services} />;
-}
-
-async function ArticlesSection() {
-  const articles = await fetchArticles();
-  return <ArticlesWrapper articles={articles} />;
-}
-
-async function GraphicDesignsSection() {
-  const graphicDesigns = await fetchGraphicDesigns();
-  return <GraphicDesignsWrapper graphicDesigns={graphicDesigns} />;
-}
-
-async function TestimonialsSection() {
-  const testimonials = await fetchTestimonials();
-  return <TestimonialsWrapper testimonials={testimonials} />;
-}
-
-async function ContactSection() {
-  return <ContactWrapper />;
+// fetch all
+async function fetchAllSectionData() {
+  return Promise.all([
+    fetchProjectsShort(),
+    fetchAbout(),
+    fetchServices(),
+    fetchArticles(),
+    fetchGraphicDesigns(),
+    fetchTestimonials(),
+  ]);
 }
 
 export default async function HomePage() {
+  const [projects, about, services, articles, graphicDesigns, testimonials] =
+    await fetchAllSectionData();
+
   return (
     <PageLayout>
-      <ProjectsAboutSection />
-      <ServicesSection />
-      <ArticlesSection />
-      <GraphicDesignsSection />
-      <TestimonialsSection />
-      <ContactSection />
+      <ProjectsAboutWrapper projects={projects} about={about} />
+      <ServicesWrapper services={services} />
+      <ArticlesWrapper articles={articles} />
+      <GraphicDesignsWrapper graphicDesigns={graphicDesigns} />
+      <TestimonialsWrapper testimonials={testimonials} />
+      <ContactWrapper />
     </PageLayout>
   );
 }

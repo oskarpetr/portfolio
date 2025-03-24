@@ -35,6 +35,10 @@ export type ProjectShortSanity = Omit<ProjectShort, "service" | "mainImage"> & {
   mainImage: ProjectImageSanity;
 };
 
+export type ProjectSlug = {
+  slug: string;
+};
+
 export interface ProjectSitemapSanity {
   slug: string;
   mainImage: string;

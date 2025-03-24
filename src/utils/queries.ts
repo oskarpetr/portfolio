@@ -48,6 +48,10 @@ export const projectsSitemapQuery = `*[_type == "project"] {
     "images": images[].image.asset->url
   }`;
 
+export const projectsSlugsQuery = `*[_type == "project"] {
+    "slug": slug.current
+  }`;
+
 export const servicesQuery = `*[_type == "service"] {
     "id": _id,
     name,

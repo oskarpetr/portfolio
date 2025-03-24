@@ -7,7 +7,7 @@ export const socialSites: SocialSite[] = [
   },
   {
     name: "Medium",
-    url: "https://medium.com/@oskarpetr",
+    url: "https://oskarpetr.medium.com/",
   },
   {
     name: "LinkedIn",

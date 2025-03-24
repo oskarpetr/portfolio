@@ -1,4 +1,4 @@
-import { getProject } from "@/utils/cms";
+import { getProject, getProjectsSlugs } from "@/utils/cms";
 import { projectMetadata } from "@/utils/seo";
 import { cache } from "react";
 import ProjectSectionWrapper from "@/components/wrappers/projects/ProjectSection";
@@ -7,6 +7,8 @@ import PageLayout from "@/components/layout/PageLayout";
 interface Props {
   params: Promise<{ slug: string }>;
 }
+
+export const revalidate = 300;
 
 // fetch data
 const fetchProject = cache(getProject);
@@ -22,6 +24,11 @@ export default async function ProjectPage({ params }: Props) {
 async function ProjectSection({ slug }: { slug: string }) {
   const project = await fetchProject(slug);
   return <ProjectSectionWrapper project={project} />;
+}
+
+export async function generateStaticParams() {
+  const projectsSlugs = await getProjectsSlugs();
+  return projectsSlugs;
 }
 
 export async function generateMetadata({ params }: Props) {
