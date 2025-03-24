@@ -1,8 +1,9 @@
 import { getProject, getProjectsSlugs } from "@/utils/cms";
 import { projectMetadata } from "@/utils/seo";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import ProjectSectionWrapper from "@/components/wrappers/projects/ProjectSection";
 import PageLayout from "@/components/layout/PageLayout";
+import EmptyPage from "@/components/layout/EmptyPage";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -16,7 +17,9 @@ const fetchProject = cache(getProject);
 export default async function ProjectPage({ params }: Props) {
   return (
     <PageLayout>
-      <ProjectSection slug={(await params).slug} />
+      <Suspense fallback={<EmptyPage />}>
+        <ProjectSection slug={(await params).slug} />
+      </Suspense>
     </PageLayout>
   );
 }

@@ -44,6 +44,10 @@ export function projectMetadata(project: Project): Metadata {
       url: `${baseUrl}/projects/${project.slug}`,
       images: [
         avatarUrl,
+        {
+          url: project.mainImage.url,
+          alt: project.mainImage.alt.en,
+        },
         ...project.images.map((image) => ({
           url: image.url,
           alt: image.alt.en,
