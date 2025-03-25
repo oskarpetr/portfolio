@@ -3,6 +3,7 @@ import ParagraphSplit from "@/components/animation/ParagraphSplit";
 import PageLayout from "@/components/layout/PageLayout";
 import Button from "@/components/shared/Button";
 import SectionTitle from "@/components/shared/SectionTitle";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -17,7 +18,9 @@ export default function NotFound() {
         </div>
 
         <FadeIn delay={0.2}>
-          <Button text="Back home" />
+          <Link href="/">
+            <Button text="Back home" />
+          </Link>
         </FadeIn>
       </div>
     </PageLayout>
