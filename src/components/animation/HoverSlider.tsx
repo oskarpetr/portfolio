@@ -35,11 +35,11 @@ function HoverSlider({ children }: PropsWithChildren) {
       onMouseLeave={animateOut}
       className="relative z-0 overflow-hidden"
     >
-      {children}
+      <div className="relative z-10">{children}</div>
 
       <motion.div
         ref={scope}
-        className="absolute -top-full z-0 hidden h-full w-full bg-black sm:block"
+        className="pointer-events-none absolute -top-full z-0 hidden h-full w-full bg-black sm:block"
       ></motion.div>
     </div>
   );
