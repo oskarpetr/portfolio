@@ -1,9 +1,10 @@
 import { getProject, getProjectsSlugs } from "@/utils/cms";
-import { projectMetadata } from "@/utils/seo";
+import { notFoundMetadata, projectMetadata } from "@/utils/seo";
 import { cache, Suspense } from "react";
 import ProjectSectionWrapper from "@/components/wrappers/projects/ProjectSection";
 import PageLayout from "@/components/layout/PageLayout";
 import EmptyPage from "@/components/layout/EmptyPage";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -26,6 +27,11 @@ export default async function ProjectPage({ params }: Props) {
 
 async function ProjectSection({ slug }: { slug: string }) {
   const project = await fetchProject(slug);
+
+  if (!project) {
+    return notFound();
+  }
+
   return <ProjectSectionWrapper project={project} />;
 }
 
@@ -36,5 +42,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const project = await fetchProject((await params).slug);
-  return projectMetadata(project);
+
+  if (project) {
+    return projectMetadata(project);
+  } else {
+    return notFoundMetadata();
+  }
 }

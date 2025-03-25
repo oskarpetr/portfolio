@@ -1,5 +1,8 @@
+"use client";
+
 import { BEZIER_EASING } from "@/utils/animation";
 import { motion } from "framer-motion";
+import Icon from "./Icon";
 
 interface Props {
   text: string;
@@ -20,22 +23,24 @@ export default function Button({ text }: Props) {
     <motion.button
       initial="initial"
       whileHover="whileHover"
-      className="relative h-14 cursor-pointer overflow-hidden px-10 outline -outline-offset-1"
+      className="relative h-14 w-fit cursor-pointer overflow-hidden px-6 outline -outline-offset-1"
     >
       <motion.div
         variants={variantsPrev}
         transition={{ duration: 0.5, ease: BEZIER_EASING }}
-        className="relative top-0 left-0"
+        className="relative top-0 left-0 flex items-center gap-2"
       >
-        {text}
+        <div>{text}</div>
+        <Icon name="ArrowRight" size={18} color="black" />
       </motion.div>
 
       <motion.div
         variants={variantsNext}
         transition={{ duration: 0.5, ease: BEZIER_EASING }}
-        className="absolute top-0 left-0 flex h-14 w-full items-center bg-black px-10 text-white"
+        className="absolute top-0 left-0 flex h-14 w-full items-center justify-center gap-2 bg-black px-6 text-white"
       >
-        {text}
+        <div>{text}</div>
+        <Icon name="ArrowRight" size={18} color="white" />
       </motion.div>
     </motion.button>
   );

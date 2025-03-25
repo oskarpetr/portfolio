@@ -1,5 +1,6 @@
 import {
   ArrowElbowDownRight,
+  ArrowRight,
   ArrowUpRight,
   BracketsCurly,
   Eyes,
@@ -8,6 +9,7 @@ import {
 
 export type IconType =
   | "ArrowUpRight"
+  | "ArrowRight"
   | "ArrowElbowDownRight"
   | "Eyes"
   | "BracketsCurly";
@@ -20,14 +22,20 @@ interface Props {
   className?: string;
 }
 
-const Icon = ({
+export default function Icon({
   name,
   size = 24,
   weight = "regular",
   color = "currentColor",
   className,
-}: Props) => {
-  const icons = { ArrowUpRight, ArrowElbowDownRight, Eyes, BracketsCurly };
+}: Props) {
+  const icons = {
+    ArrowUpRight,
+    ArrowRight,
+    ArrowElbowDownRight,
+    Eyes,
+    BracketsCurly,
+  };
   const PhosphorIcon = icons[name as keyof typeof icons];
 
   if (!PhosphorIcon) return null;
@@ -40,6 +48,4 @@ const Icon = ({
       className={className}
     />
   );
-};
-
-export default Icon;
+}

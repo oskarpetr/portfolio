@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <div
-      className="invert-select relative mt-48 sm:h-[500px]"
+      className="invert-select relative sm:h-[500px]"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
       <div className="bottom-0 w-full sm:fixed sm:h-[500px]">

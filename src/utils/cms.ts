@@ -24,16 +24,28 @@ import {
 } from "./queries";
 
 export async function getProjectsShort() {
-  const projectsSanity = await sanityClient.fetch(projectsShortQuery);
+  const projectsSanity = await sanityClient.fetch(
+    projectsShortQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   const projects = formatProjectsShort(projectsSanity);
 
   return projects;
 }
 
 export async function getProject(slug: string) {
-  const projectSanity = await sanityClient.fetch(projectQuery(slug));
-  const project = formatProject(projectSanity);
+  const projectSanity = await sanityClient.fetch(
+    projectQuery(slug),
+    {},
+    { next: { revalidate: 300 } },
+  );
 
+  if (!projectSanity) {
+    return null;
+  }
+
+  const project = formatProject(projectSanity);
   return project;
 }
 
@@ -45,39 +57,62 @@ export async function getProjectsSitemap() {
 }
 
 export async function getProjectsSlugs() {
-  const projectsSlugsCms: ProjectSlug[] =
-    await sanityClient.fetch(projectsSlugsQuery);
+  const projectsSlugsCms: ProjectSlug[] = await sanityClient.fetch(
+    projectsSlugsQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   return projectsSlugsCms;
 }
 
 export async function getServices() {
-  const servicesCms = await sanityClient.fetch(servicesQuery);
+  const servicesCms = await sanityClient.fetch(
+    servicesQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   const services = formatServices(servicesCms);
 
   return services;
 }
 
 export async function getArticles() {
-  const articlesCms = await sanityClient.fetch(articlesQuery);
+  const articlesCms = await sanityClient.fetch(
+    articlesQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   const articles = formatArticles(articlesCms);
 
   return articles;
 }
 
 export async function getGraphicDesigns() {
-  const graphicDesignsCms = await sanityClient.fetch(graphicDesignsQuery);
+  const graphicDesignsCms = await sanityClient.fetch(
+    graphicDesignsQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   const graphicDesigns = formatGraphicDesigns(graphicDesignsCms);
 
   return graphicDesigns;
 }
 
 export async function getAbout() {
-  const aboutCms = await sanityClient.fetch(aboutQuery);
+  const aboutCms = await sanityClient.fetch(
+    aboutQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   return aboutCms;
 }
 
 export async function getTestimonials() {
-  const testimonialsCms = await sanityClient.fetch(testimonialsQuery);
+  const testimonialsCms = await sanityClient.fetch(
+    testimonialsQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
   const testimonials = formatTestimonials(testimonialsCms);
 
   return testimonials;

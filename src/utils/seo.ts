@@ -56,3 +56,19 @@ export function projectMetadata(project: Project): Metadata {
     },
   };
 }
+
+export function notFoundMetadata(): Metadata {
+  const title = "Page Not Found | Oskar Petr";
+  const description = "The page you are looking for does not exist.";
+
+  return {
+    ...rootMetadata(),
+    title,
+    description,
+    openGraph: {
+      ...rootMetadata().openGraph,
+      title,
+      description,
+    },
+  };
+}

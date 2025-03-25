@@ -2,7 +2,7 @@ import {
   getAbout,
   getProjectsShort,
   getServices,
-  // getArticles,
+  getArticles,
   // getGraphicDesigns,
   // getTestimonials,
 } from "@/utils/cms";
@@ -11,7 +11,7 @@ import { cache } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import ProjectsAboutWrapper from "@/components/wrappers/home/ProjectsAboutWrapper";
 import ServicesWrapper from "@/components/wrappers/home/ServicesWrapper";
-// import ArticlesWrapper from "@/components/wrappers/home/ArticlesWrapper";
+import ArticlesWrapper from "@/components/wrappers/home/ArticlesWrapper";
 // import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrapper";
 // import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
 // import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
@@ -22,7 +22,7 @@ export const revalidate = 300;
 const fetchProjectsShort = cache(getProjectsShort);
 const fetchAbout = cache(getAbout);
 const fetchServices = cache(getServices);
-// const fetchArticles = cache(getArticles);
+const fetchArticles = cache(getArticles);
 // const fetchGraphicDesigns = cache(getGraphicDesigns);
 // const fetchTestimonials = cache(getTestimonials);
 
@@ -38,10 +38,10 @@ async function ServicesSection() {
   return <ServicesWrapper services={services} />;
 }
 
-// async function ArticlesSection() {
-//   const articles = await fetchArticles();
-//   return <ArticlesWrapper articles={articles} />;
-// }
+async function ArticlesSection() {
+  const articles = await fetchArticles();
+  return <ArticlesWrapper articles={articles} />;
+}
 
 // async function GraphicDesignsSection() {
 //   const graphicDesigns = await fetchGraphicDesigns();
@@ -62,8 +62,8 @@ export default async function HomePage() {
     <PageLayout>
       <ProjectsAboutSection />
       <ServicesSection />
-      {/* <ArticlesSection />
-      <GraphicDesignsSection />
+      <ArticlesSection />
+      {/* <GraphicDesignsSection />
       <TestimonialsSection />
       <ContactSection /> */}
     </PageLayout>
