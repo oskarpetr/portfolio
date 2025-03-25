@@ -30,7 +30,7 @@ export default function ArticleItem({ article }: Props) {
             </Reveal>
           </div>
 
-          <div className="absolute right-4">
+          <div className="absolute right-4 hidden lg:flex">
             <Reveal direction="up" delay={0.3} viewportAmount={1}>
               <Icon
                 size={24}
