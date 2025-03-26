@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AnimatePresence,
   motion,
   SpringOptions,
   useMotionValue,
@@ -46,6 +47,7 @@ function HoverElement({ children, hoverChildren, zIndex = 0 }: Props) {
         opacity: isHovered ? 1 : 0,
         scale: isHovered ? 1 : 0,
       }}
+      exit={{ opacity: 0, scale: 0 }}
       className="pointer-events-none fixed hidden sm:block"
       style={{
         left: useSpring(mouseX, animationConfig),
@@ -63,7 +65,10 @@ function HoverElement({ children, hoverChildren, zIndex = 0 }: Props) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {children}
-      {createPortal(hoverElement, document.body)}
+      {createPortal(
+        <AnimatePresence>{isHovered && hoverElement}</AnimatePresence>,
+        document.body,
+      )}
     </div>
   );
 }
