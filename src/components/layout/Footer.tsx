@@ -13,10 +13,10 @@ export default function Footer() {
 
   return (
     <div
-      className="relative sm:h-[400px]"
+      className="relative md:h-[400px]"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
-      <div className="bottom-0 w-full sm:fixed sm:h-[400px]">
+      <div className="bottom-0 w-full md:fixed md:h-[400px]">
         <div className="flex h-full flex-col justify-end bg-neutral-950 px-10 py-20 text-white">
           <div className="flex flex-col-reverse gap-16 xl:flex-row xl:items-end xl:gap-0">
             <div className="xl:w-1/2">
