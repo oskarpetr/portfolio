@@ -2,7 +2,6 @@ import {
   ArrowElbowDownRight,
   ArrowRight,
   ArrowUpRight,
-  BracketsCurly,
   Eyes,
   IconWeight,
 } from "@phosphor-icons/react";
@@ -11,8 +10,7 @@ export type IconType =
   | "ArrowUpRight"
   | "ArrowRight"
   | "ArrowElbowDownRight"
-  | "Eyes"
-  | "BracketsCurly";
+  | "Eyes";
 
 interface Props {
   name: IconType;
@@ -34,7 +32,6 @@ export default function Icon({
     ArrowRight,
     ArrowElbowDownRight,
     Eyes,
-    BracketsCurly,
   };
   const PhosphorIcon = icons[name as keyof typeof icons];
 

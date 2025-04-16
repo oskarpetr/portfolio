@@ -22,9 +22,6 @@ export interface Translation {
   };
   footer: {
     startProject: string;
-    location: string;
-    socialSites: string;
-    pages: string;
     country: string;
   };
   tooltips: {
@@ -33,6 +30,10 @@ export interface Translation {
   };
   alts: {
     myself: string;
+  };
+  navigation: {
+    next: string;
+    previous: string;
   };
 }
 

@@ -10,7 +10,7 @@ export default function ProjectImage({ image }: Props) {
   const { language } = useTranslationStore();
 
   return (
-    <div className="relative pt-[75%]">
+    <div className="relative pt-[70%]">
       <Image
         src={image.url}
         alt={image.alt[language]}

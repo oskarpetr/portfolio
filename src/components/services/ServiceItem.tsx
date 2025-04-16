@@ -19,7 +19,7 @@ export default function ServiceItem({ service, index }: Props) {
   return (
     <div className="pointer-events-none sticky top-[20vh] flex h-[50vh] w-full">
       <div
-        className="relative bg-white shadow-[0px_-20px_40px_0px_#ffffff]"
+        className="relative w-full bg-white shadow-[0px_-20px_40px_0px_#ffffff]"
         style={{ top: 110 * index }}
       >
         <AnimatedDivider delay={0.1 * index} />

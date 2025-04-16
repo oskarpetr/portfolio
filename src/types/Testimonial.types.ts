@@ -5,7 +5,7 @@ export interface Testimonial {
   logo: TestimonialImage;
   content: LanguagesType;
   author: string;
-  authorPosition: string;
+  authorPosition: LanguagesType;
   publishedAt: string;
 }
 

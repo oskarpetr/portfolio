@@ -5,7 +5,7 @@ import Button from "@/components/shared/Button";
 import SectionTitle from "@/components/shared/SectionTitle";
 import Link from "next/link";
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <PageLayout>
       <div className="mt-20 flex flex-col gap-8 font-normal md:ml-[50%]">

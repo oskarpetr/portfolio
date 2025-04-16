@@ -13,6 +13,7 @@ export default function Tags({ tags, delay }: Props) {
         <TagItem
           key={`tag-${tag.id}`}
           tag={tag}
+          index={index}
           isLast={index === tags.length - 1}
           delay={delay + 0.1 * index}
         />

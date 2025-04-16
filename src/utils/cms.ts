@@ -23,11 +23,13 @@ import {
   projectsSlugsQuery,
 } from "./queries";
 
+const revalidate = { next: { revalidate: 300 } };
+
 export async function getProjectsShort() {
   const projectsSanity = await sanityClient.fetch(
     projectsShortQuery,
     {},
-    { next: { revalidate: 300 } },
+    revalidate,
   );
   const projects = formatProjectsShort(projectsSanity);
 
@@ -38,7 +40,7 @@ export async function getProject(slug: string) {
   const projectSanity = await sanityClient.fetch(
     projectQuery(slug),
     {},
-    { next: { revalidate: 300 } },
+    revalidate,
   );
 
   if (!projectSanity) {
@@ -60,28 +62,20 @@ export async function getProjectsSlugs() {
   const projectsSlugsCms: ProjectSlug[] = await sanityClient.fetch(
     projectsSlugsQuery,
     {},
-    { next: { revalidate: 300 } },
+    revalidate,
   );
   return projectsSlugsCms;
 }
 
 export async function getServices() {
-  const servicesCms = await sanityClient.fetch(
-    servicesQuery,
-    {},
-    { next: { revalidate: 300 } },
-  );
+  const servicesCms = await sanityClient.fetch(servicesQuery, {}, revalidate);
   const services = formatServices(servicesCms);
 
   return services;
 }
 
 export async function getArticles() {
-  const articlesCms = await sanityClient.fetch(
-    articlesQuery,
-    {},
-    { next: { revalidate: 300 } },
-  );
+  const articlesCms = await sanityClient.fetch(articlesQuery, {}, revalidate);
   const articles = formatArticles(articlesCms);
 
   return articles;
@@ -91,7 +85,7 @@ export async function getGraphicDesigns() {
   const graphicDesignsCms = await sanityClient.fetch(
     graphicDesignsQuery,
     {},
-    { next: { revalidate: 300 } },
+    revalidate,
   );
   const graphicDesigns = formatGraphicDesigns(graphicDesignsCms);
 
@@ -99,11 +93,7 @@ export async function getGraphicDesigns() {
 }
 
 export async function getAbout() {
-  const aboutCms = await sanityClient.fetch(
-    aboutQuery,
-    {},
-    { next: { revalidate: 300 } },
-  );
+  const aboutCms = await sanityClient.fetch(aboutQuery, {}, revalidate);
   return aboutCms;
 }
 
@@ -111,7 +101,7 @@ export async function getTestimonials() {
   const testimonialsCms = await sanityClient.fetch(
     testimonialsQuery,
     {},
-    { next: { revalidate: 300 } },
+    revalidate,
   );
   const testimonials = formatTestimonials(testimonialsCms);
 

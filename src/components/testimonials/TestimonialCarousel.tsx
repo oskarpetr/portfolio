@@ -1,99 +1,55 @@
 import { Testimonial } from "@/types/Testimonial.types";
-import { PanInfo, useAnimation, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperOptions } from "swiper/types";
+import TestimonialControls from "./TestimonialControls";
 import TestimonialItem from "./TestimonialItem";
+import "swiper/css";
 
 interface Props {
   testimonials: Testimonial[];
-  currentSlide: number;
-  setCurrentSlide: (slide: number) => void;
 }
 
-export default function TestimonialCarousel({
-  testimonials,
-  currentSlide,
-  setCurrentSlide,
-}: Props) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+export default function TestimonialCarousel({ testimonials }: Props) {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  // carousel
-  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
-  const controls = useAnimation();
-
-  // slides
-  const slides = testimonials.length;
-  const slidesGap = 80;
-
-  const calculateConstraints = () => {
-    if (containerRef.current) {
-      const viewportWidth = containerRef.current.offsetWidth;
-      const slideWidth = viewportWidth / 2;
-
-      const left = -(slides - 1) * (slideWidth + slidesGap / 2);
-      setConstraints({ left, right: 0 });
-    }
+  const breakpoints: SwiperOptions["breakpoints"] = {
+    0: {
+      slidesPerView: 1,
+      slidesOffsetAfter: 40,
+      slidesOffsetBefore: 40,
+    },
+    1024: {
+      slidesPerView: 2,
+      slidesOffsetAfter: 0,
+      slidesOffsetBefore: 0,
+    },
   };
-
-  const handleDragEnd = (_event: PointerEvent, info: PanInfo) => {
-    const velocity = info.velocity.x;
-    const slideWidth = containerRef.current?.offsetWidth || 1;
-    const threshold = 1000;
-
-    let nextSlide = currentSlide;
-
-    if (Math.abs(velocity) > threshold) {
-      const direction = velocity > 0 ? -1 : 1;
-      nextSlide = Math.max(0, Math.min(slides - 1, currentSlide + direction));
-    }
-
-    setCurrentSlide(nextSlide);
-    controls.start(
-      { x: (-nextSlide * (slideWidth + slidesGap)) / 2 },
-      { duration: 0.5, type: "spring" },
-    );
-  };
-
-  useEffect(() => {
-    calculateConstraints();
-    window.addEventListener("resize", calculateConstraints);
-
-    return () => {
-      window.removeEventListener("resize", calculateConstraints);
-    };
-  }, []);
 
   return (
-    <div className="relative -right-10 -left-10 w-screen cursor-grab overflow-hidden">
-      <motion.div
-        ref={containerRef}
-        className="flex cursor-grab flex-nowrap gap-20"
-        drag="x"
-        dragConstraints={constraints}
-        dragElastic={0.05}
-        animate={controls}
-        onDragEnd={handleDragEnd}
-        style={{ touchAction: "none" }}
-      >
-        <div className="h-full w-[calc((100%-5rem)*0.25-2.5rem)] flex-shrink-0"></div>
-
-        {testimonials.map((testimonial) => (
-          <div
-            key={`testimonial-${testimonial.id}`}
-            className="w-[calc((100%-5rem)*0.5)] flex-shrink-0"
-          >
+    <Swiper
+      spaceBetween={100}
+      className="relative -left-10 mx-10 w-screen"
+      grabCursor
+      centeredSlides
+      onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+      breakpoints={breakpoints}
+    >
+      {testimonials.map((testimonial) => (
+        <SwiperSlide
+          key={`testimonial-${testimonial.id}`}
+          className="w-full lg:w-[calc((100%-5rem)/2)]"
+        >
+          <div className="w-[calc(100%-5rem)] lg:w-full">
             <TestimonialItem testimonial={testimonial} />
           </div>
-        ))}
+        </SwiperSlide>
+      ))}
 
-        {/* <div
-            style={{
-              width: constraints.left * -1,
-              height: 100,
-              position: "absolute",
-              backgroundColor: "blue",
-            }}
-          ></div> */}
-      </motion.div>
-    </div>
+      <TestimonialControls
+        currentSlide={currentSlide}
+        testimonialsLength={testimonials.length}
+      />
+    </Swiper>
   );
 }
