@@ -13,6 +13,7 @@ export interface Translation {
     client: string;
     projectType: string;
     personal: string;
+    nextProjects: string;
   };
   menu: {
     projects: string;
@@ -23,6 +24,7 @@ export interface Translation {
   footer: {
     startProject: string;
     country: string;
+    city: string;
   };
   tooltips: {
     explore: string;

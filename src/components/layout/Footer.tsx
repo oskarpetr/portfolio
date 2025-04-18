@@ -53,7 +53,9 @@ function StartProject() {
       </TextStagger>
 
       <div>{translation.footer.country}</div>
-      <div className="font-normal tabular-nums opacity-50">{time}, Prague</div>
+      <div className="font-normal tabular-nums opacity-50">
+        {time}, {translation.footer.city}
+      </div>
     </div>
   );
 }

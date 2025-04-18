@@ -15,6 +15,7 @@ const translationEn: Translation = {
     client: "Client",
     projectType: "Project type",
     personal: "Personal",
+    nextProjects: "Next projects",
   },
   menu: {
     projects: "Projects",
@@ -25,6 +26,7 @@ const translationEn: Translation = {
   footer: {
     startProject: "Start a project?",
     country: "Czech Republic",
+    city: "Prague",
   },
   tooltips: {
     explore: "Explore",
@@ -54,6 +56,7 @@ const translationCs: Translation = {
     client: "Klient",
     projectType: "Typ projektu",
     personal: "Osobní",
+    nextProjects: "Další projekty",
   },
   menu: {
     projects: "Projekty",
@@ -64,6 +67,7 @@ const translationCs: Translation = {
   footer: {
     startProject: "Začneme projekt?",
     country: "Česká republika",
+    city: "Praha",
   },
   tooltips: {
     explore: "Prozkoumat",

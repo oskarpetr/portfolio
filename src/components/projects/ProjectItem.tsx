@@ -17,7 +17,7 @@ export default function ProjectItem({ project, index }: Props) {
   const { translation, language } = useTranslationStore();
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Link href={`/projects/${project.slug}`}>
         <Tooltip
           title={translation.tooltips.explore}

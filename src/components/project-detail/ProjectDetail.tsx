@@ -21,7 +21,7 @@ function ProjectDetail({ project }: Props) {
 
   return (
     <div className="min-h-[70vh]">
-      <div className="mt-20 flex flex-col-reverse gap-24 lg:flex-row lg:gap-0">
+      <div className="mt-0 flex flex-col-reverse gap-24 lg:mt-20 lg:flex-row lg:gap-0">
         <div className="lg:w-1/2">
           <div className="flex flex-col gap-12 lg:w-3/4">
             {[project.mainImage, ...project.images].map((image, index) => (
