@@ -14,6 +14,7 @@ import ServicesWrapper from "@/components/wrappers/home/ServicesWrapper";
 import ArticlesWrapper from "@/components/wrappers/home/ArticlesWrapper";
 // import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrapper";
 // import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
+import AboutImagesWrapper from "@/components/wrappers/home/AboutImagesWrapper";
 // import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
 
 export const revalidate = 300;
@@ -36,6 +37,11 @@ async function ProjectsAboutSection() {
 async function ServicesSection() {
   const services = await fetchServices();
   return <ServicesWrapper services={services} />;
+}
+
+async function AboutImagesSection() {
+  const about = await fetchAbout();
+  return <AboutImagesWrapper about={about} />;
 }
 
 async function ArticlesSection() {
@@ -62,10 +68,11 @@ export default async function HomePage() {
     <PageLayout>
       <ProjectsAboutSection />
       <ServicesSection />
+      <AboutImagesSection />
       <ArticlesSection />
-      {/* <GraphicDesignsSection />
-      <TestimonialsSection /> 
-      <ContactSection /> */}
+      {/* <GraphicDesignsSection /> */}
+      {/* <TestimonialsSection /> */}
+      {/* <ContactSection /> */}
     </PageLayout>
   );
 }

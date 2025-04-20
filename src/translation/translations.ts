@@ -33,7 +33,9 @@ const translationEn: Translation = {
     read: "Read",
   },
   alts: {
-    myself: "Myself",
+    myself: "Photo of myself",
+    design: "Design process",
+    development: "Development process",
   },
   navigation: {
     next: "Next",
@@ -75,6 +77,8 @@ const translationCs: Translation = {
   },
   alts: {
     myself: "Moje fotka",
+    design: "Proces návrhu",
+    development: "Proces vývoje",
   },
   navigation: {
     next: "Další",

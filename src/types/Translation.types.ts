@@ -32,6 +32,8 @@ export interface Translation {
   };
   alts: {
     myself: string;
+    design: string;
+    development: string;
   };
   navigation: {
     next: string;

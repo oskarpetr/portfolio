@@ -2,10 +2,10 @@ import { BEZIER_EASING } from "@/utils/animation";
 import { motion } from "framer-motion";
 
 interface Props {
-  delay: number;
+  delay?: number;
 }
 
-export default function AnimatedDivider({ delay }: Props) {
+export default function AnimatedDivider({ delay = 0 }: Props) {
   return (
     <motion.div
       initial={{ width: 0 }}

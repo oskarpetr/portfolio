@@ -8,16 +8,18 @@ export default function ParallaxImage({ children }: PropsWithChildren) {
     target: containerRef,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-7vh", "3vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
 
   return (
-    <div
-      className="h-fit w-fit overflow-hidden"
-      style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-    >
-      <motion.div ref={containerRef} style={{ y }} className="relative">
-        {children}
-      </motion.div>
+    <div className="h-fit w-full">
+      <div
+        ref={containerRef}
+        className="relative aspect-square w-full overflow-hidden"
+      >
+        <motion.div style={{ y }} className="absolute inset-0">
+          {children}
+        </motion.div>
+      </div>
     </div>
   );
 }

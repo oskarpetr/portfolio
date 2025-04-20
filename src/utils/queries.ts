@@ -82,6 +82,7 @@ export const graphicDesignsQuery = `*[_type == "graphicDesign"] {
 export const aboutQuery = `*[_type == "about"] {
   "id": _id,
   title,
+  process
 }[0]`;
 
 export const testimonialsQuery = `*[_type == "testimonial"] {

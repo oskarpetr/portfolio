@@ -39,7 +39,7 @@ export default function TestimonialControls({
   return (
     <div className="mx-10 mt-20">
       <div className="flex items-center justify-between lg:mx-auto lg:w-1/2">
-        <div className="text-base font-normal tabular-nums">
+        <div className="text-sm font-normal tabular-nums">
           ( 0{currentSlideIndex} &nbsp;&nbsp; —{" "}
           {String(testimonialsLength).padStart(2, "0")} )
         </div>

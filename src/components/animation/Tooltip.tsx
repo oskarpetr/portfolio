@@ -28,12 +28,14 @@ function Tooltip({
     <div className="flex items-center gap-2 border bg-white px-4 py-2 whitespace-nowrap shadow-2xl">
       {icon && <Icon name={icon} size={16} />}
 
-      <div className="flex flex-col gap-1">
-        {title && <div className="text-sm uppercase">{title}</div>}
-        {description && (
-          <div className="text-base font-normal">{description}</div>
-        )}
-      </div>
+      {(title || description) && (
+        <div className="flex flex-col gap-1">
+          {title && <div className="text-sm uppercase">{title}</div>}
+          {description && (
+            <div className="text-base font-normal">{description}</div>
+          )}
+        </div>
+      )}
 
       {index !== undefined && (
         <div className="opacity-80 *:text-sm">

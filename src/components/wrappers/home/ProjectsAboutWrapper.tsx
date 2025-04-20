@@ -16,6 +16,7 @@ const Projects = dynamic(() => import("@/components/projects/Projects"), {
   loading: () => <EmptyPage />,
   ssr: false,
 });
+
 const About = dynamic(() => import("@/components/about/About"), {
   loading: () => <EmptyPage />,
   ssr: false,
@@ -25,9 +26,9 @@ export default function ProjectsAboutWrapper({ projects, about }: Props) {
   const aboutRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <Fragment>
+    <>
       <Projects projects={projects} aboutRef={aboutRef} />
       <About about={about} ref={aboutRef} />
-    </Fragment>
+    </>
   );
 }
