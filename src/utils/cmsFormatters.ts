@@ -48,10 +48,10 @@ export async function formatProject(projectCms: ProjectSanity) {
   const project: Project = {
     ...projectCms,
     tags: projectCms.tags ?? [],
-    mainImage: (await formatImage(projectCms.mainImage, 800)) as ProjectImage,
+    mainImage: (await formatImage(projectCms.mainImage, 2000)) as ProjectImage,
     images: await Promise.all(
       (projectCms.images ?? []).map(
-        async (image) => (await formatImage(image, 800)) as ProjectImage,
+        async (image) => (await formatImage(image, 2000)) as ProjectImage,
       ),
     ),
   };

@@ -52,7 +52,7 @@ function ProjectDetailImage({ image, index }: Props) {
             blurDataURL={image.placeholder}
             fill
             priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover grayscale"
           />
         </div>

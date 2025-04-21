@@ -23,7 +23,7 @@ function ProjectDetail({ project }: Props) {
     <div className="min-h-[70vh]">
       <div className="mt-0 flex flex-col-reverse gap-24 lg:mt-20 lg:flex-row lg:gap-0">
         <div className="lg:w-1/2">
-          <div className="flex flex-col gap-12 lg:w-3/4">
+          <div className="flex flex-col gap-4 sm:gap-12 lg:w-3/4">
             {[project.mainImage, ...project.images].map((image, index) => (
               <ProjectDetailImage
                 key={`project-image-${image.url}`}
@@ -35,19 +35,15 @@ function ProjectDetail({ project }: Props) {
         </div>
 
         <div className="flex h-full flex-col gap-8 lg:sticky lg:top-[205px] lg:mt-0 lg:w-1/2 xl:gap-16">
-          <div className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24">
-            <FadeIn delay={0.2}>
+          <div className="flex flex-col gap-3 2xl:flex-row 2xl:gap-24">
+            <FadeIn delay={0.1}>
               <div className="w-32 whitespace-nowrap">{project.title}</div>
             </FadeIn>
 
-            <div className="text-justify text-base leading-snug font-normal">
+            <div className="s text-justify text-base leading-snug font-normal">
               <ParagraphSplit
-                text={
-                  language === "en"
-                    ? project.description.en
-                    : project.description.cs
-                }
-                delay={0.2}
+                text={project.description[language]}
+                delay={0.1}
               />
             </div>
           </div>
@@ -57,23 +53,23 @@ function ProjectDetail({ project }: Props) {
               tags!.length > 0 ? (
                 <div
                   key={`service-${service.id}`}
-                  className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24"
+                  className="flex flex-col gap-3 2xl:flex-row 2xl:gap-24"
                 >
-                  <FadeIn delay={0.5 + 0.1 * index}>
+                  <FadeIn delay={0.2 + 0.1 * index}>
                     <div className="w-32 text-base whitespace-nowrap">
                       {service.name[language]}
                     </div>
                   </FadeIn>
 
-                  <div className="w-96">
-                    <Tags tags={tags as TagShort[]} delay={0.5 + 0.1 * index} />
+                  <div className="sm:w-96">
+                    <Tags tags={tags as TagShort[]} delay={0.2 + 0.1 * index} />
                   </div>
                 </div>
               ) : null,
             )}
 
-            <div className="flex flex-col gap-4 2xl:flex-row 2xl:gap-24">
-              <FadeIn delay={0.5 + 0.1 * tags.length}>
+            <div className="flex flex-col gap-3 2xl:flex-row 2xl:gap-24">
+              <FadeIn delay={0.1 + 0.1 * tags.length}>
                 <div className="w-32 text-base">
                   {project.personal
                     ? translation.projectDetail.projectType
@@ -81,14 +77,14 @@ function ProjectDetail({ project }: Props) {
                 </div>
               </FadeIn>
 
-              <div className="w-96 text-base font-normal">
+              <div className="text-base font-normal">
                 <ParagraphSplit
                   text={
                     project.personal
                       ? translation.projectDetail.personal
                       : (project.client ?? "")
                   }
-                  delay={0.5 + 0.1 * tags.length}
+                  delay={0.1 + 0.1 * tags.length}
                   indent={false}
                 />
               </div>

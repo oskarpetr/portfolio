@@ -17,11 +17,8 @@ interface Props {
 export default function AboutImages({ about }: Props) {
   const { translation, language } = useTranslationStore();
 
-  // const text =
-  //   "My process kicks off with a draft design, which I review step by step with the client. Once the design is approved, I move on to development and turn it into a working app.";
-
   return (
-    <div className="flex flex-col items-end gap-8 lg:flex-row lg:gap-0">
+    <div className="mt-12 flex flex-col items-end gap-8 sm:mt-0 lg:flex-row lg:gap-0">
       <div className="w-full text-justify text-base leading-snug font-normal">
         <div className="w-full lg:w-1/2">
           <ParagraphSplit text={about.process[language]} />

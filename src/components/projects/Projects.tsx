@@ -17,7 +17,7 @@ export default function Projects({ projects, aboutRef }: Props) {
 
   return (
     <SectionSlideUp sectionRef={aboutRef}>
-      <div id="projects" className="mt-20">
+      <div id="projects" className="sm:mt-20">
         <SectionTitle
           title={translation.sectionTitles.projects}
           number={projects.length}
@@ -31,7 +31,7 @@ export default function Projects({ projects, aboutRef }: Props) {
             <ProjectGrid projects={projects} cols={2} />
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:hidden">
+          <div className="grid grid-cols-1 gap-4 sm:hidden">
             <ProjectGrid projects={projects} cols={1} />
           </div>
         </div>

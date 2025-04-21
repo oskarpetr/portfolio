@@ -31,7 +31,7 @@ function MenuItems() {
   const { translation } = useTranslationStore();
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3">
       {menuItems.map((item, index) => (
         <FadeIn delay={0.1 * index} key={`menu-item-${item.title}`}>
           <Link href={`/#${item.name}`} className="flex cursor-pointer">
