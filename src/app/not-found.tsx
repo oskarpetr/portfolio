@@ -1,3 +1,5 @@
+"use client";
+
 import FadeIn from "@/components/animation/FadeIn";
 import ParagraphSplit from "@/components/animation/ParagraphSplit";
 import PageLayout from "@/components/layout/PageLayout";
