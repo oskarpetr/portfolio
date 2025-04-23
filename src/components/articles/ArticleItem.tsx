@@ -36,6 +36,7 @@ export default function ArticleItem({ article }: Props) {
                 size={24}
                 name="ArrowUpRight"
                 className="text-black transition-colors duration-200 sm:group-hover:text-white"
+                weight="light"
               />
             </Reveal>
           </div>

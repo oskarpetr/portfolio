@@ -13,11 +13,11 @@ export default function Footer() {
 
   return (
     <div
-      className="relative md:h-[400px]"
+      className="relative md:h-[350px]"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
-      <div className="bottom-0 w-full md:fixed md:h-[400px]">
-        <div className="flex h-full flex-col justify-end bg-neutral-950 px-10 py-20 text-white">
+      <div className="bottom-0 w-full md:fixed md:h-[350px]">
+        <div className="flex h-full flex-col justify-end bg-neutral-950 px-6 py-20 text-white">
           <div className="flex flex-col-reverse gap-16 xl:flex-row xl:items-end xl:gap-0">
             <div className="xl:w-1/2">
               <SectionTitle
@@ -53,7 +53,7 @@ function StartProject() {
       </TextStagger>
 
       <div>{translation.footer.country}</div>
-      <div className="font-normal tabular-nums opacity-50">
+      <div className="font-normal tabular-nums opacity-60">
         {time}, {translation.footer.city}
       </div>
     </div>
@@ -76,7 +76,7 @@ function SocialSites() {
                 name="ArrowUpRight"
                 color="white"
                 size={18}
-                className="opacity-50"
+                className="opacity-60"
               />
             </Link>
           </TextStagger>

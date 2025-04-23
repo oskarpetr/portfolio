@@ -35,10 +35,7 @@ function HoverSlider({ children }: PropsWithChildren) {
       onMouseLeave={animateOut}
       className="relative z-0 overflow-hidden"
     >
-      {/* Ensure text elements inherit mix-blend-mode */}
       <div className="relative z-10 mix-blend-difference">{children}</div>
-
-      {/* Sliding black background */}
       <motion.div
         ref={scope}
         className="pointer-events-none absolute -top-full left-0 z-0 hidden h-full w-full bg-black sm:block"

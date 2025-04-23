@@ -13,16 +13,15 @@ function SectionSlideUp({ children, sectionRef }: Props) {
     layoutEffect: false,
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 700]);
-  const opacityBlack = useTransform(scrollYProgress, [0, 1], [0, 0.5]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 800]);
+  const opacityBlack = useTransform(scrollYProgress, [0, 1], [0, 0.8]);
 
   return (
     <div className="relative">
-      <motion.div style={{ scale, y }}>{children}</motion.div>
+      <motion.div style={{ y }}>{children}</motion.div>
 
       <motion.div
-        className="pointer-events-none absolute -bottom-64 -left-10 z-20 h-screen w-screen bg-black"
+        className="pointer-events-none absolute -bottom-64 -left-6 z-20 h-screen w-screen bg-black"
         style={{ opacity: opacityBlack }}
       ></motion.div>
     </div>

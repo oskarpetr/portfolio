@@ -1,3 +1,5 @@
+import { InquiryValues } from "./ContactForm.types";
+
 export interface Translation {
   sectionTitles: {
     projects: string;
@@ -8,6 +10,8 @@ export interface Translation {
     articles: string;
     testimonials: string;
     footer: string;
+    inquiry: string;
+    notFound: string;
   };
   projectDetail: {
     client: string;
@@ -38,6 +42,23 @@ export interface Translation {
   navigation: {
     next: string;
     previous: string;
+  };
+  inquiry: {
+    inputs: {
+      [key in keyof InquiryValues]: {
+        label: string;
+        placeholder: string;
+      };
+    };
+    success: string[];
+    error: string[];
+  };
+  notFound: {
+    description: string;
+  };
+  buttons: {
+    backHome: string;
+    sendInquiry: string;
   };
 }
 

@@ -7,14 +7,12 @@ import Link from "next/link";
 
 export default function Menu() {
   return (
-    <div className="sticky top-0 z-30 flex h-[85px] items-center justify-between bg-[#ffffffd4] px-10 py-6 backdrop-blur-3xl will-change-[filter]">
+    <div className="sticky top-0 z-30 flex h-[85px] items-center justify-between bg-[#ffffffd4] px-6 backdrop-blur-3xl will-change-[filter]">
       <Logo />
-
       <div className="hidden w-1/2 justify-between md:flex">
         <MenuItems />
         <SwitchLanguage />
       </div>
-
       <div className="block md:hidden">
         <FadeIn delay={0.1}>
           <div className="flex flex-col gap-2">

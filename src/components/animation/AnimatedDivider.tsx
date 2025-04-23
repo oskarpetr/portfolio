@@ -16,7 +16,7 @@ export default function AnimatedDivider({ delay = 0 }: Props) {
         duration: 1,
         ease: BEZIER_EASING,
       }}
-      className="border-t"
+      className="border-t border-dashed border-black/50"
     ></motion.div>
   );
 }

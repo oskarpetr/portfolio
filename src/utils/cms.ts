@@ -22,6 +22,7 @@ import {
   testimonialsQuery,
   projectsSlugsQuery,
 } from "./queries";
+import { InquiryValues } from "@/types/ContactForm.types";
 
 const revalidate = { next: { revalidate: 300 } };
 
@@ -106,4 +107,19 @@ export async function getTestimonials() {
   const testimonials = formatTestimonials(testimonialsCms);
 
   return testimonials;
+}
+
+export async function postInquiry(inquiry: InquiryValues) {
+  try {
+    const inquiryDoc = {
+      _type: "inquiry",
+      ...inquiry,
+    };
+
+    await sanityClient.create(inquiryDoc);
+    return true;
+  } catch (error) {
+    console.error("CMS inquiry error:", error);
+    return false;
+  }
 }
