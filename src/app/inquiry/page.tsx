@@ -1,3 +1,5 @@
+"use client";
+
 import InquiryForm from "@/components/inquiry/InquiryForm";
 import PageLayout from "@/components/layout/PageLayout";
 import SectionTitle from "@/components/shared/SectionTitle";

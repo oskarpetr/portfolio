@@ -1,7 +1,5 @@
 import Lenis from "lenis/react";
 import { PropsWithChildren } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import LazyWrapper from "../animation/LazyWrapper";
 import { Geist, Instrument_Serif } from "next/font/google";
 
@@ -26,9 +24,6 @@ export default function Providers({ children }: PropsWithChildren) {
       <LazyWrapper>
         <Lenis root>{children}</Lenis>
       </LazyWrapper>
-
-      <SpeedInsights />
-      <Analytics />
     </div>
   );
 }

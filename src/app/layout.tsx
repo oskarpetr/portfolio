@@ -2,6 +2,8 @@ import "./globals.css";
 import { rootMetadata } from "@/utils/seo";
 import App from "@/components/layout/App";
 import { PropsWithChildren } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -11,6 +13,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </head> */}
       <body>
         <App>{children}</App>
+
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

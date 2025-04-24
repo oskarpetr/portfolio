@@ -1,5 +1,3 @@
-"use client";
-
 import { InquiryValues } from "@/types/ContactForm.types";
 import FadeIn from "../animation/FadeIn";
 import InquiryError from "./InquiryFormError";
