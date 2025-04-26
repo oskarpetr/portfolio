@@ -18,7 +18,7 @@ export default function Menu() {
 
       <div className="hidden w-1/2 justify-between md:flex">
         <MenuItems />
-        <SwitchLanguage />
+        <SwitchLanguage delay={0.5} />
       </div>
 
       <div className="block md:hidden">
@@ -101,7 +101,7 @@ function MobileMenuItems({
           className="absolute top-0 left-0 z-0 flex h-screen w-screen items-center gap-40 bg-black p-6 text-white"
         >
           <div className="absolute top-8">
-            <SwitchLanguage />
+            <SwitchLanguage delay={0} />
           </div>
 
           <div className="flex flex-col gap-10">
@@ -137,11 +137,11 @@ export const scrollTo = (id: string) => {
   }
 };
 
-function SwitchLanguage() {
+function SwitchLanguage({ delay }: { delay: number }) {
   const { language, toggleLanguage } = useTranslationStore();
 
   return (
-    <FadeIn delay={0.5}>
+    <FadeIn delay={delay}>
       <button
         onClick={toggleLanguage}
         className="flex w-8 cursor-pointer items-center justify-center"
