@@ -98,8 +98,12 @@ function MobileMenuItems({
             ease: BEZIER_EASING,
             delayChildren: 1.2,
           }}
-          className="absolute top-0 left-0 z-0 flex h-screen w-screen flex-col justify-between bg-black p-6 pt-30 text-white"
+          className="absolute top-0 left-0 z-0 flex h-screen w-screen items-center gap-40 bg-black p-6 text-white"
         >
+          <div className="absolute top-8">
+            <SwitchLanguage />
+          </div>
+
           <div className="flex flex-col gap-10">
             {menuItems.map((item, index) => (
               <FadeIn delay={0.1 * index} key={`menu-item-${item.title}`}>
@@ -119,10 +123,6 @@ function MobileMenuItems({
                 </Link>
               </FadeIn>
             ))}
-          </div>
-
-          <div className="flex">
-            <SwitchLanguage />
           </div>
         </motion.div>
       )}
