@@ -13,7 +13,7 @@ export default function TestimonialItem({ testimonial }: Props) {
 
   return (
     <motion.div
-      className="pointer-events-none flex flex-col gap-6"
+      className="pointer-events-none flex w-full flex-col gap-6"
       whileTap={{
         scale: 0.98,
         transition: { duration: 0.5, type: "spring" },
@@ -26,7 +26,7 @@ export default function TestimonialItem({ testimonial }: Props) {
         width={70}
         placeholder="blur"
         blurDataURL={testimonial.logo.placeholder}
-        className="h-6 w-fit object-cover"
+        className="w-32 object-cover"
       />
 
       <div className="flex flex-col gap-4">

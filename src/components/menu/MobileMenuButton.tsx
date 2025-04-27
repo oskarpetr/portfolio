@@ -6,7 +6,7 @@ export default function MobileMenuButton() {
 
   return (
     <button
-      onClick={() => setIsMobileMenuOpen(isMobileMenuOpen!)}
+      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       className={cn(
         "relative z-10 flex cursor-pointer flex-col transition-all duration-500",
         isMobileMenuOpen ? "gap-7" : "gap-2",

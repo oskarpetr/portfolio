@@ -18,7 +18,7 @@ export default function AboutImages({ about }: Props) {
   const { translation, language } = useTranslationStore();
 
   return (
-    <div className="mt-12 flex flex-col items-end gap-8 sm:mt-0 lg:flex-row lg:gap-0">
+    <div className="mt-[15vh] flex flex-col items-end gap-8 lg:mt-0 lg:flex-row lg:gap-0">
       <div className="w-full text-justify text-base leading-snug font-normal">
         <div className="w-full lg:w-1/2">
           <ParagraphSplit text={about.process[language]} />

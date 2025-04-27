@@ -35,7 +35,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
       <div className="relative -left-6 w-screen">
         <div
           ref={postersRef}
-          className="box-border flex h-[150vh] gap-6 overflow-hidden bg-neutral-900 p-10"
+          className="box-border flex h-screen gap-6 overflow-hidden bg-neutral-900 p-10 sm:h-[150vh]"
         >
           <GraphicColumn
             graphicDesigns={[
@@ -65,7 +65,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
               graphicDesigns[4],
             ]}
             y={y3}
-            className="-top-[40%]"
+            className="-top-[100%] lg:-top-[40%]"
           />
           <GraphicColumn
             graphicDesigns={[
@@ -75,7 +75,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
               graphicDesigns[2],
             ]}
             y={y4}
-            className="-top-[80%]"
+            className="-top-[110%] lg:-top-[80%]"
           />
         </div>
       </div>

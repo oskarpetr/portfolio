@@ -25,10 +25,15 @@ export default function Preloader() {
         {showName && (
           <div className="absolute right-6 bottom-6 left-6 z-50 flex items-baseline justify-center text-white lg:justify-start">
             <div className="text-4xl tracking-tighter sm:text-6xl lg:text-8xl">
-              <ParagraphSplit text="Oskar Petr" includeExitAnimation />
+              <ParagraphSplit
+                text="Oskar Petr"
+                includeExitAnimation
+                indent={false}
+              />
             </div>
-            <div className="-ml-6 text-4xl sm:text-5xl lg:text-6xl">
-              <ParagraphSplit text="©" includeExitAnimation />
+
+            <div className="text-4xl sm:text-5xl lg:text-6xl">
+              <ParagraphSplit text="©" includeExitAnimation indent={false} />
             </div>
           </div>
         )}
