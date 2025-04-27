@@ -1,4 +1,4 @@
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 
 export default function InquirySuccess() {
   const { translation } = useTranslationStore();

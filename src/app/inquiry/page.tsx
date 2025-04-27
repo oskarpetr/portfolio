@@ -3,7 +3,7 @@
 import InquiryForm from "@/components/inquiry/InquiryForm";
 import PageLayout from "@/components/layout/PageLayout";
 import SectionTitle from "@/components/shared/SectionTitle";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 
 export default function InquiryPage() {
   const { translation } = useTranslationStore();

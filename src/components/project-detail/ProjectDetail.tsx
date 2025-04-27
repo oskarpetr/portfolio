@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import { Project } from "@/types/Project.types";
 import FadeIn from "../animation/FadeIn";
 import ParagraphSplit from "../animation/ParagraphSplit";

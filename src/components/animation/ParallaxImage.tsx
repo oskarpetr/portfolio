@@ -8,7 +8,7 @@ export default function ParallaxImage({ children }: PropsWithChildren) {
     target: containerRef,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "5%"]);
 
   return (
     <div className="h-fit w-full">

@@ -5,7 +5,7 @@ import ParagraphSplit from "@/components/animation/ParagraphSplit";
 import PageLayout from "@/components/layout/PageLayout";
 import Button from "@/components/shared/Button";
 import SectionTitle from "@/components/shared/SectionTitle";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import Link from "next/link";
 
 export default function NotFoundPage() {

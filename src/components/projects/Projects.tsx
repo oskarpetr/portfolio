@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import { ProjectShort } from "@/types/Project.types";
 import SectionSlideUp from "../animation/SectionSlideUp";
 import { RefObject } from "react";
@@ -16,26 +16,28 @@ export default function Projects({ projects, aboutRef }: Props) {
   const { translation } = useTranslationStore();
 
   return (
-    <SectionSlideUp sectionRef={aboutRef}>
-      <div id="projects" className="sm:mt-20">
-        <SectionTitle
-          title={translation.sectionTitles.projects}
-          number={projects.length}
-        />
-        <div>
-          <div className="hidden grid-cols-4 lg:grid">
-            <ProjectGrid projects={projects} cols={4} />
-          </div>
+    <div id="projects">
+      <SectionSlideUp sectionRef={aboutRef}>
+        <div className="sm:mt-20">
+          <SectionTitle
+            title={translation.sectionTitles.projects}
+            number={projects.length}
+          />
+          <div>
+            <div className="hidden grid-cols-4 lg:grid">
+              <ProjectGrid projects={projects} cols={4} />
+            </div>
 
-          <div className="hidden grid-cols-2 sm:grid lg:hidden">
-            <ProjectGrid projects={projects} cols={2} />
-          </div>
+            <div className="hidden grid-cols-2 sm:grid lg:hidden">
+              <ProjectGrid projects={projects} cols={2} />
+            </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:hidden">
-            <ProjectGrid projects={projects} cols={1} />
+            <div className="grid grid-cols-1 gap-4 sm:hidden">
+              <ProjectGrid projects={projects} cols={1} />
+            </div>
           </div>
         </div>
-      </div>
-    </SectionSlideUp>
+      </SectionSlideUp>
+    </div>
   );
 }

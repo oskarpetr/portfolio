@@ -1,4 +1,4 @@
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import { AnimatePresence } from "framer-motion";
 import { useSwiper } from "swiper/react";
 import ParagraphSplit from "../animation/ParagraphSplit";

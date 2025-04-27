@@ -3,7 +3,7 @@
 import { Article } from "@/types/Article.types";
 import SectionTitle from "../shared/SectionTitle";
 import ArticleItem from "./ArticleItem";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import Tooltip from "../animation/Tooltip";
 
 interface Props {

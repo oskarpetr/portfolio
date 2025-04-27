@@ -4,7 +4,7 @@ import Image from "next/image";
 import myself from "../../../public/images/myself.webp";
 import Reveal from "../animation/Reveal";
 import ParallaxImage from "../animation/ParallaxImage";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import Tooltip from "../animation/Tooltip";
 import Index from "../shared/Index";
 

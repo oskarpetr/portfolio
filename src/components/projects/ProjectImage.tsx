@@ -1,4 +1,4 @@
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import { type ProjectImage } from "@/types/Project.types";
 import Image from "next/image";
 

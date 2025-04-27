@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BEZIER_EASING } from "@/utils/animation";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import { useState } from "react";
-import { useTimeout } from "../hooks/useTimeout";
+import { useTimeout } from "../../hooks/useTimeout";
 import { preloaderTime } from "./App";
 
 export default function Preloader() {

@@ -4,12 +4,11 @@ export interface Translation {
   sectionTitles: {
     projects: string;
     about: string;
-    university: string;
     services: string;
     graphicDesigns: string;
     articles: string;
     testimonials: string;
-    footer: string;
+    endOfWebsite: string;
     inquiry: string;
     notFound: string;
   };
@@ -23,10 +22,10 @@ export interface Translation {
     projects: string;
     about: string;
     services: string;
+    testimonials: string;
     contact: string;
   };
   footer: {
-    startProject: string;
     country: string;
     city: string;
   };
@@ -59,6 +58,11 @@ export interface Translation {
   buttons: {
     backHome: string;
     sendInquiry: string;
+    hitMeUp: string;
+  };
+  contact: {
+    title: [string, string];
+    description: string;
   };
 }
 

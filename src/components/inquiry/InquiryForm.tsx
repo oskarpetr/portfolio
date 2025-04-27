@@ -5,7 +5,7 @@ import InquirySuccess from "./InquiryFormSuccess";
 import ContactInput from "./InquiryInput";
 import Button from "../shared/Button";
 import Link from "next/link";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import { FormEvent, useState } from "react";
 import { postInquiry } from "@/utils/cms";
 import { sendInquiry } from "@/utils/email";

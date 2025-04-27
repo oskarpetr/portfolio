@@ -6,7 +6,7 @@ import design from "../../../public/images/design.webp";
 import development from "../../../public/images/development.webp";
 import Image from "next/image";
 import Index from "../shared/Index";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import { About } from "@/types/About.types";
 

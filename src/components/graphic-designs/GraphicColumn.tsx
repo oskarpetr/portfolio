@@ -15,11 +15,14 @@ function Column({ graphicDesigns, y, className }: Props) {
   return (
     <motion.div
       style={{ y }}
-      className={cn("relative flex h-screen w-1/4 flex-col gap-10", className)}
+      className={cn(
+        "relative flex h-screen w-1/2 flex-col gap-6 lg:w-1/3 xl:w-1/4",
+        className,
+      )}
     >
       {graphicDesigns.map((graphicDesign, index) => (
         <div
-          key={`graphic-design-${graphicDesign.id}-${index}`}
+          key={`graphic-design-${graphicDesign.id}-${index}}`}
           className="relative pt-[150%]"
         >
           <Image

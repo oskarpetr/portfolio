@@ -5,8 +5,8 @@ import SectionTitle from "../shared/SectionTitle";
 import { contact, socialSites } from "@/data/footer";
 import Icon from "../shared/Icon";
 // import { menuItems } from "@/data/menu";
-import { useTranslationStore } from "@/translation/useTranslationStore";
-import usePragueTime from "../hooks/usePragueTime";
+import { useTranslationStore } from "@/stores/useTranslationStore";
+import usePragueTime from "../../hooks/usePragueTime";
 
 export default function Footer() {
   const { translation } = useTranslationStore();
@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="flex flex-col-reverse gap-16 xl:flex-row xl:items-end xl:gap-0">
             <div className="xl:w-1/2">
               <SectionTitle
-                title={translation.footer.startProject}
+                title={translation.sectionTitles.endOfWebsite}
                 enableMargin={false}
                 big
               />

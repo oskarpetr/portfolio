@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { PropsWithChildren, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { useTimeout } from "../hooks/useTimeout";
+import { useTimeout } from "../../hooks/useTimeout";
 import dynamic from "next/dynamic";
 import Layout from "./Layout";
 
@@ -13,7 +13,7 @@ const Providers = dynamic(() => import("@/components/layout/Providers"));
 
 // preloader timing
 export const preloaderTime = 2000;
-const contentDelay = 500;
+const contentDelay = 0;
 
 export default function App({ children }: PropsWithChildren) {
   const pathname = usePathname();

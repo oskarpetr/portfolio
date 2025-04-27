@@ -2,7 +2,7 @@
 
 import { ProjectShort } from "@/types/Project.types";
 import Link from "next/link";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import Reveal from "../animation/Reveal";
 import Index from "../shared/Index";
 import Tooltip from "../animation/Tooltip";

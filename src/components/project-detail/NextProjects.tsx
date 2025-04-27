@@ -1,4 +1,4 @@
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import SectionTitle from "../shared/SectionTitle";
 import ProjectItem from "../projects/ProjectItem";
 import { ProjectShort } from "@/types/Project.types";
@@ -12,7 +12,7 @@ export default function NextProjects({ projects }: Props) {
   const { translation } = useTranslationStore();
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-12 sm:gap-30 sm:pb-12">
       <AnimatedDivider />
 
       <div className="flex flex-col lg:flex-row">

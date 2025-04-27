@@ -2,7 +2,7 @@ import Image from "next/image";
 import ParagraphSplit from "../animation/ParagraphSplit";
 import { Testimonial } from "@/types/Testimonial.types";
 import { motion } from "framer-motion";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 
 interface Props {
   testimonial: Testimonial;

@@ -4,12 +4,11 @@ const translationEn: Translation = {
   sectionTitles: {
     projects: "Projects",
     about: "About",
-    university: "University",
     services: "Services",
     graphicDesigns: "Graphic designs",
     articles: "Articles",
     testimonials: "Testimonials",
-    footer: "Footer",
+    endOfWebsite: "End of website",
     inquiry: "New inquiry",
     notFound: "Page not found",
   },
@@ -23,10 +22,10 @@ const translationEn: Translation = {
     projects: "Projects",
     about: "About",
     services: "Services",
+    testimonials: "Testimonials",
     contact: "Contact",
   },
   footer: {
-    startProject: "Start a project?",
     country: "Czech Republic",
     city: "Prague",
   },
@@ -85,6 +84,12 @@ const translationEn: Translation = {
   buttons: {
     backHome: "Back home",
     sendInquiry: "Send inquiry",
+    hitMeUp: "Hit me up",
+  },
+  contact: {
+    title: ["Start a", "project?"],
+    description:
+      "Hey there! If you are looking for working on a project or a collaboration with me, hit me up with your inquiry and we'll get to work!",
   },
 };
 
@@ -92,12 +97,11 @@ const translationCs: Translation = {
   sectionTitles: {
     projects: "Projekty",
     about: "O mně",
-    university: "Vysoká škola",
     services: "Služby",
     graphicDesigns: "Grafické designy",
     articles: "Články",
     testimonials: "Reference",
-    footer: "Zápatí",
+    endOfWebsite: "Konec webu",
     inquiry: "Mám zájem",
     notFound: "Stránka nenalezena",
   },
@@ -111,10 +115,10 @@ const translationCs: Translation = {
     projects: "Projekty",
     about: "O mně",
     services: "Služby",
+    testimonials: "Reference",
     contact: "Kontakt",
   },
   footer: {
-    startProject: "Začneme projekt?",
     country: "Česká republika",
     city: "Praha",
   },
@@ -173,6 +177,12 @@ const translationCs: Translation = {
   buttons: {
     backHome: "Zpět domů",
     sendInquiry: "Odeslat poptávku",
+    hitMeUp: "Mám zájem",
+  },
+  contact: {
+    title: ["Začneme", "projekt?"],
+    description:
+      "Ahoj! Pokud plánujete projekt nebo byste rádi na něčem spolupracovali, ozvěte se mi se svou představou a pustíme se do toho!",
   },
 };
 

@@ -2,7 +2,7 @@
 
 import { Service } from "@/types/Service.types";
 import ParagraphSplit from "../animation/ParagraphSplit";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import Tags from "../tags/Tags";
 import SectionTitle from "../shared/SectionTitle";
 import AnimatedDivider from "../animation/AnimatedDivider";

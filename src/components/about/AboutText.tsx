@@ -2,7 +2,7 @@
 
 import { About } from "@/types/About.types";
 import ParagraphOpacity from "../animation/ParagraphOpacity";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 
 interface Props {
   about: About;

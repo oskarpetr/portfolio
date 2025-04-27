@@ -2,11 +2,11 @@
 
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import useDimensions from "../hooks/useDimensions";
+import useDimensions from "../../hooks/useDimensions";
 import SectionTitle from "../shared/SectionTitle";
 import { GraphicDesign } from "@/types/GraphicDesign.types";
 import GraphicColumn from "./GraphicColumn";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 
 interface Props {
   graphicDesigns: GraphicDesign[];
@@ -30,39 +30,39 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
 
   return (
     <div>
-      <SectionTitle
-        title={translation.sectionTitles.graphicDesigns}
-        number={graphicDesigns.length}
-      />
+      <SectionTitle title={translation.sectionTitles.graphicDesigns} />
 
-      <div className="relative -right-10 -left-10 w-screen">
+      <div className="relative -left-6 w-screen">
         <div
           ref={postersRef}
-          className="box-border flex h-[150vh] gap-10 overflow-hidden bg-neutral-900 p-10"
+          className="box-border flex h-[150vh] gap-6 overflow-hidden bg-neutral-900 p-10"
         >
           <GraphicColumn
             graphicDesigns={[
               graphicDesigns[0],
               graphicDesigns[1],
               graphicDesigns[2],
+              graphicDesigns[3],
             ]}
             y={y}
-            className="-top-[30%]"
+            className="-top-[30%] hidden xl:flex"
           />
           <GraphicColumn
             graphicDesigns={[
               graphicDesigns[3],
               graphicDesigns[4],
               graphicDesigns[0],
+              graphicDesigns[1],
             ]}
             y={y2}
-            className="-top-[100%]"
+            className="-top-[100%] hidden lg:flex"
           />
           <GraphicColumn
             graphicDesigns={[
               graphicDesigns[1],
               graphicDesigns[2],
               graphicDesigns[3],
+              graphicDesigns[4],
             ]}
             y={y3}
             className="-top-[40%]"
@@ -72,6 +72,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
               graphicDesigns[4],
               graphicDesigns[0],
               graphicDesigns[1],
+              graphicDesigns[2],
             ]}
             y={y4}
             className="-top-[80%]"

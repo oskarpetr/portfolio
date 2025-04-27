@@ -1,7 +1,7 @@
 import { TagShort } from "@/types/Tag.types";
 import FadeIn from "../animation/FadeIn";
 import TextStagger from "../animation/TextStagger";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import Tooltip from "../animation/Tooltip";
 
 interface Props {

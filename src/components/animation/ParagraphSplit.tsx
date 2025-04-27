@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 import { BEZIER_EASING } from "@/utils/animation";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";

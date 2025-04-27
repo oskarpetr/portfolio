@@ -1,5 +1,5 @@
 import { contact } from "@/data/footer";
-import { useTranslationStore } from "@/translation/useTranslationStore";
+import { useTranslationStore } from "@/stores/useTranslationStore";
 
 export default function InquiryError() {
   const { translation } = useTranslationStore();

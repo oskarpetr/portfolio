@@ -3,8 +3,8 @@ import {
   getProjectsShort,
   getServices,
   getArticles,
-  // getGraphicDesigns,
-  // getTestimonials,
+  getGraphicDesigns,
+  getTestimonials,
 } from "@/utils/cms";
 import { rootMetadata } from "@/utils/seo";
 import { cache } from "react";
@@ -12,10 +12,10 @@ import PageLayout from "@/components/layout/PageLayout";
 import ProjectsAboutWrapper from "@/components/wrappers/home/ProjectsAboutWrapper";
 import ServicesWrapper from "@/components/wrappers/home/ServicesWrapper";
 import ArticlesWrapper from "@/components/wrappers/home/ArticlesWrapper";
-// import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrapper";
-// import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
+import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrapper";
+import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
 import AboutImagesWrapper from "@/components/wrappers/home/AboutImagesWrapper";
-// import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
+import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
 
 export const revalidate = 300;
 
@@ -24,8 +24,8 @@ const fetchProjectsShort = cache(getProjectsShort);
 const fetchAbout = cache(getAbout);
 const fetchServices = cache(getServices);
 const fetchArticles = cache(getArticles);
-// const fetchGraphicDesigns = cache(getGraphicDesigns);
-// const fetchTestimonials = cache(getTestimonials);
+const fetchGraphicDesigns = cache(getGraphicDesigns);
+const fetchTestimonials = cache(getTestimonials);
 
 // sections
 async function ProjectsAboutSection() {
@@ -49,19 +49,19 @@ async function ArticlesSection() {
   return <ArticlesWrapper articles={articles} />;
 }
 
-// async function GraphicDesignsSection() {
-//   const graphicDesigns = await fetchGraphicDesigns();
-//   return <GraphicDesignsWrapper graphicDesigns={graphicDesigns} />;
-// }
+async function GraphicDesignsSection() {
+  const graphicDesigns = await fetchGraphicDesigns();
+  return <GraphicDesignsWrapper graphicDesigns={graphicDesigns} />;
+}
 
-// async function TestimonialsSection() {
-//   const testimonials = await fetchTestimonials();
-//   return <TestimonialsWrapper testimonials={testimonials} />;
-// }
+async function TestimonialsSection() {
+  const testimonials = await fetchTestimonials();
+  return <TestimonialsWrapper testimonials={testimonials} />;
+}
 
-// async function ContactSection() {
-//   return <ContactWrapper />;
-// }
+async function ContactSection() {
+  return <ContactWrapper />;
+}
 
 export default async function HomePage() {
   return (
@@ -70,9 +70,9 @@ export default async function HomePage() {
       <ServicesSection />
       <AboutImagesSection />
       <ArticlesSection />
-      {/* <GraphicDesignsSection /> */}
-      {/* <TestimonialsSection /> */}
-      {/* <ContactSection /> */}
+      <GraphicDesignsSection />
+      <TestimonialsSection />
+      <ContactSection />
     </PageLayout>
   );
 }
