@@ -25,7 +25,7 @@ export async function GET(req: NextRequest, { params }: Props) {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="Invoice for ${invoice.client}.pdf"`,
+      "Content-Disposition": `inline; filename="Invoice for ${encodeURIComponent(invoice.client)}.pdf"`,
     },
   });
 }
