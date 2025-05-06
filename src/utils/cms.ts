@@ -21,8 +21,10 @@ import {
   aboutQuery,
   testimonialsQuery,
   projectsSlugsQuery,
+  invoiceQuery,
 } from "./queries";
 import { InquiryValues } from "@/types/ContactForm.types";
+import { Invoice } from "@/types/Invoice.types";
 
 const revalidate = { next: { revalidate: 300 } };
 
@@ -122,4 +124,18 @@ export async function postInquiry(inquiry: InquiryValues) {
     console.error("CMS inquiry error:", error);
     return false;
   }
+}
+
+export async function getInvoice(slug: string) {
+  const invoiceCms: Invoice = await sanityClient.fetch(
+    invoiceQuery(slug),
+    {},
+    revalidate,
+  );
+
+  if (!invoiceCms) {
+    return null;
+  }
+
+  return invoiceCms;
 }

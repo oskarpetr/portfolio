@@ -96,3 +96,12 @@ export const testimonialsQuery = `*[_type == "testimonial"] {
   authorPosition,
   publishedAt
 }`;
+
+export const invoiceQuery = (
+  slug: string,
+) => `*[_type == "invoice" && slug.current == "${slug}"] {
+  "id": _id,
+  "slug": slug.current,
+  "client": client,
+  "invoice": invoice.asset->url,
+}[0]`;
