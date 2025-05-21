@@ -1,4 +1,4 @@
-import { InquiryField, InquiryValues } from "@/types/ContactForm.types";
+import { InquiryField, InquiryValues } from "@/types/InquiryForm.types";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import Icon from "../shared/Icon";
 import { cn } from "@/utils/cn";
@@ -8,9 +8,10 @@ interface Props {
   label: InquiryField["label"];
   type?: InquiryField["type"];
   placeholder: InquiryField["placeholder"];
-  required?: InquiryField["required"];
+  required?: boolean;
   options?: InquiryField["options"];
   setValues: Dispatch<SetStateAction<InquiryValues>>;
+  index: number;
 }
 
 export default function ContactInput({
@@ -21,11 +22,12 @@ export default function ContactInput({
   required = true,
   options = [],
   setValues,
+  index,
 }: Props) {
   const [value, setValue] = useState("");
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     setValue(e.target.value);
     setValues((prev: InquiryValues) => ({
@@ -44,7 +46,10 @@ export default function ContactInput({
         <input
           placeholder={placeholder}
           type={type}
-          className="serif border-b border-dashed border-black/50 text-4xl leading-14 focus:outline-none sm:text-5xl sm:leading-normal lg:w-11/12"
+          className={cn(
+            "serif border-b border-dashed border-black/50 text-3xl leading-12 focus:outline-none sm:text-4xl sm:leading-normal",
+            index % 2 === 0 ? "w-full lg:w-11/12" : "",
+          )}
           autoComplete="disabled"
           required={required}
           value={value}
@@ -52,11 +57,28 @@ export default function ContactInput({
         />
       )}
 
+      {type === "textarea" && (
+        <textarea
+          placeholder={placeholder}
+          className={cn(
+            "serif resize-none border-b border-dashed border-black/50 text-3xl leading-12 focus:outline-none sm:text-4xl sm:leading-normal",
+            index % 2 === 0 ? "w-full lg:w-11/12" : "",
+          )}
+          autoComplete="disabled"
+          rows={2}
+          required={required}
+          value={value}
+          onChange={handleChange}
+        />
+      )}
+
       {type === "select" && (
-        <div className="relative lg:w-11/12">
+        <div
+          className={cn("relative", index % 2 === 0 ? "w-full lg:w-11/12" : "")}
+        >
           <select
             className={cn(
-              "serif w-full cursor-pointer appearance-none border-b border-dashed border-black/50 pr-12 text-4xl leading-14 focus:outline-none sm:text-5xl sm:leading-normal",
+              "serif w-full cursor-pointer appearance-none border-b border-dashed border-black/50 pr-12 text-3xl leading-12 focus:outline-none sm:text-4xl sm:leading-normal",
               value === "" ? "text-black/50" : "",
             )}
             required={required}
@@ -84,7 +106,7 @@ export default function ContactInput({
 
           <Icon
             name="CaretRight"
-            size={32}
+            size={20}
             className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 opacity-50"
           />
         </div>

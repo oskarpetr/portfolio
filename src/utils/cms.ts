@@ -23,7 +23,7 @@ import {
   projectsSlugsQuery,
   clientQuery,
 } from "./queries";
-import { InquiryValues } from "@/types/ContactForm.types";
+import { InquiryValues } from "@/types/InquiryForm.types";
 import { Client } from "@/types/Client.types";
 
 const revalidate = { next: { revalidate: 300 } };

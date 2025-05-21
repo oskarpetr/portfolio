@@ -1,11 +1,10 @@
 "use server";
 
 import { contact } from "@/data/footer";
-import { InquiryValues } from "@/types/ContactForm.types";
+import { InquiryValues } from "@/types/InquiryForm.types";
 import nodemailer from "nodemailer";
 
 export async function sendInquiry(inquiry: InquiryValues) {
-  console.log(process.env.NEXT_PUBLIC_EMAIL_PASSWORD);
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.seznam.cz",
@@ -17,7 +16,7 @@ export async function sendInquiry(inquiry: InquiryValues) {
       },
     });
 
-    const body = `Name: ${inquiry.name}\nCompany: ${inquiry.company}\nService: ${inquiry.service}\nBudget: ${inquiry.budget}\nTime frame: ${inquiry.timeframe}\nEmail: ${inquiry.email}`;
+    const body = `Name: ${inquiry.name}\nCompany: ${inquiry.company}\nService: ${inquiry.service}\nBudget: ${inquiry.budget}\nTime frame: ${inquiry.timeframe}\nEmail: ${inquiry.email}\nDescription: ${inquiry.description}`;
 
     await transporter.sendMail({
       from: contact.email,

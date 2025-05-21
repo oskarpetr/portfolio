@@ -13,7 +13,7 @@ interface Props {
 const About = forwardRef<HTMLDivElement, Props>(
   ({ about }: Props, ref: ForwardedRef<HTMLDivElement | null>) => {
     const { language } = useTranslationStore();
-    console.log(about);
+
     return (
       <div
         ref={ref}

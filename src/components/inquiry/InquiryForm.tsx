@@ -1,14 +1,15 @@
-import { InquiryValues } from "@/types/ContactForm.types";
+import { InquiryValues } from "@/types/InquiryForm.types";
 import FadeIn from "../animation/FadeIn";
 import InquiryError from "./InquiryFormError";
 import InquirySuccess from "./InquiryFormSuccess";
-import ContactInput from "./InquiryInput";
 import Button from "../shared/Button";
 import { useTranslationStore } from "@/stores/useTranslationStore";
 import { FormEvent, useState } from "react";
 import { postInquiry } from "@/utils/cms";
 import { sendInquiry } from "@/utils/email";
 import PageLink from "../layout/PageLink";
+import InquiryInput from "./InquiryInput";
+import inquiryFields from "@/data/inquiryFields";
 
 export default function InquiryForm() {
   const { translation } = useTranslationStore();
@@ -20,6 +21,7 @@ export default function InquiryForm() {
     budget: "",
     timeframe: "",
     email: "",
+    description: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,29 +40,31 @@ export default function InquiryForm() {
   };
 
   return !isSubmitted ? (
-    <form
-      onSubmit={handleSubmit}
-      className="grid grid-cols-1 gap-y-12 lg:grid-cols-2"
-    >
-      {Object.entries(translation.inquiry.inputs).map((input, index) => (
-        <FadeIn key={`field-${input[0]}`} delay={0.1 * index}>
-          <ContactInput
-            name={input[0] as keyof InquiryValues}
-            label={input[1].label}
-            type={Object.hasOwn(input[1], "options") ? "select" : "text"}
-            options={input[1].options}
-            placeholder={input[1].placeholder}
-            setValues={setValues}
-            required
-          />
-        </FadeIn>
-      ))}
+    <form onSubmit={handleSubmit} className="flex flex-col gap-12">
+      <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2">
+        {inquiryFields.map((field, index) => (
+          <FadeIn key={`field-${field.name}`} delay={0.05 * index + 0.8}>
+            <InquiryInput
+              name={field.name}
+              label={translation.inquiry.inputs[field.name].label}
+              type={field.type}
+              options={translation.inquiry.inputs[field.name].options}
+              placeholder={translation.inquiry.inputs[field.name].placeholder}
+              setValues={setValues}
+              required
+              index={index}
+            />
+          </FadeIn>
+        ))}
+      </div>
 
-      <Button
-        text={translation.buttons.sendInquiry}
-        loading={isLoading}
-        icon="ArrowRight"
-      />
+      <FadeIn delay={0.05 * inquiryFields.length + 0.8}>
+        <Button
+          text={translation.buttons.sendInquiry}
+          loading={isLoading}
+          icon="ArrowRight"
+        />
+      </FadeIn>
     </form>
   ) : (
     <div className="flex flex-col gap-6">

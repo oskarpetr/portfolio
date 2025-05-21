@@ -31,7 +31,7 @@ export default function Button({
   };
 
   return (
-    <div className="w-fit border">
+    <div className="h-fit w-fit border">
       <motion.button
         initial="initial"
         whileHover="whileHover"

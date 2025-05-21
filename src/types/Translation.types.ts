@@ -1,5 +1,5 @@
 import { menuItems } from "@/data/menu";
-import { InquiryValues } from "./ContactForm.types";
+import { InquiryValues } from "./InquiryForm.types";
 
 export interface Translation {
   sectionTitles: {

@@ -29,6 +29,10 @@ select,
   appearance: base-select;
 }
 
+::picker(select) {
+  margin-top: 12px;
+}
+
 select::picker-icon {
   display: none;
 }

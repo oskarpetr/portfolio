@@ -9,7 +9,7 @@ const translationEn: Translation = {
     articles: "Articles",
     testimonials: "Testimonials",
     endOfWebsite: "End of website",
-    inquiry: "New inquiry",
+    inquiry: "General inquiry",
     notFound: "Page not found",
   },
   projectDetail: {
@@ -55,11 +55,11 @@ const translationEn: Translation = {
         label: "I'm looking for",
         placeholder: "Select service",
         options: [
-          "Complete website solution",
+          "Complete web solution",
           "Web development",
           "Web design",
           "Technical writing",
-          "Other (specify below)",
+          "Other (specify in description)",
         ],
       },
       budget: {
@@ -73,6 +73,10 @@ const translationEn: Translation = {
       email: {
         label: "You can contact me at",
         placeholder: "Your email",
+      },
+      description: {
+        label: "Brief project description",
+        placeholder: "Project description",
       },
     },
     success: [
@@ -118,7 +122,7 @@ const translationCs: Translation = {
     articles: "Články",
     testimonials: "Reference",
     endOfWebsite: "Konec webu",
-    inquiry: "Mám zájem",
+    inquiry: "Obecná poptávka",
     notFound: "Stránka nenalezena",
   },
   projectDetail: {
@@ -157,12 +161,19 @@ const translationCs: Translation = {
         placeholder: "Vaše jméno",
       },
       company: {
-        label: "Reprezentuji",
+        label: "Zastupuji",
         placeholder: "Vaše společnost",
       },
       service: {
         label: "Hledám",
         placeholder: "Služba",
+        options: [
+          "Kompletní webové řešení",
+          "Webový vývoj",
+          "Webový design",
+          "Technické psaní",
+          "Jiné (specifikujte v popisu)",
+        ],
       },
       budget: {
         label: "Můj rozpočet je",
@@ -175,6 +186,10 @@ const translationCs: Translation = {
       email: {
         label: "Můžete mě kontaktovat na",
         placeholder: "Váš e-mail",
+      },
+      description: {
+        label: "Stručný popis projektu",
+        placeholder: "Popis projektu",
       },
     },
     success: [
