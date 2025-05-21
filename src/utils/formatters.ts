@@ -8,12 +8,18 @@ import projectOnboarding from "@/../public/images/project-onboarding.webp";
 import invoice from "@/../public/images/invoice.webp";
 
 export function groupTagsByService(tags: Tag[], language: LanguageType) {
-  const groupedTags = Object.values(
-    Object.groupBy(tags, (tag) => tag.service.name[language]),
-  ) as Tag[][];
+  const serviceMap = new Map<string, { service: ServiceShort; tags: Tag[] }>();
 
-  const sortedGroups = groupedTags
-    .map((group) => [group[0].service, group] as [ServiceShort, Tag[]])
+  for (const tag of tags) {
+    const key = tag.service.name[language];
+    if (!serviceMap.has(key)) {
+      serviceMap.set(key, { service: tag.service, tags: [] });
+    }
+    serviceMap.get(key)!.tags.push(tag);
+  }
+
+  const sortedGroups = Array.from(serviceMap.values())
+    .map(({ service, tags }) => [service, tags] as [ServiceShort, Tag[]])
     .sort((a, b) => a[0].order - b[0].order);
 
   return sortedGroups;
