@@ -44,6 +44,9 @@ dependencies:
   next-sanity:
     specifier: '9'
     version: 9.9.5(@sanity/client@6.28.3)(@sanity/icons@3.7.0)(@sanity/types@3.80.0)(@sanity/ui@2.15.7)(next@15.2.0)(react-dom@19.0.0)(react-is@18.3.1)(react@19.0.0)(sanity@3.80.0)(styled-components@6.1.15)
+  next-view-transitions:
+    specifier: ^0.3.4
+    version: 0.3.4(next@15.2.0)(react-dom@19.0.0)(react@19.0.0)
   nodemailer:
     specifier: ^6.10.1
     version: 6.10.1
@@ -8112,6 +8115,18 @@ packages:
       - react-is
       - react-router
       - svelte
+    dev: false
+
+  /next-view-transitions@0.3.4(next@15.2.0)(react-dom@19.0.0)(react@19.0.0):
+    resolution: {integrity: sha512-SSiskenQ8JkEFGzPjvFwC5LGGoqgTxM5dxexkeugxvcXFLpWI2ZUh4IsCURD3ovW+8Ue7xXlrtrpy8b7XR7IwQ==}
+    peerDependencies:
+      next: '>=14.0.0'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      next: 15.2.0(@babel/core@7.26.10)(react-dom@19.0.0)(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
     dev: false
 
   /next@15.2.0(@babel/core@7.26.10)(react-dom@19.0.0)(react@19.0.0):

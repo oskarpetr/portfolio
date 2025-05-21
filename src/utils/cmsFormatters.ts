@@ -32,7 +32,7 @@ export async function formatProjectsShort(
       service: projectShort.service,
       mainImage: (await formatImage(
         projectShort.mainImage,
-        700,
+        1000,
       )) as ProjectImage,
     })),
   );

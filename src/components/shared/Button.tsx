@@ -3,9 +3,11 @@
 import { BEZIER_EASING } from "@/utils/animation";
 import { motion } from "framer-motion";
 import Icon, { IconType } from "./Icon";
+import { cn } from "@/utils/cn";
 
 interface Props {
   text: string;
+  color?: "black" | "white";
   icon?: IconType;
   onClick?: () => void;
   loading?: boolean;
@@ -13,7 +15,8 @@ interface Props {
 
 export default function Button({
   text,
-  icon = "ArrowRight",
+  color = "white",
+  icon,
   onClick,
   loading,
 }: Props) {
@@ -28,39 +31,51 @@ export default function Button({
   };
 
   return (
-    <motion.button
-      initial="initial"
-      whileHover="whileHover"
-      className="relative h-14 w-fit cursor-pointer overflow-hidden px-6 outline -outline-offset-1"
-      onClick={onClick}
-    >
-      <motion.div
-        variants={variantsPrev}
-        transition={{ duration: 0.5, ease: BEZIER_EASING }}
-        className="relative top-0 left-0 flex items-center gap-2"
+    <div className="w-fit border">
+      <motion.button
+        initial="initial"
+        whileHover="whileHover"
+        className={cn(
+          "relative cursor-pointer overflow-hidden px-6 py-3",
+          color === "black" ? "bg-black text-white" : "",
+        )}
+        onClick={onClick}
       >
-        <div>{text}</div>
-        <Icon
-          name={loading ? "Spinner" : icon}
-          size={18}
-          color="black"
-          className={loading ? "animate-spin" : ""}
-        />
-      </motion.div>
+        <motion.div
+          variants={variantsPrev}
+          transition={{ duration: 0.5, ease: BEZIER_EASING }}
+          className="relative top-0 left-0 flex items-center gap-2"
+        >
+          <div>{text}</div>
+          {icon && (
+            <Icon
+              name={loading ? "Spinner" : icon}
+              size={18}
+              color={color === "black" ? "white" : "black"}
+              className={loading ? "animate-spin" : ""}
+            />
+          )}
+        </motion.div>
 
-      <motion.div
-        variants={variantsNext}
-        transition={{ duration: 0.5, ease: BEZIER_EASING }}
-        className="absolute top-0 left-0 flex h-14 w-full items-center justify-center gap-2 bg-black px-6 text-white"
-      >
-        <div>{text}</div>
-        <Icon
-          name={loading ? "Spinner" : icon}
-          size={18}
-          color="white"
-          className={loading ? "animate-spin" : ""}
-        />
-      </motion.div>
-    </motion.button>
+        <motion.div
+          variants={variantsNext}
+          transition={{ duration: 0.5, ease: BEZIER_EASING }}
+          className={cn(
+            "absolute top-0 left-0 flex w-full items-center justify-center gap-2 px-6 py-3",
+            color === "black" ? "bg-white text-black" : "bg-black text-white",
+          )}
+        >
+          <div>{text}</div>
+          {icon && (
+            <Icon
+              name={loading ? "Spinner" : icon}
+              size={18}
+              color={color === "black" ? "black" : "white"}
+              className={loading ? "animate-spin" : ""}
+            />
+          )}
+        </motion.div>
+      </motion.button>
+    </div>
   );
 }

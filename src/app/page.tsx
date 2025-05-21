@@ -7,7 +7,7 @@ import {
   getTestimonials,
 } from "@/utils/cms";
 import { rootMetadata } from "@/utils/seo";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import ProjectsAboutWrapper from "@/components/wrappers/home/ProjectsAboutWrapper";
 import ServicesWrapper from "@/components/wrappers/home/ServicesWrapper";
@@ -16,8 +16,7 @@ import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrap
 import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
 import AboutImagesWrapper from "@/components/wrappers/home/AboutImagesWrapper";
 import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
-
-export const revalidate = 300;
+import EmptyPage from "@/components/layout/EmptyPage";
 
 // fetch data
 const fetchProjectsShort = cache(getProjectsShort);
@@ -66,13 +65,15 @@ async function ContactSection() {
 export default async function HomePage() {
   return (
     <PageLayout>
-      <ProjectsAboutSection />
-      <ServicesSection />
-      <AboutImagesSection />
-      <ArticlesSection />
-      <GraphicDesignsSection />
-      <TestimonialsSection />
-      <ContactSection />
+      <Suspense fallback={<EmptyPage />}>
+        <ProjectsAboutSection />
+        <ServicesSection />
+        <AboutImagesSection />
+        <ArticlesSection />
+        <GraphicDesignsSection />
+        <TestimonialsSection />
+        <ContactSection />
+      </Suspense>
     </PageLayout>
   );
 }

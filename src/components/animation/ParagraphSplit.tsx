@@ -3,7 +3,7 @@
 import { useTranslationStore } from "@/stores/useTranslationStore";
 import { BEZIER_EASING } from "@/utils/animation";
 import { cn } from "@/utils/cn";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { memo } from "react";
 
 interface Props {
@@ -26,9 +26,15 @@ function ParagraphSplit({
   const words = text.split(" ");
   const stagger = 0.01;
 
-  const variants = {
-    initial: { y: "300%", clipPath: "inset(100% 0 100% 0)" },
-    animate: { y: 0, clipPath: "inset(0 0 0 0)" },
+  const variants: Variants = {
+    initial: {
+      y: "300%",
+      clipPath: "inset(100% 0 100% 0)",
+    },
+    animate: {
+      y: 0,
+      clipPath: "inset(0 0 0 0)",
+    },
   };
 
   return (
@@ -47,7 +53,7 @@ function ParagraphSplit({
           variants={variants}
           transition={{
             delay: delay + index * stagger,
-            duration: 1,
+            duration: 1.2,
             ease: BEZIER_EASING,
           }}
           className={cn(

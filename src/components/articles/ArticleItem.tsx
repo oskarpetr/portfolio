@@ -7,9 +7,10 @@ import Reveal from "../animation/Reveal";
 
 interface Props {
   article: Article;
+  isLast: boolean;
 }
 
-export default function ArticleItem({ article }: Props) {
+export default function ArticleItem({ article, isLast }: Props) {
   const yearPublished = new Date(article.publishedAt).getFullYear().toString();
 
   return (
@@ -41,6 +42,8 @@ export default function ArticleItem({ article }: Props) {
             </Reveal>
           </div>
         </div>
+
+        {isLast && <AnimatedDivider delay={0.3} />}
       </Link>
     </HoverSlider>
   );

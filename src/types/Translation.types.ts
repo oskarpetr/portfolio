@@ -1,3 +1,4 @@
+import { menuItems } from "@/data/menu";
 import { InquiryValues } from "./ContactForm.types";
 
 export interface Translation {
@@ -19,11 +20,7 @@ export interface Translation {
     nextProjects: string;
   };
   menu: {
-    projects: string;
-    about: string;
-    services: string;
-    testimonials: string;
-    contact: string;
+    [key in (typeof menuItems)[number]]: string;
   };
   footer: {
     country: string;
@@ -47,6 +44,7 @@ export interface Translation {
       [key in keyof InquiryValues]: {
         label: string;
         placeholder: string;
+        options?: string[];
       };
     };
     success: string[];
@@ -63,6 +61,16 @@ export interface Translation {
   contact: {
     title: [string, string];
     description: string;
+  };
+  clientFiles: {
+    files: {
+      projectProposal: string;
+      termsAndConditions: string;
+      projectOnboarding: string;
+      invoice: string;
+    };
+    notAvailable: string;
+    pdfFile: string;
   };
 }
 

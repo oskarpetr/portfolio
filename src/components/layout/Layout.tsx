@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react";
-import Menu from "./Menu";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import Footer from "./Footer";
@@ -11,8 +10,6 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <div>
       <SchemaMarkup />
-
-      <Menu />
 
       <AnimatePresence mode="sync">
         <div key={pathname}>{children}</div>

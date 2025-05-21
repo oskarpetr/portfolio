@@ -16,7 +16,7 @@ export default function Projects({ projects, aboutRef }: Props) {
   const { translation } = useTranslationStore();
 
   return (
-    <div id="projects">
+    <div id="projects" className="min-h-screen">
       <SectionSlideUp sectionRef={aboutRef}>
         <div className="sm:mt-20">
           <SectionTitle

@@ -1,5 +1,7 @@
 import { InquiryField, InquiryValues } from "@/types/ContactForm.types";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import Icon from "../shared/Icon";
+import { cn } from "@/utils/cn";
 
 interface Props {
   name: InquiryField["name"];
@@ -7,6 +9,7 @@ interface Props {
   type?: InquiryField["type"];
   placeholder: InquiryField["placeholder"];
   required?: InquiryField["required"];
+  options?: InquiryField["options"];
   setValues: Dispatch<SetStateAction<InquiryValues>>;
 }
 
@@ -16,11 +19,14 @@ export default function ContactInput({
   type = "text",
   placeholder,
   required = true,
+  options = [],
   setValues,
 }: Props) {
   const [value, setValue] = useState("");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setValue(e.target.value);
     setValues((prev: InquiryValues) => ({
       ...prev,
@@ -34,15 +40,55 @@ export default function ContactInput({
         {label} {required ? "(*)" : ""}
       </div>
 
-      <input
-        placeholder={placeholder}
-        type={type}
-        className="serif border-b border-dashed border-black/50 text-4xl leading-14 focus:outline-none sm:text-5xl sm:leading-normal lg:w-11/12"
-        autoComplete="disabled"
-        required={required}
-        value={value}
-        onChange={handleChange}
-      />
+      {(type === "text" || type === "email") && (
+        <input
+          placeholder={placeholder}
+          type={type}
+          className="serif border-b border-dashed border-black/50 text-4xl leading-14 focus:outline-none sm:text-5xl sm:leading-normal lg:w-11/12"
+          autoComplete="disabled"
+          required={required}
+          value={value}
+          onChange={handleChange}
+        />
+      )}
+
+      {type === "select" && (
+        <div className="relative lg:w-11/12">
+          <select
+            className={cn(
+              "serif w-full cursor-pointer appearance-none border-b border-dashed border-black/50 pr-12 text-4xl leading-14 focus:outline-none sm:text-5xl sm:leading-normal",
+              value === "" ? "text-black/50" : "",
+            )}
+            required={required}
+            value={value}
+            onChange={handleChange}
+          >
+            <option
+              value=""
+              disabled
+              className="sans px-4 py-3 text-xl font-normal"
+            >
+              {placeholder}
+            </option>
+
+            {options.map((option) => (
+              <option
+                key={option}
+                value={option}
+                className="sans border-t border-dashed border-black/50 px-4 py-3 text-xl font-normal transition-colors hover:bg-black/5"
+              >
+                {option}
+              </option>
+            ))}
+          </select>
+
+          <Icon
+            name="CaretRight"
+            size={32}
+            className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 opacity-50"
+          />
+        </div>
+      )}
     </div>
   );
 }

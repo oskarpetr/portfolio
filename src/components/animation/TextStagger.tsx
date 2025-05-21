@@ -14,7 +14,7 @@ function TextStagger({ children }: PropsWithChildren) {
       <motion.div
         variants={{
           initial: { y: 0 },
-          hovered: { y: "-100%" },
+          hovered: { y: "-85%" },
         }}
         transition={{ ease: BEZIER_EASING, duration: 0.5 }}
       >

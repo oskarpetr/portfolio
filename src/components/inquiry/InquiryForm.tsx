@@ -4,11 +4,11 @@ import InquiryError from "./InquiryFormError";
 import InquirySuccess from "./InquiryFormSuccess";
 import ContactInput from "./InquiryInput";
 import Button from "../shared/Button";
-import Link from "next/link";
 import { useTranslationStore } from "@/stores/useTranslationStore";
 import { FormEvent, useState } from "react";
 import { postInquiry } from "@/utils/cms";
 import { sendInquiry } from "@/utils/email";
+import PageLink from "../layout/PageLink";
 
 export default function InquiryForm() {
   const { translation } = useTranslationStore();
@@ -47,21 +47,28 @@ export default function InquiryForm() {
           <ContactInput
             name={input[0] as keyof InquiryValues}
             label={input[1].label}
+            type={Object.hasOwn(input[1], "options") ? "select" : "text"}
+            options={input[1].options}
             placeholder={input[1].placeholder}
             setValues={setValues}
+            required
           />
         </FadeIn>
       ))}
 
-      <Button text={translation.buttons.sendInquiry} loading={isLoading} />
+      <Button
+        text={translation.buttons.sendInquiry}
+        loading={isLoading}
+        icon="ArrowRight"
+      />
     </form>
   ) : (
     <div className="flex flex-col gap-6">
       {isError ? <InquiryError /> : <InquirySuccess />}
 
-      <Link href="/">
+      <PageLink href="/">
         <Button text={translation.buttons.backHome} />
-      </Link>
+      </PageLink>
     </div>
   );
 }

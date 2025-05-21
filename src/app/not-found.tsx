@@ -3,10 +3,10 @@
 import FadeIn from "@/components/animation/FadeIn";
 import ParagraphSplit from "@/components/animation/ParagraphSplit";
 import PageLayout from "@/components/layout/PageLayout";
+import PageLink from "@/components/layout/PageLink";
 import Button from "@/components/shared/Button";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useTranslationStore } from "@/stores/useTranslationStore";
-import Link from "next/link";
 
 export default function NotFoundPage() {
   const { translation } = useTranslationStore();
@@ -26,9 +26,9 @@ export default function NotFoundPage() {
         </div>
 
         <FadeIn delay={0.2}>
-          <Link href="/">
+          <PageLink href="/">
             <Button text={translation.buttons.backHome} />
-          </Link>
+          </PageLink>
         </FadeIn>
       </div>
     </PageLayout>

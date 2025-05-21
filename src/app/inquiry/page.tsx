@@ -1,19 +1,14 @@
-"use client";
-
-import InquiryForm from "@/components/inquiry/InquiryForm";
+import EmptyPage from "@/components/layout/EmptyPage";
 import PageLayout from "@/components/layout/PageLayout";
-import SectionTitle from "@/components/shared/SectionTitle";
-import { useTranslationStore } from "@/stores/useTranslationStore";
+import InquiryWrapper from "@/components/wrappers/inquiry/InquiryWrapper";
+import { Suspense } from "react";
 
 export default function InquiryPage() {
-  const { translation } = useTranslationStore();
-
   return (
     <PageLayout>
-      <div className="sm:mt-20">
-        <SectionTitle title={translation.sectionTitles.inquiry} />
-        <InquiryForm />
-      </div>
+      <Suspense fallback={<EmptyPage />}>
+        <InquiryWrapper />
+      </Suspense>
     </PageLayout>
   );
 }

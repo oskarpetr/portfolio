@@ -1,4 +1,4 @@
-import { getInvoice } from "@/utils/cms";
+import { getClient } from "@/utils/cms";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Props {
@@ -8,13 +8,13 @@ interface Props {
 export async function GET(req: NextRequest, { params }: Props) {
   const { slug } = await params;
 
-  const invoice = await getInvoice(slug);
+  const client = await getClient(slug);
 
-  if (!invoice || !invoice.invoice) {
-    return new Response("Invoice not found", { status: 404 });
+  if (!client || !client.invoice) {
+    return NextResponse.redirect(new URL("/404", req.url));
   }
 
-  const response = await fetch(invoice.invoice);
+  const response = await fetch(client.invoice);
   if (!response.ok) {
     return new Response("Failed to fetch PDF", { status: 500 });
   }
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest, { params }: Props) {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="Invoice for ${encodeURIComponent(invoice.client)}.pdf"`,
+      "Content-Disposition": `inline; filename="Invoice for ${encodeURIComponent(client.client)}.pdf"`,
     },
   });
 }

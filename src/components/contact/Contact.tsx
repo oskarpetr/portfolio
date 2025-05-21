@@ -6,17 +6,14 @@ import { motion } from "framer-motion";
 import { BEZIER_EASING } from "@/utils/animation";
 import Button from "../shared/Button";
 import ParagraphSplit from "../animation/ParagraphSplit";
-import Link from "next/link";
 import { useTranslationStore } from "@/stores/useTranslationStore";
+import PageLink from "../layout/PageLink";
 
 export default function Contact() {
   const { translation } = useTranslationStore();
 
   return (
-    <div
-      id="contact"
-      className="flex w-full flex-col gap-8 border-t border-dashed border-black/50 pt-12 sm:items-center sm:pt-30"
-    >
+    <div className="flex w-full flex-col gap-8 border-t border-dashed border-black/50 pt-12 sm:items-center sm:pt-30">
       <motion.div
         whileInView={{ gap: "24px" }}
         viewport={{ once: true, amount: 1 }}
@@ -57,9 +54,9 @@ export default function Contact() {
         <ParagraphSplit text={translation.contact.description} indent={false} />
       </div>
 
-      <Link href="/inquiry">
-        <Button text={translation.buttons.hitMeUp} />
-      </Link>
+      <PageLink href="/inquiry">
+        <Button text={translation.buttons.hitMeUp} icon="ArrowRight" />
+      </PageLink>
     </div>
   );
 }

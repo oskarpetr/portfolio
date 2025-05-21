@@ -17,7 +17,7 @@ export async function sendInquiry(inquiry: InquiryValues) {
       },
     });
 
-    const body = `Name: ${inquiry.name}\nCompany: ${inquiry.company}\nService: ${inquiry.service}\nBudget: ${inquiry.budget}\nTimeframe: ${inquiry.timeframe}\nEmail: ${inquiry.email}`;
+    const body = `Name: ${inquiry.name}\nCompany: ${inquiry.company}\nService: ${inquiry.service}\nBudget: ${inquiry.budget}\nTime frame: ${inquiry.timeframe}\nEmail: ${inquiry.email}`;
 
     await transporter.sendMail({
       from: contact.email,

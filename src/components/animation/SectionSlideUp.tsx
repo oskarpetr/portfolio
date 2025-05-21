@@ -13,7 +13,7 @@ function SectionSlideUp({ children, sectionRef }: Props) {
     layoutEffect: false,
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 800]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacityBlack = useTransform(scrollYProgress, [0, 1], [0, 0.8]);
 
   return (

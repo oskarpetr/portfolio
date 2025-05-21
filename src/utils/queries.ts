@@ -82,6 +82,7 @@ export const graphicDesignsQuery = `*[_type == "graphicDesign"] {
 export const aboutQuery = `*[_type == "about"] {
   "id": _id,
   title,
+  subtitle,
   process
 }[0]`;
 
@@ -97,11 +98,14 @@ export const testimonialsQuery = `*[_type == "testimonial"] {
   publishedAt
 }`;
 
-export const invoiceQuery = (
+export const clientQuery = (
   slug: string,
-) => `*[_type == "invoice" && slug.current == "${slug}"] {
+) => `*[_type == "client" && slug.current == "${slug}"] {
   "id": _id,
   "slug": slug.current,
   "client": client,
+  "projectProposal": projectProposal.asset->url,
+  "projectOnboarding": projectOnboarding.asset->url,
   "invoice": invoice.asset->url,
+  "termsAndConditions": termsAndConditions.asset->url,
 }[0]`;

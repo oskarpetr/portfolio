@@ -2,6 +2,7 @@ import Lenis from "lenis/react";
 import { PropsWithChildren } from "react";
 import LazyWrapper from "../animation/LazyWrapper";
 import { Geist, Instrument_Serif } from "next/font/google";
+import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,12 +19,14 @@ const instrumentalSerif = Instrument_Serif({
 
 export default function Providers({ children }: PropsWithChildren) {
   return (
-    <div
-      className={`${geistSans.variable} ${instrumentalSerif.variable} antialiased`}
-    >
-      <LazyWrapper>
-        <Lenis root>{children}</Lenis>
-      </LazyWrapper>
-    </div>
+    <ViewTransitions>
+      <div
+        className={`${geistSans.variable} ${instrumentalSerif.variable} antialiased`}
+      >
+        <LazyWrapper>
+          <Lenis root>{children}</Lenis>
+        </LazyWrapper>
+      </div>
+    </ViewTransitions>
   );
 }

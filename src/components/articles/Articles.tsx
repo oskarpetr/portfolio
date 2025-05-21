@@ -21,8 +21,12 @@ export default function Articles({ articles }: Props) {
       />
 
       <Tooltip icon="ArrowUpRight" title={translation.tooltips.read}>
-        {articles.map((article) => (
-          <ArticleItem key={`article-${article.id}`} article={article} />
+        {articles.map((article, index) => (
+          <ArticleItem
+            key={`article-${article.id}`}
+            article={article}
+            isLast={index === articles.length - 1}
+          />
         ))}
       </Tooltip>
     </div>

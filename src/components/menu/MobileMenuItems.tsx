@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import SwitchLanguage from "./SwitchLanguage";
 import { menuItems } from "@/data/menu";
 import FadeIn from "../animation/FadeIn";
-import TextStagger from "../animation/TextStagger";
 import { useMenuStore } from "@/stores/useMenuStore";
+import ParagraphSplit from "../animation/ParagraphSplit";
 
 export default function MobileMenuItems() {
   const { translation } = useTranslationStore();
@@ -26,9 +26,9 @@ export default function MobileMenuItems() {
           animate={{ y: 0 }}
           exit={{ y: "-100vh" }}
           transition={{
-            duration: 0.8,
+            duration: 1.2,
             ease: BEZIER_EASING,
-            delayChildren: 1.2,
+            delayChildren: 1.5,
           }}
           className="absolute top-0 left-0 z-0 flex h-screen w-screen items-center gap-40 bg-black p-6 text-white"
         >
@@ -38,7 +38,7 @@ export default function MobileMenuItems() {
             </FadeIn>
           </div>
 
-          <div className="flex flex-col gap-10">
+          {/* <div className="flex flex-col gap-10">
             {menuItems.map((item, index) => (
               <FadeIn delay={0.1 * index} key={`menu-item-${item}`}>
                 <div
@@ -54,6 +54,27 @@ export default function MobileMenuItems() {
                   </TextStagger>
                 </div>
               </FadeIn>
+            ))}
+          </div> */}
+
+          <div className="serif flex flex-col gap-8 text-4xl">
+            {menuItems.map((item, index) => (
+              <div
+                key={`menu-item-${item}`}
+                onClick={() => {
+                  redirect(item);
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                <ParagraphSplit
+                  text={
+                    translation.menu[item as keyof typeof translation.menu] +
+                    (index !== menuItems.length - 1 ? "," : "")
+                  }
+                  delay={0.1 * index}
+                  indent={false}
+                />
+              </div>
             ))}
           </div>
         </motion.div>

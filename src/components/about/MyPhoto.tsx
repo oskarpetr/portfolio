@@ -12,7 +12,7 @@ export default function MyPhoto() {
   const { translation } = useTranslationStore();
 
   return (
-    <div className="sm:w-1/2 lg:ml-[50%] xl:w-1/4">
+    <div className="w-full lg:w-1/2">
       <Reveal direction="up" viewportAmount={0.2}>
         <Tooltip title=". . ." icon="Eyes" zIndex={20}>
           <ParallaxImage>

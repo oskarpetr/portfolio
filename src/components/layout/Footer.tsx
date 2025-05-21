@@ -12,7 +12,7 @@ export default function Footer() {
   const { translation } = useTranslationStore();
 
   return (
-    <div
+    <footer
       className="relative md:h-[350px]"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

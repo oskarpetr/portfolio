@@ -23,7 +23,6 @@ const translationEn: Translation = {
     about: "About",
     services: "Services",
     testimonials: "Testimonials",
-    contact: "Contact",
   },
   footer: {
     country: "Czech Republic",
@@ -54,7 +53,14 @@ const translationEn: Translation = {
       },
       service: {
         label: "I'm looking for",
-        placeholder: "Service",
+        placeholder: "Select service",
+        options: [
+          "Complete website solution",
+          "Web development",
+          "Web design",
+          "Technical writing",
+          "Other (specify below)",
+        ],
       },
       budget: {
         label: "My budget is",
@@ -91,6 +97,16 @@ const translationEn: Translation = {
     description:
       "Hey there! If you are looking for working on a project or a collaboration with me, hit me up with your inquiry and we'll get to work!",
   },
+  clientFiles: {
+    files: {
+      projectProposal: "Project proposal",
+      termsAndConditions: "Terms and conditions",
+      projectOnboarding: "Project onboarding",
+      invoice: "Invoice",
+    },
+    notAvailable: "Not available yet",
+    pdfFile: "PDF file",
+  },
 };
 
 const translationCs: Translation = {
@@ -116,7 +132,6 @@ const translationCs: Translation = {
     about: "O mně",
     services: "Služby",
     testimonials: "Reference",
-    contact: "Kontakt",
   },
   footer: {
     country: "Česká republika",
@@ -183,6 +198,16 @@ const translationCs: Translation = {
     title: ["Začneme", "projekt?"],
     description:
       "Ahoj! Pokud plánujete projekt nebo byste rádi na něčem spolupracovali, ozvěte se mi se svou představou a pustíme se do toho!",
+  },
+  clientFiles: {
+    files: {
+      projectProposal: "Návrh projektu",
+      termsAndConditions: "Obchodní podmínky",
+      projectOnboarding: "Zahájení projektu",
+      invoice: "Faktura",
+    },
+    notAvailable: "Zatím není k dispozici",
+    pdfFile: "PDF soubor",
   },
 };
 

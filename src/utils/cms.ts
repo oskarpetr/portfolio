@@ -21,10 +21,10 @@ import {
   aboutQuery,
   testimonialsQuery,
   projectsSlugsQuery,
-  invoiceQuery,
+  clientQuery,
 } from "./queries";
 import { InquiryValues } from "@/types/ContactForm.types";
-import { Invoice } from "@/types/Invoice.types";
+import { Client } from "@/types/Client.types";
 
 const revalidate = { next: { revalidate: 300 } };
 
@@ -126,16 +126,16 @@ export async function postInquiry(inquiry: InquiryValues) {
   }
 }
 
-export async function getInvoice(slug: string) {
-  const invoiceCms: Invoice = await sanityClient.fetch(
-    invoiceQuery(slug),
+export async function getClient(slug: string) {
+  const clientCms: Client = await sanityClient.fetch(
+    clientQuery(slug),
     {},
     revalidate,
   );
 
-  if (!invoiceCms) {
+  if (!clientCms) {
     return null;
   }
 
-  return invoiceCms;
+  return clientCms;
 }

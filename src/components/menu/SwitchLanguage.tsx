@@ -7,9 +7,9 @@ export default function SwitchLanguage() {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex w-8 cursor-pointer items-center justify-center"
+      className="flex w-8 cursor-pointer items-center justify-center uppercase"
     >
-      <TextStagger>{language.toUpperCase()}</TextStagger>
+      <TextStagger>{language}</TextStagger>
     </button>
   );
 }

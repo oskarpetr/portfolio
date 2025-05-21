@@ -1,4 +1,4 @@
-function scrollTo(id: string) {
+export default function scrollTo(id: string) {
   const section = document.getElementById(id);
 
   if (section) {
@@ -9,5 +9,3 @@ function scrollTo(id: string) {
     });
   }
 }
-
-export default scrollTo;

@@ -11,8 +11,6 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 300;
-
 // fetch data
 const fetchProject = cache(getProject);
 const fetchProjectsShort = cache(getProjectsShort);

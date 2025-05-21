@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import FadeIn from "../animation/FadeIn";
+import Index from "./Index";
 
 interface Props {
   title: string;
@@ -21,7 +22,7 @@ export default function SectionTitle({
   return (
     <div className={enableMargin ? "mb-12" : ""}>
       <FadeIn delay={0.1 + delay}>
-        <div className="flex items-end gap-2">
+        <div className="flex items-baseline gap-2">
           <h2
             className={cn(
               "serif whitespace-nowrap",
@@ -30,7 +31,8 @@ export default function SectionTitle({
           >
             {title}
           </h2>
-          {number && <div className="serif text-2xl">({number})</div>}
+
+          {number && <Index index={number - 1} />}
         </div>
       </FadeIn>
     </div>

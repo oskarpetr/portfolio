@@ -1,12 +1,12 @@
 "use client";
 
 import { ProjectShort } from "@/types/Project.types";
-import Link from "next/link";
 import { useTranslationStore } from "@/stores/useTranslationStore";
 import Reveal from "../animation/Reveal";
 import Index from "../shared/Index";
 import Tooltip from "../animation/Tooltip";
 import ProjectImage from "./ProjectImage";
+import PageLink from "../layout/PageLink";
 
 interface Props {
   project: ProjectShort;
@@ -18,7 +18,7 @@ export default function ProjectItem({ project, index }: Props) {
 
   return (
     <div className="relative w-full">
-      <Link href={`/projects/${project.slug}`}>
+      <PageLink href={`/projects/${project.slug}`}>
         <Tooltip
           title={translation.tooltips.explore}
           icon="ArrowElbowDownRight"
@@ -27,14 +27,14 @@ export default function ProjectItem({ project, index }: Props) {
             <ProjectImage image={project.mainImage} />
           </Reveal>
         </Tooltip>
-      </Link>
+      </PageLink>
 
       <div className="static block w-full overflow-hidden sm:absolute">
         <Reveal direction="down" delay={0.1 * index}>
           <div className="flex w-full justify-between py-4 sm:px-8">
             <div>
               <div>{project.title}</div>
-              <div className="text-sm font-normal opacity-70">
+              <div className="text-sm font-medium opacity-60">
                 {project.service.name[language]}
               </div>
             </div>

@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 body {
+  background-color: black;
+}
+
+body,
+.sans {
   font-display: swap;
   font-family: "Geist";
   letter-spacing: -0.04rem;
@@ -17,4 +22,34 @@ body {
 ::selection {
   background-color: blue;
   color: white;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+select::picker-icon {
+  display: none;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, scale;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: none !important;
+  outline: black solid 1px;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
 }

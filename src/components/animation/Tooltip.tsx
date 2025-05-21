@@ -30,7 +30,9 @@ function Tooltip({
 
       {(title || description) && (
         <div className="flex flex-col gap-1">
-          {title && <div className="text-sm uppercase">{title}</div>}
+          {title && (
+            <div className="text-sm tracking-tight uppercase">{title}</div>
+          )}
           {description && (
             <div className="text-base font-normal">{description}</div>
           )}

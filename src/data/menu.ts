@@ -3,5 +3,4 @@ export const menuItems = [
   "about",
   "services",
   "testimonials",
-  "contact",
-];
+] as const;

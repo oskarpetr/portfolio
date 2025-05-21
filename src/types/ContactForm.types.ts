@@ -1,9 +1,10 @@
 export interface InquiryField {
   name: keyof InquiryValues;
   label: string;
-  type: "text" | "email";
+  type: "text" | "email" | "select";
   placeholder: string;
   required: boolean;
+  options?: string[];
 }
 
 export interface InquiryValues {
