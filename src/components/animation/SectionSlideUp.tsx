@@ -10,7 +10,6 @@ function SectionSlideUp({ children, sectionRef }: Props) {
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start 0.85", "start start"],
-    layoutEffect: false,
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
