@@ -1,9 +1,11 @@
 import { Service } from "@/types/Service.types";
-import ServiceItem from "./ServiceItem";
+import dynamic from "next/dynamic";
 
 interface Props {
   services: Service[];
 }
+
+const ServiceItem = dynamic(() => import("./ServiceItem"));
 
 export default function Services({ services }: Props) {
   return (

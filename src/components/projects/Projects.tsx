@@ -23,6 +23,7 @@ export default function Projects({ projects, aboutRef }: Props) {
             title={translation.sectionTitles.projects}
             number={projects.length}
           />
+
           <div>
             <div className="hidden grid-cols-4 lg:grid">
               <ProjectGrid projects={projects} cols={4} />

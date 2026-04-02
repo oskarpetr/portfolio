@@ -9,6 +9,7 @@ import { memo } from "react";
 import Tags from "../tags/Tags";
 import { groupTagsByService } from "@/utils/formatters";
 import { TagShort } from "@/types/Tag.types";
+import SectionTitle from "../shared/SectionTitle";
 
 interface Props {
   project: Project;
@@ -20,10 +21,12 @@ function ProjectDetail({ project }: Props) {
   const tags = groupTagsByService(project.tags, language);
 
   return (
-    <div className="min-h-[70vh]">
-      <div className="mt-0 flex flex-col-reverse gap-24 lg:mt-20 lg:flex-row lg:gap-0">
+    <div className="min-h-[70vh] sm:mt-10">
+      <SectionTitle title={project.title} enableMargin={false} />
+
+      <div className="mt-6 flex flex-col-reverse gap-24 lg:flex-row lg:gap-0">
         <div className="lg:w-1/2">
-          <div className="flex flex-col gap-4 sm:gap-12 lg:w-3/4">
+          <div className="flex flex-col gap-6 lg:w-3/4">
             {[project.mainImage, ...project.images].map((image, index) => (
               <ProjectDetailImage
                 key={`project-image-${image.url}`}
@@ -34,13 +37,16 @@ function ProjectDetail({ project }: Props) {
           </div>
         </div>
 
-        <div className="flex h-full flex-col gap-8 lg:sticky lg:top-[205px] lg:mt-0 lg:w-1/2 xl:gap-16">
-          <div className="flex flex-col gap-3 2xl:flex-row 2xl:gap-24">
-            <FadeIn delay={0.1}>
+        <div className="flex h-full flex-col gap-8 lg:sticky lg:top-[190px] lg:mt-0 lg:w-1/2">
+          <div className="flex flex-col gap-2">
+            {/* 2xl:flex-row 2xl:gap-24 */}
+            {/* <FadeIn delay={0.1}>
               <div className="w-32 whitespace-nowrap">{project.title}</div>
-            </FadeIn>
+            </FadeIn> */}
 
-            <div className="s text-justify text-base leading-snug font-normal">
+            <div className="text-base opacity-50">Description</div>
+
+            <div className="text-justify text-xl leading-tight font-medium md:pr-10">
               <ParagraphSplit
                 text={project.description[language]}
                 delay={0.1}
@@ -53,31 +59,31 @@ function ProjectDetail({ project }: Props) {
               tags!.length > 0 ? (
                 <div
                   key={`service-${service.id}`}
-                  className="flex flex-col gap-3 2xl:flex-row 2xl:gap-24"
+                  className="flex flex-col gap-1 lg:w-3/4"
                 >
+                  {/* 2xl:flex-row 2xl:gap-24 */}
                   <FadeIn delay={0.2 + 0.1 * index}>
-                    <div className="w-32 text-base whitespace-nowrap">
+                    <div className="text-base opacity-50">
                       {service.name[language]}
                     </div>
                   </FadeIn>
 
-                  <div className="sm:w-96">
-                    <Tags tags={tags as TagShort[]} delay={0.2 + 0.1 * index} />
-                  </div>
+                  <Tags tags={tags as TagShort[]} delay={0.2 + 0.1 * index} />
                 </div>
               ) : null,
             )}
 
-            <div className="flex flex-col gap-3 2xl:flex-row 2xl:gap-24">
+            <div className="flex flex-col gap-1">
+              {/* 2xl:flex-row 2xl:gap-24 */}
               <FadeIn delay={0.1 + 0.1 * tags.length}>
-                <div className="w-32 text-base">
+                <div className="text-base opacity-50">
                   {project.personal
                     ? translation.projectDetail.projectType
                     : translation.projectDetail.client}
                 </div>
               </FadeIn>
 
-              <div className="text-base font-normal">
+              <div className="text-lg leading-tight font-medium">
                 <ParagraphSplit
                   text={
                     project.personal

@@ -20,7 +20,7 @@ export default function SectionTitle({
   big = false,
 }: Props) {
   return (
-    <div className={enableMargin ? "mb-12" : ""}>
+    <div className={enableMargin ? "mb-6" : ""}>
       <FadeIn delay={0.1 + delay}>
         <div className="flex items-baseline gap-2">
           <h2

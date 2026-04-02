@@ -13,10 +13,10 @@ import ProjectsAboutWrapper from "@/components/wrappers/home/ProjectsAboutWrappe
 import ServicesWrapper from "@/components/wrappers/home/ServicesWrapper";
 import ArticlesWrapper from "@/components/wrappers/home/ArticlesWrapper";
 import GraphicDesignsWrapper from "@/components/wrappers/home/GraphicDesignsWrapper";
-import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
 import AboutImagesWrapper from "@/components/wrappers/home/AboutImagesWrapper";
 import ContactWrapper from "@/components/wrappers/home/ContactWrapper";
 import EmptyPage from "@/components/layout/EmptyPage";
+import TestimonialsWrapper from "@/components/wrappers/home/TestimonialsWrapper";
 
 // fetch data
 const fetchProjectsShort = cache(getProjectsShort);

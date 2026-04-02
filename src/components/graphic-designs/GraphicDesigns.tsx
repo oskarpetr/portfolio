@@ -40,7 +40,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
           <GraphicColumn
             graphicDesigns={[
               graphicDesigns[0],
-              graphicDesigns[1],
+              graphicDesigns[8],
               graphicDesigns[2],
               graphicDesigns[3],
             ]}
@@ -51,7 +51,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
             graphicDesigns={[
               graphicDesigns[3],
               graphicDesigns[4],
-              graphicDesigns[0],
+              graphicDesigns[2],
               graphicDesigns[1],
             ]}
             y={y2}
@@ -59,8 +59,8 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
           />
           <GraphicColumn
             graphicDesigns={[
-              graphicDesigns[1],
-              graphicDesigns[2],
+              graphicDesigns[6],
+              graphicDesigns[7],
               graphicDesigns[3],
               graphicDesigns[4],
             ]}
@@ -70,7 +70,7 @@ export default function GraphicDesigns({ graphicDesigns }: Props) {
           <GraphicColumn
             graphicDesigns={[
               graphicDesigns[4],
-              graphicDesigns[0],
+              graphicDesigns[5],
               graphicDesigns[1],
               graphicDesigns[2],
             ]}

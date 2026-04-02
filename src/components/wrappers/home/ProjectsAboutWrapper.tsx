@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useRef } from "react";
+import { useRef } from "react";
 import { About as AboutType } from "@/types/About.types";
 import { ProjectShort } from "@/types/Project.types";
 import dynamic from "next/dynamic";

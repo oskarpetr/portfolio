@@ -13,7 +13,7 @@ export default function Menu() {
   const { translation } = useTranslationStore();
 
   return (
-    <header className="sticky top-0 z-30 flex h-[85px] items-center justify-between bg-[#ffffffd4] px-6 backdrop-blur-3xl will-change-[filter]">
+    <header className="sticky top-0 z-30 flex h-[85px] items-center justify-between border-b border-neutral-300 bg-[#ffffffd4] px-6 backdrop-blur-3xl will-change-[filter]">
       <Logo />
 
       <div className="hidden w-1/2 justify-between xl:flex">

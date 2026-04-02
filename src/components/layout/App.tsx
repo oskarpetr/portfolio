@@ -23,6 +23,8 @@ export default function App({ children }: PropsWithChildren) {
   // useTimeout(() => setIsLoading(false), preloaderTime);
   // useTimeout(() => setShowContent(true), preloaderTime + contentDelay);
 
+  // console.log(performance.getEntriesByType("navigation")[0]?.type);
+
   // cms page route
   if (pathname.startsWith("/admin")) {
     return children;

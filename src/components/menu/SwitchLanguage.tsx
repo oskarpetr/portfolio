@@ -7,7 +7,7 @@ export default function SwitchLanguage() {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex w-8 cursor-pointer items-center justify-center uppercase"
+      className="flex w-8 cursor-pointer items-center justify-center text-lg font-semibold"
     >
       <TextStagger>{language}</TextStagger>
     </button>

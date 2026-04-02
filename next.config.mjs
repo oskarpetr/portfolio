@@ -2,6 +2,7 @@ import withPlaiceholder from "@plaiceholder/next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {},
   images: {
     remotePatterns: [
       {
@@ -10,30 +11,30 @@ const nextConfig = {
       },
     ],
   },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        locale: false,
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-    ];
-  },
-  experimental: {
-    optimizePackageImports: [
-      "@phosphor-icons/react",
-      "@sanity/client",
-      "@sanity/image-url",
-      "@sanity/vision",
-      "next-sanity",
-      "framer-motion",
-    ],
-  },
+  // async headers() {
+  //   return [
+  //     {
+  //       source: "/(.*)",
+  //       locale: false,
+  //       headers: [
+  //         {
+  //           key: "Cache-Control",
+  //           value: "public, max-age=31536000, immutable",
+  //         },
+  //       ],
+  //     },
+  //   ];
+  // },
+  // experimental: {
+  //   optimizePackageImports: [
+  //     "@phosphor-icons/react",
+  //     "@sanity/client",
+  //     "@sanity/image-url",
+  //     "@sanity/vision",
+  //     "next-sanity",
+  //     "framer-motion",
+  //   ],
+  // },
   // experimental: {
   //   viewTransition: true,
   // },

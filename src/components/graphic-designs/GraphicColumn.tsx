@@ -23,7 +23,7 @@ function Column({ graphicDesigns, y, className }: Props) {
       {graphicDesigns.map((graphicDesign, index) => (
         <div
           key={`graphic-design-${graphicDesign.id}-${index}}`}
-          className="relative pt-[150%]"
+          className="relative pt-[140%]"
         >
           <Image
             src={graphicDesign.image.url}

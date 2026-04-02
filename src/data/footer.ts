@@ -16,7 +16,7 @@ export const socialSites: SocialSite[] = [
 ];
 
 export const contact: Contact = {
-  email: "contact@oskarpetr.com",
+  email: "hello@oskarpetr.com",
 };
 
 export const location: Location = {

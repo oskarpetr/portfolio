@@ -57,7 +57,7 @@ function ParagraphSplit({
             ease: BEZIER_EASING,
           }}
           className={cn(
-            indent && index === 0 ? "indent-8" : "",
+            indent && index === 0 ? "indent-0" : "",
             "inline-block",
           )}
         >

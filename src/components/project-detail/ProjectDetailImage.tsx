@@ -25,7 +25,10 @@ function ProjectDetailImage({ image, index }: Props) {
     [0, 0.3],
     ["80%", "100%"],
   );
-  const width = useSpring(widthTransform, { stiffness: 100, damping: 20 });
+  const width = useSpring(widthTransform, {
+    stiffness: 1000,
+    damping: 100,
+  });
 
   const setImageWidth = (index: number) => {
     if (index === 0) {
@@ -62,14 +65,9 @@ function ProjectDetailImage({ image, index }: Props) {
 
   return (
     <Fragment>
-      <motion.div
-        ref={imageRef}
-        style={{ width }}
-        className="hidden lg:block lg:h-[28vw] xl:h-[28vw]"
-      >
+      <motion.div ref={imageRef} style={{ width }} className="hidden lg:block">
         {imageComponent}
       </motion.div>
-
       <div className="block lg:hidden">{imageComponent}</div>
     </Fragment>
   );

@@ -40,7 +40,7 @@ function Tooltip({
       )}
 
       {index !== undefined && (
-        <div className="opacity-80 *:text-sm">
+        <div className="*:text-sm">
           <Index index={index} />
         </div>
       )}

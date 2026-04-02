@@ -22,28 +22,17 @@ export default function ClientDocs({ client }: Props) {
         ))}
       </div>
 
-      {/* <div className="flex flex-col gap-4">
-        <div className="w-fit cursor-default border-b border-dashed border-neutral-400 text-base font-normal">
-          <TextStagger>
-            <Link href={`/clients/${client.slug}/project-proposal`}>
-              Project Proposal
-            </Link>
-          </TextStagger>
+      <div className="mt-20 flex flex-col items-center text-8xl">
+        <div className="rotate-y-0 hover:rotate-y-180">Text</div>
+        <div className="group transition-all duration-1000 perspective-none hover:perspective-dramatic">
+          <div className="rotate-y-[20deg] transition-all duration-1000 group-hover:rotate-y-[60deg]">
+            Text
+          </div>
         </div>
-
-        <Link
-          href={`/clients/${client.slug}/project-onboarding`}
-          className="w-fit border-b border-dashed opacity-80"
-        >
-          Project Onboarding
-        </Link>
-        <Link
-          href={`/clients/${client.slug}/invoice`}
-          className="w-fit border-b border-dashed opacity-80"
-        >
-          Invoice
-        </Link>
-      </div> */}
+        <div className="rotate-y-[40deg]">Text</div>
+        <div className="rotate-y-90">Text</div>
+        <div className="rotate-y-45">Text</div>
+      </div>
     </div>
   );
 }

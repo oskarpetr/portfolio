@@ -4,14 +4,10 @@ export const pageAnimation = () => {
   document.documentElement.animate(
     [
       {
-        opacity: 1,
-        scale: 1,
-        transform: "translateY(0)",
-      },
-      {
-        opacity: 0.5,
+        opacity: 0.3,
         scale: 0.9,
         transform: "translateY(-150px)",
+        // rotate: "3deg",
       },
     ],
     {
