@@ -3,7 +3,7 @@ import { Contact, Location, SocialSite } from "@/types/Footer.types";
 export const socialSites: SocialSite[] = [
   {
     name: "Instagram",
-    url: "https://www.instagram.com/oskarpetr.dev/",
+    url: "https://www.instagram.com/oskar.src/",
   },
   {
     name: "Medium",
